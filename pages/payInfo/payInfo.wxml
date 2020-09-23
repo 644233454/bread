@@ -1,0 +1,33 @@
+ <nav-bar class="nav" bind:backTap="back" 
+          bind:homeTap="home"
+          back = "true"
+          home = "false"
+          title="付款详情"
+          backBottom="1">
+    </nav-bar> 
+    <view class="container" >
+        <view class="topView">
+            <view class="topInfo">
+                <image class="topInfoImage" src="/assets/imgs/payInfoTopImage.png"/>
+                <view class="topInfoTitle">订单支付成功</view>
+                <view class="topInfoMoney">￥{{orderDetail.orderAmount}}</view>
+                <view class="topInfoBottomLine"></view>
+            </view>
+            <view class="topBottom">
+                <view class="topBottomTip">付款方式</view>
+                <view class="topBottomInfo">微信支付</view>
+            </view>
+        </view>
+        <view class="bottomView">
+            <view class="btnView">
+                <button  class="shareBtn" open-type="share">分享一下</button>
+                <button  class="orderInfoBtn" bind:tap="orderInfoBtn">查看详情</button >
+            </view>
+            <view class="bottomInfo">温馨提示：商家不会以商品或订单异常，系统升级为由要求您点击任何链接或提供个人信息进行退款操作</view>
+        </view>
+    </view>
+    <!-- <view class="PayProgressView" wx:else> -->
+
+
+
+    <!-- </view> -->

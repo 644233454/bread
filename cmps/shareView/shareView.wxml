@@ -1,0 +1,13 @@
+<view class="container" bind:tap="hideView">
+
+    
+</view>
+<view class="buyBox">
+    <view class="btnView">
+        <view class="itemBtn" wx:for="{{btntitleList}}" wx:key="unique" bind:tap="goodDetail" data-itemindex = "{{index}}">
+               <image class="btnImage" src="{{item.image}}"/> 
+               <view class="btnTitle">{{item.title}}</view>
+        </view>
+    </view>
+    <view  class="cancelBtn">取消</view>
+</view>

@@ -1,0 +1,31 @@
+<nav-bar title="提现" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+
+  <view class="v_one">
+    <text id="tv_one">到账账户</text>
+    <image mode="widthFix" src="{{accountIcon}}" id="iv_accountIcon"></image>
+    <text id="tv_accountName">{{accountName}}</text>
+  </view>
+  <view class="v_line"></view>
+  <view class="v_two">
+    <text id="tv_withdrawAmountText">提现金额</text>
+    <text id="tv_simble">￥</text>
+    <input id="et_amount" placeholder="请输入金额" type="digit" value="{{etValue}}" bindinput="getInputValue"></input>
+    <view bindtap="v_deleteEtValue_click" id="v_delete">
+      <image src="{{deleteBg}}" mode="widthFix" id="iv_delete"></image>
+    </view>
+    <view id="v_lineTow"></view>
+    <text id="tv_balance">可用余额：{{balance}}元</text>
+    <text id="tv_withdrawAll" bindtap="tv_withdrawAll_click">全额提现</text>
+  </view>
+  <button id="bt_withdraw" bindtap="bt_withdraw_click">确认提现</button>
+  <view class="v_tips">
+   <image src="{{tipsIcon}}" mode="widthFix" id="iv_tipsIcon"></image>
+    <text id="tv_tips_title">温馨提示</text>
+    <text id="tv_tipsOne">{{tipsTextOne}}</text>
+    <text id="tv_tipsTwo">{{tipsTextTwo}}</text>
+    <text id="tv_tipsThree">{{tipsTextThree}}</text> 
+  </view>
+</view>

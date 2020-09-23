@@ -1,0 +1,28 @@
+<!--pages/allCommentList/allCommentList.wxml-->
+<nav-bar title="评价详情"
+        navBarColor="#fff"
+        statusBarColor="#fff"
+        titleColor="#000"
+        back="true"
+        home="false">
+</nav-bar>
+<!-- <view class="mainTop">
+        <view class="mainToptip">商品评价</view>
+    </view> -->
+<scroll-view class="main" style="height:{{scrollHight}}px" scroll-y="{{true}}" bindscrolltolower="searchScrollLower">
+    
+    <view class="comentConetItem" wx:for="{{commentList}}" wx:key="unique" >
+            <view class="contentTopLine"></view>
+             <view class="contentUser">
+                <image class="userHeadImage" src="{{item.headImgUrl}}"/>
+                <view class="userName">{{item.nickName}}</view>
+             </view>
+             <view class="contentText">{{item.description}}</view>
+            <view class="ImagePloader">
+                <view class="showImage" wx:for="{{item.imgUrls}}" wx:key="unique" wx:for-item="ImageItem">
+                    <image class="upImage" src="{{ImageItem}}" mode="widthFix" data-index="{{index}}" data-item="{{item}}" bindtap="previewImg">
+                    </image>
+                 </view>
+            </view>
+    </view>
+</scroll-view>

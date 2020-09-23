@@ -1,0 +1,282 @@
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #f7f7f6;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+}
+
+/*搜索框*/
+
+.search-wrapper {
+  background-color: white;
+  width: 100%;
+  /*不放大，不缩小,固定高度100rpx*/
+  flex: 0 0 110rpx;
+  display: flex;
+  align-items: center;
+}
+
+.input_search {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-left: 65rpx;
+  height: 70rpx;
+  width: 560rpx;
+  background-color: #f5f5f5;
+  border-radius: 35rpx;
+  text-align: center;
+}
+
+.searchcion {
+  margin-left: 20rpx;
+}
+
+.v_tab {
+  width: 100%;
+  /*不放大，不缩小,固定高度72rpx*/
+  flex: 0 0 72rpx;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.v_all {
+  flex-grow: 1;
+  line-height: 1;
+  text-align: center;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v_fivestar {
+  flex-grow: 1;
+  line-height: 1;
+  text-align: center;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v_fourstar {
+  flex-grow: 1;
+  line-height: 1;
+  text-align: center;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v_threestar {
+  flex-grow: 1;
+  line-height: 1;
+  text-align: center;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tv_all {
+  color: #666;
+  font-size: 22rpx;
+}
+
+#tv_fivestar {
+  color: #666;
+  font-size: 22rpx;
+}
+
+#tv_fourstar {
+  color: #666;
+  font-size: 22rpx;
+}
+
+#tv_threestar {
+  color: #666;
+  font-size: 22rpx;
+}
+
+.v_TabWrap {
+  height: 40rpx;
+  width: 98rpx;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20rpx;
+}
+
+.v_tabContent {
+  width: 100%;
+  height: 100%;
+}
+
+.v_tabContentList {
+  width: 100%;
+  /*分配其他元素后，自己充满屏幕*/
+  flex: 1;
+}
+
+#v_listHead {
+  margin-top: 16rpx;
+  margin-left: 31rpx;
+}
+
+#tv_listHeadOne, #tv_listHeadTwo {
+  color: #999;
+  font-size: 26rpx;
+}
+
+#tv_listHeadSalesmanNumber {
+  margin-left: 11rpx;
+  margin-right: 11rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+
+.v_item {
+  width: 690rpx;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 236rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  display: flex;
+}
+
+#iv_userAvatar {
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 37rpx;
+  margin-left: 26rpx;
+  margin-top: 27rpx;
+  background-color: #f5f5f5;
+}
+
+#v_userType {
+  position: absolute;
+  background-color: #f3345c;
+  width: 84rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+  border-radius: 15rpx;
+  margin-top: 76rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#tv_userTypeText {
+  color: white;
+  font-size: 18rpx;
+}
+
+#tv_userName {
+  color: #333;
+  font-size: 28rpx;
+  margin-top: 26rpx;
+  margin-left: 20rpx;
+}
+
+#v_starWrap {
+  height: 24rpx;
+  margin-left: 13rpx;
+  margin-top: 26rpx;
+}
+
+#iv_star {
+  height: 24rpx;
+  width: 24rpx;
+}
+
+#tv_userPhone {
+  position: absolute;
+  color: #999;
+  font-size: 22rpx;
+  margin-top: 69rpx;
+  margin-left: 121rpx;
+}
+
+#v_firstRow {
+  position: absolute;
+  margin-left: 121rpx;
+  margin-top: 122rpx;
+}
+
+.tv_text {
+  color: #999;
+  font-size: 28rpx;
+}
+
+.tv_textChange {
+  color: #333;
+  font-size: 28rpx;
+  display: inline-block;
+  width: 140rpx;
+}
+
+#tv_text_accumulateCustomer {
+}
+
+#v_secondRow {
+  position: absolute;
+  margin-left: 121rpx;
+  margin-top: 177rpx;
+}
+
+#tv_text_generalizeOrder {
+}
+
+#v_call {
+  position: absolute;
+  background-color: #f3345c;
+  width: 120rpx;
+  height: 52rpx;
+  margin-left: 550rpx;
+  border-radius: 26rpx;
+  margin-top: 41rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#tv_callText {
+  font-size: 24rpx;
+  color: white;
+}
+
+.sv_item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_loading {
+  width: 100%;
+  height: 80rpx;
+  padding-top: 40rpx;
+  text-align: center;
+}
+
+.v_loadingComplete {
+  width: 100%;
+  margin-top: 30rpx;
+  height: 80rpx;
+  text-align: center;
+}

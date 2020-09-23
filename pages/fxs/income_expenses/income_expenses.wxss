@@ -1,0 +1,47 @@
+page{
+   background-color: #f7f7f6;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#v_list{
+  background-color: white;
+  width: 690rpx;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+}
+.v_item{
+  height: 110rpx;
+}
+#iv_item_icon{
+  margin-top: 18rpx;
+  width: 74rpx;
+  height: 74rpx;
+  margin-left: 41rpx;
+}
+#tv_item_typeText{
+  position: absolute;
+  color: #333333;
+  margin-top: 18rpx;
+  font-size: 28rpx;
+  margin-left: 30rpx;
+}
+#tv_item_timeText{
+  position: absolute;
+  color: #8A8A8A;
+  font-size: 24rpx;
+  margin-left: 30rpx;
+  margin-top: 54rpx;
+}
+#tv_item_amountText{
+  position: absolute;
+  color: #333333;
+  font-size: 34rpx;
+  right: 33rpx;
+  margin-right: 33rpx;
+  margin-top: 31rpx;
+}

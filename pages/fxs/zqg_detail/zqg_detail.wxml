@@ -1,0 +1,165 @@
+<nav-bar title="周期购详情" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<loading wx:if="{{showLoading}}">
+  加载中...
+</loading>
+
+<view class="container" wx:if="{{showPage}}">
+
+  <view class='v_product'>
+    <image mode="scaleToFill" src="{{info.imgUrl}}" class="iv_ProductLogo"></image>
+    <view class="v_product_right">
+      <view class="v_product_right_Line1">
+        <view class="v_product_right_Line1_left">
+          <text class="tv_ZQG_bg">周期购</text>
+          <text class="tv_productName">{{info.name}}</text>
+        </view>
+        <text class="tv_ProdectTimes">x 1</text>
+      </view>
+      <text class="tv_ZQG_ticket_code">周期购券码：{{info.couponCode}}</text>
+      <text class="tv_ZQG_progress">周期购进度：{{info.progress}}</text>
+    </view>
+  </view>
+
+  <!--配送次数-->
+  <view style="background-color:white;width:750rpx;height:88rpx;display:flex;flex-direction:column;margin-top:15rpx;" wx:if="{{true}}">
+    <view style="width:750rpx;height:87rpx;display:flex;justify-content:space-between;align-items:center;">
+      <text style="color:#333333;font-size:28rpx;padding-left:30rpx;">配送次数</text>
+      <text style="color:#333333;font-size:28rpx;padding-right:30rpx;">{{info.periodsDes}}</text>
+    </view>
+    <view style="width:750rpx;height:1rpx;padding-left:30rpx;background-color:#E5E5E5;"></view>
+  </view>
+  <!--发货日期-->
+  <view style="background-color:white;width:750rpx;height:118rpx;display:flex;flex-direction:row;justify-content:space-between;align-items:center;" wx:if="{{true}}">
+    <text style="color:#333333;font-size:28rpx;padding-left:30rpx;">发货日期</text>
+    <view style="height:118rpx;display:flex;flex-direction:row;justify-content:flex-end;align-items:center;padding-right:30rpx;" bindtap="alterDeliveryTime" wx:if="{{info.canUpdateDeliveryDate}}">
+      <view style="height:118rpx;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;margin-right:16rpx;">
+        <text style="color:#F3355C;font-size:28rpx;">{{deliveryDate}}</text>
+        <text style="color:#F3355C;font-size:28rpx;">{{deliveryDateTimeDes}}</text>
+      </view>
+      <image mode="widthFix" src="/assets/imgs/fxs_right_small.png" style="height:26rpx;width:14rpx;"></image>
+    </view>
+     <text style="color:#333333;font-size:28rpx;margin-right:30rpx;" wx:if="{{!info.canUpdateDeliveryDate}}">{{deliveryDate}}</text>
+  </view>
+
+  <view class='v_product_express'>
+    <view class='v_product_express_top'>
+      <view class='v_product_express_top_top'>
+        <text class='tv_product_express_top_left'>配送信息</text>
+        <view class='v_product_express_top_right' bindtap="alterDeliverInfo" wx:if="{{info.canUpdateDeliveryDate}}">
+          <image mode="widthFix" src="/assets/imgs/alter.png" class="iv_product_express_top"></image>
+          <text class="tv_product_express_top_right">修改</text>
+        </view>
+      </view>
+      <view class='v_product_express_top_line'></view>
+    </view>
+    <view class='v_product_express_bottom'>
+      <view class='v_product_express_bottom_top'>
+        <view class='v_product_express_bottom_top_left'>
+          <image mode="widthFix" src="/assets/imgs/myAddress.png" class="iv_product_express_bottom_top_left"></image>
+          <text class="tv_product_express_sjr">收货人：{{info.realName}}</text>
+        </view>
+        <text class='tv_product_express_phone'>{{info.phone}}</text>
+      </view>
+      <text class='tv_product_express_address'>收货地址：{{info.province!=info.city?info.province+info.city+info.district+info.detail:info.city+info.district+info.detail}}</text>
+      <image mode="widthFix" src="/assets/imgs/sureAddressBottomLine.png" class="iv_product_express_bottom_line"></image>
+    </view>
+  </view>
+
+  <view class="v_list" style="padding-top:{{info.deliveryRecordInfoList.length==0?0:20}}rpx;">
+    <block wx:for="{{info.deliveryRecordInfoList}}" wx:key="index">
+      <view class='v_item' bindtap="v_item_itemOnClick" data-index="{{item}}">
+        <view class='v_item_top'>
+          <view class='v_item_top_left'>
+            <image mode="widthFix" src="/assets/imgs/shopingTopImage.png" class="iv_item_top_left_mall"></image>
+            <text class="tv_item_top_left_mall">方晴面包坊</text>
+            <image mode="widthFix" src="" class="iv_item_top_left_arror"></image>
+          </view>
+          <text class="tv_item_top_left_status">{{item.statusDes}}</text>
+        </view>
+        <view class='v_item_bottom'>
+          <image class='iv_item_bottom_left' mode="scaleToFill" src="{{info.imgUrl}}"></image>
+          <view class="v_product_list_right">
+            <view class="v_product_right_Line1">
+              <view class="v_product_right_Line1_left">
+                <view class="v_ZQG_bg">
+                  <text class="tv_ZQG_bg">周期购</text>
+                </view>
+                <text class="tv_productName">{{info.name}}</text>
+              </view>
+              <text class="tv_ProdectTimes">x1</text>
+            </view>
+            <text class="tv_psrq">配送日期：{{item.deliveryDate}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="v_leaveMessage">
+    <text style="color:#333; font-size:28rpx;width:122rpx;position:absolute;">买家留言:</text>
+    <text style="color:{{info.remark.length>0?'#333':'#999999'}}; font-size:28rpx;margin-left:132rpx;">{{info.remark.length>0?info.remark:"无"}}</text>
+  </view>
+
+  <view class="v_amount">
+    <view class="v_amount_line1">
+      <text class="tv_amount_line1">商品金额</text>
+      <text>￥{{info.amount}}</text>
+    </view>
+    <view class="v_amount_line2">
+      <text class="tv_amount_line1">运费</text>
+      <text>￥{{info.freightAmount}}</text>
+    </view>
+    <view class="v_amount_line3">
+    </view>
+    <view class="v_amount_line4">
+      <view class="v_amount_line4_end">
+        <text class="tv_amount_line4_end">实付款：</text>
+        <text class="tv_sfk">￥{{info.realPayment}}</text>
+      </view>
+    </view>
+    <view class="v_amount_line5">
+    </view>
+    <view class="v_amount_line6">
+      <button class="bt_call" bindtap="call">
+        <image mode="widthFix" src="/assets/imgs/callImage.png" class="iv_call"></image>
+        <text class="tv_call">拨打电话</text>
+      </button>
+      <view class="v_amount_line6_line"></view>
+      <button class="bt_service" open-type="contact">
+        <image mode="widthFix" src="/assets/imgs/myServe.png" class="iv_service"></image>
+        <text class="tv_call">在线客服</text>
+      </button>
+    </view>
+  </view>
+
+  <view class="v_order">
+    <view class="v_order_line1">
+      <text class="tv_orderNumber">订单编号：{{info.orderNum}}</text>
+      <view class="v_copy" bindtap="copy">复制</view>
+    </view>
+    <text class="tv_createTime">创建时间：{{info.createTime}}</text>
+    <view class="v_order_line2">
+    </view>
+    <button class="bt_question" bindtap="question" open-type="contact">对此订单有疑问？</button>
+  </view>
+
+
+  <view class="v_dialog_alterDeliveryTime" wx:if="{{showDialog}}" catchtouchmove="false">
+    <view class="v_dialog_alterDeliveryTime_shadow" bindtap="v_dialog_alterDeliveryTime"></view>
+    <view class="v_dialog_alterDeliveryTime_content">
+      <view class="v_dialog_alterDeliveryTime_content_dismiss" bindtap="v_dialog_alterDeliveryTime">
+        <image mode="widthFix" src="/assets/imgs/disMissImage.png" class="iv_dialog_dismiss"></image>
+      </view>
+      <text class="tv_dialog_sdsj">发货时间：</text>
+      <view class="v_dialog_alterDeliveryTime_content_time">
+        <block wx:for="{{alterDeliveryTimeList}}" wx:key="index">
+          <view bindtap="bt_alterDeliveryTim" class="v_dialog_alterDeliveryTime_time" style="color:{{index==alterDeliveryTimeListSelectedIndex?'#FFFFFF':'#333'}};  background-color:{{index==alterDeliveryTimeListSelectedIndex?'#f2355c':'#ffffff'}}" data-index="{{index}}">{{item}}</view>
+        </block>
+      </view>
+      <text class="tv_dialog_alterDeliveryTime_save" bindtap="alterDeliveryTime_save">保存修改</text>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,512 @@
+page{
+  background-color: #F7F7F6;
+  overflow-x: hidden; 
+  overflow-y: auto;
+ } 
+::-webkit-scrollbar{
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.container{
+  display: inline-flex;
+  flex-direction: column;
+  
+  width: 100%;
+}
+.stepprogressView{
+  /* height: 100rpx; */
+  /* margin-left: 50rpx; */
+}
+.scrollView{
+  width: 100%;
+  /* height: 100%; */
+  /* height: 300rpx; */
+  z-index: 77;
+  background-color: #F7F7F7;
+}
+
+.search-wrapper {
+  background-color: #ffffff;
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+  /* padding: 0 30rpx; */
+  /* margin-top: 20rpx;
+  margin-bottom: 20rpx; */
+  width: 100%;
+}
+.userHead{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+  margin-left: 40rpx;
+  margin-top: 5rpx;
+}
+.search {
+  background-color:#D3D8E7;
+  border-radius: 25rpx;
+  color: #666666;
+  height: 60rpx;
+  width: 560rpx;
+  /* width: 80%; */
+  margin: 30rpx 25rpx;
+  /* margin: 5rpx 10%; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.search image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+  margin-left: 40rpx;
+}
+.btnArrView{
+  width: 100%;
+  background-color: #ffffff;
+  display: grid;
+  justify-content: space-evenly;
+  /* grid-template-columns: repeat(auto-fill, 100rpx);  */
+  /* grid-gap: 1rpx; */
+  /* display: flex;
+  flex-flow: wrap;
+  justify-content: flex-start;
+  align-content: flex-start; */
+
+}
+.btnView{
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  /* justify-content: center; */
+  width: 100rpx;
+  height: 189rpx;
+  margin: 0 auto;
+}
+.btnImage{
+  width: 88rpx;
+  height: 88rpx;
+  margin-top: 24rpx;
+  background-color: #ff3333;
+}
+.btnTitle{
+  width: 130rpx;
+  height: 29rpx;
+  margin-top: 16rpx;
+  text-align: center;
+  /* background-color: aqua; */
+}
+.activeView{
+display: flex;
+flex-direction: column;
+align-items: center;
+/* margin: 20rpx 0rpx; */
+margin-top: 20rpx;
+padding-bottom: 20rpx;
+background-color: #ffffff;
+}
+.activeTitle{
+  margin-left: 90rpx;
+  margin-top: 24rpx;
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  width: 100%;
+}
+.activeViewTitleImage{
+  width: 100%;
+  /* height: 80rpx; */
+}
+.activeItem{
+
+  border-style: solid;
+  box-shadow:0px 2px 4px 2px #F5D5D0;
+  border-width: 0rpx;
+
+  margin: 10rpx 17rpx;
+  width: 662rpx;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.activeItemTitle{
+  /* width:600rpx; */
+  word-break: break-all;
+  width: 90%;
+  margin-top: 10rpx;
+  margin-left: 26rpx;
+  font-size: 30rpx;
+  
+  flex-direction: row;
+  
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
+  /* overflow: hidden; 
+   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:2; */
+}
+.activeItemImage{
+  width: 100%;
+}
+.activeTitleTip{
+  /* display: flex; */
+  display: inline-block;
+  color: #ffffff;
+  background-color: #FBA72F;
+  font-size: 24rpx;
+  width: 100rpx;
+  margin-right: 20rpx;
+  text-align: center;
+  line-height: 40rpx;
+}
+.priceContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.activeItemPrice{
+  color: #F3355C;
+  font-size: 36rpx;
+  margin-left: 15rpx;
+}
+.activeItemShopImage{
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 10rpx;
+  /* margin-bottom: 10rpx; */
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.good{
+  display: flex;
+  width: 100%;
+  /* background-color: red; */
+  /* margin-top: 0rpx; */
+  /* height: 511rpx; */
+  /* margin-top: 10rpx; */
+}
+.imageItem{
+  width: 100%;
+  /* height: 511rpx; */
+ 
+}
+
+.shareView{
+  position: flex;
+  width: 100%;
+  z-index: 88;
+  background-color: #ffffff;
+}
+
+
+.bottomView{
+  background-color: #F7F7F6;
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20rpx;
+}
+.shareBtn{
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  bottom: 40rpx;
+  right: 50rpx;
+}
+.shareImage{
+  width: 100rpx;
+  height: 100rpx;
+}
+.clickToTopView{
+  margin-top: 10rpx;
+  width: 200rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  border: 2rpx solid #BEBEBE;
+}
+
+
+
+/*底部弹框*/
+.v_sheetDialog{
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  /* background-color: red; */
+  height: 100%;
+  bottom: 0rpx;
+}
+#v_sheetDialogContent{
+  position: fixed;
+  background-color: white;
+  /* background-color: salmon; */
+  width: 100%;
+  bottom: 0rpx;
+  height: 381rpx;
+}
+#v_sheetDialogContentOne{
+  display: flex;
+  background-color: #F9F6F6;
+  height: 286rpx;
+  flex-direction: row;
+  
+}
+#v_sheetDialogContentTwo{
+  width: 100%;
+  height: 115rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+#tv_sheetDialogContentCancel{
+  color: #333333;
+  font-size: 30rpx;
+
+}
+#v_sheetDialogContentOneOne,#v_sheetDialogContentOneTwo,#v_sheetDialogContentOneThree{
+  width: 250rpx;
+  height: 286rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#iv_sheetDialogContentOneOne{
+  margin-top: 63rpx;
+  width: 110rpx;
+  height: 110rpx;
+}
+#tv_sheetDialogContentOneOne{
+  margin-top: 11rpx;
+  color: #333333;
+  font-size: 26rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*小程序码弹框*/
+.v_DialogOne{
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  /* z-index: 99; */
+  bottom: 0;
+}
+#v_DialogOneContent{
+  position: fixed;
+  background-color: white;
+  width: 528rpx;
+  margin-top: 265rpx;
+  height: 576rpx;
+  margin-left: 111rpx;
+  border-radius: 16rpx;
+}
+#iv_DialogOne_dismiss{
+   position: fixed;
+   width: 44rpx;
+   height: 44rpx;
+   margin-top: 198rpx;
+   margin-left: 593rpx;
+}
+#iv_DialogOneContent_BG{
+  width: 449rpx;
+  height: 469rpx;
+  margin-top: 39rpx;
+  margin-left: 40rpx;
+}
+#v_DialogOneBottom{
+   position: fixed;
+   margin-top: 896rpx;
+   display: flex;
+}
+#iv_DialogOneBottom{
+  margin-left: 238rpx;
+  height: 34rpx;
+  width: 28rpx;
+  margin-right: 20rpx;
+}
+#tv_DialogOneBottom{
+  color: #FFFFFF;
+  font-size: 28rpx;
+}
+
+
+
+/*生成海报商品弹框*/
+.v_DialogTwo{
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  padding-top: 100rpx;
+}
+#v_DialogTwoContent{
+  position: fixed;
+  background-color: white;
+  width: 528rpx;
+  margin-top: 145rpx;
+  height: 820rpx;
+  margin-left: 111rpx;
+  border-radius: 16rpx;
+  flex-direction: column;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  justify-items: center;
+}
+#iv_DialogTow_dismiss{
+   position: fixed;
+   width: 44rpx;
+   height: 44rpx;
+   margin-top: 78rpx;
+   margin-left: 593rpx;
+}
+#iv_DialogTwoContent_BG{
+  width: 487rpx;
+  height: 490rpx;
+  margin-top: 21rpx;
+  background-color: gray;
+}
+#v_DialogTwoBottom{
+   position: fixed;
+   margin-top: 1016rpx;
+   display: flex;
+}
+#iv_DialogTwoBottom{
+  margin-left: 238rpx;
+  height: 34rpx;
+  width: 28rpx;
+  margin-right: 20rpx;
+}
+#tv_DialogTwoBottom{
+  color: #FFFFFF;
+  font-size: 28rpx;
+}
+#tv_DialogTwoContent_product_name{
+  margin-top: 22rpx;
+  color: #666666;
+  font-size: 22rpx;
+
+}
+#iv_DialogTwoContent_code{
+  margin-top: 8rpx;
+  width: 171rpx;
+  height: 179rpx;
+}
+#tv_DialogTwoContent_text{
+  margin-top: 12rpx;
+  color: #666666;
+  font-size: 22rpx;
+}
+.bt_share{
+}
+.bt_share::after{
+   border: none; 
+}
+#v_sheetDialogContentOneThreeOne{
+  display: flex;
+  flex-direction: column;
+}
+#tv_sheetDialogContentOneOneShare{
+  margin-top: -6rpx;
+  color: #333333;
+  font-size: 26rpx;
+}
+.rightBtnView{
+  position: absolute;
+  /* background-color: red; */
+  width: 120rpx;
+  height: 420rpx;
+  bottom: 20rpx;
+  right: 50rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.rightImage{
+  width: 102rpx;
+  height: 102rpx;
+  margin-top: 30rpx;
+  background: rgba(0,0,0,0);
+  display: flex;
+  position: relative;
+  /* background: red; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* border: none */
+}
+.buttonImage{
+  width: 102rpx;
+  height: 102rpx;
+  position: absolute;
+  bottom: 0;
+}
+button::after{display:none}
+
+
+/* 轮播 */
+.slide-image{
+  width: 100%;
+}
+.swiper-box{
+    width: 100%;
+    /* height: 427rpx; */
+}
+/* 轮播小点点 */
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal{
+     margin-bottom: 2rpx;
+}
+.swiper-box .wx-swiper-dot{
+    width:20rpx; 
+    display: inline-flex;
+    height: 5rpx; 
+    margin-left: 10rpx;
+    justify-content:space-between;
+}
+.swiper-box .wx-swiper-dot::before{
+    content: '';
+    flex-grow: 1; 
+    background: rgba(255,255,255,0.8);
+    border-radius: 0rpx
+}
+.swiper-box .wx-swiper-dot-active::before{
+    background: #ff3333;  
+}
+.swiper-box .wx-swiper-dot-active{
+    width:40rpx; 
+}
+
+
+

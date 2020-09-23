@@ -1,0 +1,36 @@
+<nav-bar title="周期购进度" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+
+  <view id="v_list">
+    <block wx:for="{{listData}}" wx:key="index">
+      <view class='v_item' bindtap="v_item_itemOnClick" data-index="{{item}}">
+        <view class="v_item_line1">
+          <text class="tv_item_deliverTime">发货时间：{{item.orderTime}}</text>
+          <text class="tv_item_deliverQi">{{item.progress}}</text>
+        </view>
+        <view class="v_item_line2">
+          <image mode="scaleToFill" src="{{item.detailList[0].imgUrl}}" class="iv_ProductPic"></image>
+          <view class="v_item_line2_right">
+           <view class="v_item_line2_right_top">
+            <text class="tv_item_zqgText">周期购</text>
+            <text class="tv_item_ProductName">{{item.detailList[0].productName}}</text>
+            </view>
+             <view class="v_item_line2_right_bottom">
+                <text class="tv_item_rate">佣金比例：{{item.detailList[0].commission}}</text>
+                <text class="tv_item_ProductTimes">x {{item.detailList[0].productCount}}</text>
+             </view>
+          </view>
+        </view>
+        <view class="v_item_line3">
+          <text class="tv_item_price">订单单价：￥{{item.orderAmount}}</text>
+        </view>
+        <view class="v_item_line4">
+          <text class="tv_item_yj">商品佣金：￥{{item.orderCommissionAmount}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+</view>

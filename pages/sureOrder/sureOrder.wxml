@@ -1,0 +1,167 @@
+
+<nav-bar class="nav" bind:backTap="back" 
+          bind:homeTap="home"
+          back = "true"
+          home = "false"
+          title="确认订单">
+</nav-bar> 
+<scroll-view class="container" scroll-y="{{true}}" style="height:{{scrollHight}}px">
+    <view class="address">
+        <view class="addressTop" bind:tap="chooseAdressClick">
+             <view wx:if="{{userAddress.realName}}" class="AddressInfo">
+                 <view class="AddressInfoLeft">
+                     <view class="AddressInfoLeftTop">
+                         <view class="AddressInfoLeftTopLeft">
+                             <image  class="addressInfoImage" src="/assets/imgs/sureAddressImage.png"/>
+                             <view class="addressInfoName">收货人: {{userAddress.realName}}</view>
+                         </view>
+                         <view class="AddressInfoLeftTopRight">{{userAddress.phone}}</view>
+                     </view>
+                     <view class="AddressInfoLeftBottom">{{userAddress.province}}{{userAddress.city}}{{userAddress.detail}}</view>
+                 </view>
+                 <view class="addressTopArror">
+                 </view>
+            </view>
+            <view wx:else class="noAddress">
+                <view class="noAddressLeft">
+                    <image class="noAddressImage" src="/assets/imgs/sureNoAddressImage.png"/>
+                    <view class="noAddressTitle">选择收货地址</view>
+                </view>
+                <view class="noAddressRightArror"></view>
+            </view>
+        </view>
+        <image class="addressBottomImage" src="/assets/imgs/sureAddressBottomLine.png"/>
+    </view>
+    <view class="periodView" wx:if="{{type =='PERIOD'}}">
+        <view class="periodViewDes">
+             <view class="periodViewDesLeft">配送次数</view>
+             <view class="periodViewDesRight">{{deliveryPeriodDes}}</view>
+         </view>
+         <view class="sendTypeMidLine"></view>
+         <view class="periodViewData" bind:tap="chooseDataClick">
+             <view class="periodViewDataLeft">配送日期</view>
+             <view class="periodViewDataRight">
+                 <view class="periodViewDataRightLeft">
+                     <view class="periodViewDataRightLeftTop">{{deliveryPeriodTime}}</view>
+                     <view class="periodViewDataRightLeftBottom">{{deliveryPeriodFirstTime}}首次配送</view>
+                 </view>
+                  <view class="noAddressRightArror"></view>
+             </view>
+          </view>
+          <view class="sendTypeMidLine"></view>
+          <view class="periodViewType">
+             <view class="periodViewTypeLeft">配送方式</view>
+             <view class="periodViewTypeRight">快递免运费</view>
+         </view>
+     </view>
+    <view class="goodInfo">
+         <view class="goodInfoTop">
+             <image class="goodInfoTopImage" src="/assets/imgs/goodInfoTopShop.png"/>
+             <view class="goodInfoTopTitle">方晴面包坊</view>
+         </view>
+
+         <view class="goodInfoMiddle" wx:for="{{productList}}" wx:key="unique">
+             <view class="goodInfoMiddleLeft">
+                 <image class="shopInfoImage" src="{{item.imgUrl}}"/>
+             </view>
+             <view class="goodInfoMiddleRight">
+                 <view class="goodInfoMiddleTitle">
+                     <view class="periodTip" wx:if="{{type =='PERIOD'}}">周期购</view><view class="periodperiodTipORGTip" wx:if="{{type =='ORG'}}">礼品券</view>{{item.name}}
+                     <!-- <view class="goodInfoMiddleName"></view> -->
+                 </view>
+                 <view class="goodInfoMiddleWeight">{{item.spec}}</view>
+                 <view class="goodInfoMiddleBottom">
+                     <view class="goodInfoMiddlePrice">￥{{item.price}}</view>
+                     <view class="goodInfoMiddleNum">x {{item.count}}</view>
+                 </view>
+             </view>
+         </view>
+         <view class="goodInfoBottom">
+             <view class="goodInfoBottomLeft">优惠</view>
+             <view class="goodInfoBottomRight">
+                 <view class="goodInfoBottomRightTitle">暂无可用</view>
+             </view>
+         </view>
+    </view>
+    <view class="periodSendTypeView" wx:if="{{type =='PERIOD'}}">
+        <view class="sendTypeMidLine"></view>
+        <view class="sendTypeBottome">
+              <view class="sendTypeBottomeLeft">买家留言</view>
+              <input class="sendTypeBottomeRight" placeholder="留言建议提前协商(50字以内)" type="text" maxlength="50" placeholder-class="inputPlaceholder" bindinput='searchText'/>
+          </view>
+    </view>
+    <view class="sendType" wx:if="{{type =='NORMAL'||type =='ORG'}}">
+         <view class="sendTypeTop">
+             <view class="sendTypeTopLeft">配送方式</view>
+             <view class="sendTypeTopRight">快递免运费</view>
+         </view>
+         <view class="sendTypeMidLine"></view>
+          <view class="sendTypeBottome">
+              <view class="sendTypeBottomeLeft">买家留言</view>
+              <input class="sendTypeBottomeRight" placeholder="留言建议提前协商(50字以内)" type="text" maxlength="50" placeholder-class="inputPlaceholder" bindinput='searchText'/>
+          </view>
+
+    </view>
+    <view class="moneyInfoView">
+         <view class="moneyInfoMoneyView">
+             <view class="moneyInfoMoneyViewLeft">商品金额</view>
+             <view class="moneyInfoMoneyViewRight">￥{{weChange.toFixed(totMoney)}}</view>
+         </view>
+         <!-- <view class="sendTypeMidLine"></view> -->
+         <view class="moneyInfoFreightView">
+             <view class="moneyInfoFreightViewLeft">运费</view>
+             <view class="moneyInfoFreightViewRight">￥0.00</view>
+         </view>
+         <view class="moneyInfoLineView"></view>
+         <view class="moneyInfoTotMoneyView">
+             <view class="moneyInfoTotMoneyViewTip">合计:</view>
+             <view class="moneyInfoTotMoneyViewMoney">￥{{weChange.toFixed(totMoney)}}</view>
+         </view>
+    </view>
+</scroll-view> 
+<view class="bottomView">
+    <view class="bottomLeft">
+         <view class="bottomLefttip">合计:</view>
+         <view class="bottomLeftPrice">￥{{weChange.toFixed(totMoney)}}</view>
+         
+    </view>
+    <view class="bottomRight" bind:tap="goToPay" wx:if="{{orderId}}">去支付</view>
+    <view class="bottomRight" bind:tap="sureBtnClick" wx:else>提交订单</view>
+</view>
+<userLoginView animation="{{animationData}}"  bindgetuserinfo="getUserInfo" catch:hide="hideClick" catch:hided ="hidedClick" style="height:{{scrollHight}}px" class="shareView" wx:if="{{showModalStatus}}"></userLoginView>
+<userPhoneNumber animation="{{animationData}}"  bindgetuserinfo="getUserInfo" catch:hide="phoneHideClick" style="height:{{scrollHight}}px"
+ class="shareView" wx:if="{{userPhoneStatus}}"></userPhoneNumber>
+
+
+<!-- 点击日期 弹出背景 -->
+<view class="cover_screen" bindtap="hideBuyModal" wx:if="{{showBackView}}"></view>
+<!-- 日期 弹窗 -->
+<view animation="{{dataAnimationData}}" class="buyBox" wx:if="{{showRuleStatus}}">
+    <view class="buyBoxContainerView">
+        <view class="buyBoxTopView" bindtap="hideBuyModal">
+            <view class="dissImageView" bindtap="hideBuyModal">
+                <image class="disMissBoxImage" mode="aspectFit" src="/assets/imgs/disMissImage.png"/>
+            </view>
+        </view>
+        <view class="ruletitle">配送时间：</view>
+         <view class="timesChoose">
+                         <view class ="timesSizeView" wx:for="{{deliveryDateArr}}" bind:tap="chooseTimes" wx:for-item="priodItem" data-itemindex = "{{index}}" data-item = "{{priodItem}}" wx:key="unique">
+                                 <view class="timesSizeSelected" wx:if="{{priodItem.selected}}">{{priodItem.title}}</view>
+                                 <view class="timesSizeNormal" wx:else >{{priodItem.title}}</view>
+                         </view>  
+                 </view>
+        <view class="ruleBtn" bind:tap="sureBtn">保存修改</view>
+    </view>   
+</view>
+
+
+
+
+<wxs module="weChange">
+  var toFixed = function (value) {
+  return value.toFixed(2);
+}
+module.exports = {
+   toFixed :toFixed
+}
+</wxs>

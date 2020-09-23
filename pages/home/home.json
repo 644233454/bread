@@ -1,0 +1,10 @@
+{
+
+  "usingComponents": {
+    "nav-bar": "/cmps/nav-bar/nav-bar",
+    "shareView": "/cmps/shareView/shareView",
+    "userLoginView": "/cmps/userLoginAlert/userLoginAlert",
+    "userPhoneNumber": "/cmps/userGetPhoneAlert/userGetPhoneAlert",
+    "stepProgressView": "/cmps/stepProgressView/stepProgressView"
+  }
+}

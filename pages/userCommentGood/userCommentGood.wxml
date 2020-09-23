@@ -1,0 +1,63 @@
+<!--pages/userCommentGood/userCommentGood.wxml-->
+<nav-bar class="nav" bind:backTap="back" 
+          bind:homeTap="home"
+          back = "true"
+          home = "false"
+          title="订单商品列表">
+</nav-bar> 
+<scroll-view class="mainView" style="max-height:{{contrainHight}}px;" scroll-y="{{true}}">
+    <view class="TopLine"></view>
+     <view class="GoodInfoMiddleItem" wx:for="{{orderDetail.productList}}" wx:key="unique" data-itemindex ="{{index}}">
+        <view class="GoodInfoMiddleItemTop">
+            <image class="shopInfoImage" src="{{item.imgUrl}}"/>
+            <view class="goodInfoMiddleRight">
+                <!-- <view class="goodInfoMiddleTitle">{{item.name}}</view> -->
+                 <view class="goodInfoMiddleTitle"><view class="activeTitleTip" wx:if="{{item.type =='PERIOD'}}"> 周期购 </view><view class="activeTitleRedeemTip" wx:if="{{item.type =='REDEEM'}}"> 礼品券 </view>{{item.name}}</view>
+                <view class="goodInfoMiddleWeight">{{item.spec}}</view>
+                <view class="goodInfoMiddleBottom">
+                        <view class="goodInfoMiddlePrice">￥{{item.price}}</view>
+                        <view class="goodInfoMiddleNum">x {{item.count}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="GoodInfoMiddleItemBottom">
+            <view class="goToCommentView" bind:tap="goToCommentView" data-itemindex = "{{index}}" >去评价</view>
+             <view class="itemTopLine"></view>
+            <!-- <textarea class="detailText" placeholder="快来评价一下吧~分享给更多人" data-index='{{index}}' bindinput="detailInput"></!-->
+         </view>
+        
+    </view>
+   
+</scroll-view> 
+<!-- <view class="singCommentView" wx:else>
+    <view class="container">
+    <view class="GoodInfoMiddleItemTop">
+        <image class="shopInfoImage" src="{{goodItem.imgUrl}}"/>
+        <view class="goodInfoMiddleRight">
+            <view class="goodInfoMiddleTitle">{{goodItem.name}}</view>
+            <view class="goodInfoMiddleWeight">{{goodItem.spec}}</view>
+             <view class="goodInfoMiddleBottom">
+                <view class="goodInfoMiddlePrice">￥{{goodItem.price}}</view>
+                <view class="goodInfoMiddleNum">x {{goodItem.count}}</view>
+             </view>
+         </view>
+     </view>
+     <view class="GoodInfoMiddleItemBottom">
+         <view class="itemTopLine"></view>
+        <textarea class="detailText" placeholder="快来评价一下吧~分享给更多人" bindinput="detailInput">
+        </textarea>
+    </view>
+</view>
+<view class="ImagePloader">
+    <view class="showImage" wx:for="{{tempFilePaths}}" wx:key="unique">
+        <image class="upImage" src="{{item}}" mode="widthFix" data-index="{{index}}" bindtap="previewImg">
+        <icon type='cancel' class="deleteBtn" data-index="{{index}}" catchtap="deleteImg"></icon>
+        </image>
+    </view>
+</view>
+<view class="ChooseBtnView"  bindtap="chooseImg">
+    <image mode="aspectFit" src="/assets/imgs/addImage.png" class="addImage"/>
+</view>
+<view class="sureBtn" bind:tap="sureBtn">发表评论</view>
+
+</view> -->

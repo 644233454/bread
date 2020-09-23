@@ -1,0 +1,143 @@
+<!--pages/list/list.wxml-->
+<nav-bar title="首页"
+        navBarColor="#fff"
+        statusBarColor="#fff"
+        titleColor="#000"
+        back="false"
+        home="false">
+</nav-bar>
+
+
+<!-- style="height:{{scrollHight}}px" -->
+<scroll-view class="scrollView" scroll-y="{{true}}" scroll-y scroll-top='{{topNum}}'  style="height:{{scrollHight}}px" bindscroll="homeScroll">
+  <swiper class='swiper-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='height:{{Height}}'>
+                <block wx:for="{{ bannerUrls }}" wx:key="unique">
+                        <swiper-item>
+                        <view>
+                                <image class="slide-image"  src="{{ item.imgUrl}}"  bindload='imgHeight' data-item = "{{item}}" bind:tap="bannerClick" mode='widthFix' ></image>
+                        </view>
+                        </swiper-item>
+                </block>
+    </swiper>
+<view class="search-wrapper" bind:tap="searchGoods" wx:if="{{isShowSearch==true}}">
+    <image class="userHead" src="{{userHeadImage}}" wx:if="{{userHeadImage}}"/>
+    <image class="userHead" src="/assets/imgs/HomeUserHead.png" wx:if="{{!userHeadImage}}"/>
+    <view class="search">
+       <image src="/assets/imgs/ic_search.png" />
+      {{searchDefault?searchDefault:"输入商品名称"}}
+   </view>
+</view>
+<!-- <view  class="btnArrView" wx:if="{{btnArr.length>0}}" style="grid-template-columns: repeat({{btnArr.length > 4 ? 5 : btnArr.length}}, 140rpx)">
+  <view class="btnView" wx:for="{{btnArr}}" data-item = "{{item}}" wx:key="unique" bind:tap="btnArrclick">
+    <image class="btnImage" src="{{item.picUrl}}"/>
+    <view class="btnTitle">{{item.title}}</view>
+  </view>
+</view> -->
+
+
+<!-- <view class="activeTitle">{{activeTitle}}</view> -->
+
+<view class="activeView" wx:if="{{activeArr.length>0}}">
+  <image class="activeViewTitleImage" mode="widthFix" src="{{activityImgUrl}}"/>
+  <view class="activeItem" wx:for="{{activeArr}}" wx:key="unique" bind:tap="activeItemClick" data-item = "{{item}}">
+    <image class="activeItemImage" mode="widthFix" src="{{item.imgUrl}}"/>
+    <view class="activeItemTitle">
+     <view class="activeTitleTip" wx:if="{{item.productType =='PERIOD'}}"> 周期购 </view> {{item.productName}}
+    </view>
+    <view class="priceContainer">
+      <view class="activeItemPrice">￥{{item.lowPrice}}</view>
+      <image class="activeItemShopImage" mode="widthFix" src="/assets/imgs/shopImage.png"/>
+    </view>
+  </view>
+</view>
+
+<view class="main">
+     <view class="good" wx:for="{{productsInfo}}" wx:key="unique" bind:tap="goodDetail" data-itemindex = "{{index}}">
+       <image class="imageItem" mode="widthFix" src="{{item.imgUrl}}"/>
+     </view>
+    <view class="bottomView">
+        <!-- <view class="bottomTopTip">臻于至善·致于千里</view>
+        <view class="bottomTopTip">—— Reach Extreme Rice ——</view> -->
+        <view class="clickToTopView" bind:tap="toTopClick">返回顶部</view>
+     </view>
+</view>
+
+
+
+
+</scroll-view>
+
+<view class="rightBtnView">
+   <image class="rightImage" src="/assets/imgs/homeGoToShop.png" mode="widthFix" bind:tap="goToShop"/>
+   <image class="rightImage" src="/assets/imgs/homeInvited.png" mode="widthFix" wx:if="{{roleId==2||roleId==3}}" bind:tap="shareApp"/>
+   <image class="buttonImage" src="/assets/imgs/homeContent.png" mode="widthFix" />
+   <button class="rightImage" open-type="contact"> </button>
+   
+</view>
+
+
+<!-- <view class="shareBtn" bind:tap="shareApp" wx:if="{{roleId==2||roleId==3}}">
+  <image class="shareImage" src="/assets/imgs/homeShare.png" mode="aspectFit"/>
+</view> -->
+
+
+
+<!-- <userLoginView animation="{{animationData}}"  bindgetuserinfo="getUserInfo" catch:hide="hideClick" style="height:{{scrollHight}}px" class="shareView" wx:if="{{showModalStatus}}"></uiv> -->
+
+
+<!-- <userPhoneNumber animation="{{animationData}}"  bindgetuserinfo="getUserInfo" catch:hide="hideClick" style="height:{{scrollHight}}px"
+ class="shareView" wx:if="{{showModalStatus}}"></userPhoneNumber> -->
+
+ 
+
+ <view hidden="{{sheetDialogHidden}}" class="v_sheetDialog" catchtouchmove="{{sheetDialogMove}}" bindtap="v_sheetDialog_click">
+    <view id="v_sheetDialogContent">
+      <view id="v_sheetDialogContentOne">
+        <view id="v_sheetDialogContentOneOne" catchtap="v_sheetDialogContentOneOne_click">
+          <image src="{{sheetDialogBgOne}}" mode="widthFix" id="iv_sheetDialogContentOneOne"></image>
+          <text id="tv_sheetDialogContentOneOne">小程序码</text>
+        </view>
+         <view id="v_sheetDialogContentOneTwo" catchtap="v_sheetDialogContentOneTwo_click">
+          <image src="{{sheetDialogBgTwo}}" mode="widthFix" id="iv_sheetDialogContentOneOne"></image>
+          <text id="tv_sheetDialogContentOneOne">图文二维码</text>
+        </view>
+        <view id="v_sheetDialogContentOneThree">
+          <button open-type="share" class="bt_share">
+            <view id="v_sheetDialogContentOneThreeOne">
+              <image src="{{sheetDialogBgThree}}" mode="widthFix" id="iv_sheetDialogContentOneOne"></image>
+              <text id="tv_sheetDialogContentOneOneShare">分享链接</text>
+            </view>
+          </button>
+        </view>
+       
+
+      </view>
+      <view id="v_sheetDialogContentTwo" catchtap="v_sheetDialogContent_cancel_click" open-type="share">
+        <text id="tv_sheetDialogContentCancel">取消</text>
+      </view>
+    </view>
+
+    <view hidden="{{DialogOneHidden}}" class="v_DialogOne" catchtouchmove="{{DialogOneMove}}" bindtap="v_DialogOne_click">
+         <image src="{{DialogOne_dismissBg}}" mode="widthFix" id="iv_DialogOne_dismiss"></image>
+         <view id="v_DialogOneContent" bindlongpress="v_DialogOneContent_lonePress">
+                 <image src="{{DialogxcxmUrl}}" mode="widthFix" id="iv_DialogOneContent_BG" wx:if="{{DialogxcxmUrl}}"></image>
+         </view>
+        <view id="v_DialogOneBottom">
+                 <image id="iv_DialogOneBottom" src="{{DialogOne_print}}"></image>
+                <text id="tv_DialogOneBottom">长按图片保存至相册</text>
+         </view>
+</view>
+
+<view hidden="{{DialogTwoHidden}}" class="v_DialogTwo" catchtouchmove="{{DialogTwoMove}}" bindtap="v_DialogTwo_click">
+         <image src="{{DialogOne_dismissBg}}" mode="widthFix" id="iv_DialogTow_dismiss" catchtap="v_DialogTwo_dismiss"></image>
+        <canvas canvas-id="picture" style="height:840rpx; width:528rpx;position:fixed;justify-content:center;align-items: center; margin-top:145rpx;margin-left:111rpx;" bindlongpress="v_DialogTwoContent_lonePress" />
+    
+         <view id="v_DialogTwoBottom">
+                 <image id="iv_DialogTwoBottom" src="{{DialogOne_print}}"></image>
+                 <text id="tv_DialogTwoBottom">长按图片保存至相册</text>
+        </view>
+</view>
+
+
+  </view>
+

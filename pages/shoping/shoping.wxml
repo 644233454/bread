@@ -1,0 +1,355 @@
+
+
+    <nav-bar class="nav" bind:backTap="back" 
+          bind:homeTap="home"
+          back = "false"
+          home = "false"
+          title="购物车">
+    </nav-bar> 
+    <view class="top">
+        <view class="topLeft" bind:tap="goHomeClick">
+            <image class="tipImage" src="/assets/imgs/shopingTopImage.png"/>
+            <view class="topTitle">方晴面包坊</view>
+             <view class="arrow"></view>
+        </view>
+        <view class="topright" bind:tap="editClicl" wx:if="{{onlineProducts.length>0}}">{{editText}}</view>
+    </view>
+    <scroll-view class="container" id="containerId" style="height:{{contrainHight}}px;" scroll-y="{{true}}">
+         <view class="userChooseGoods">
+            <view class="DataView" wx:if="{{onlineProducts.length>0}}">
+                <view class="userChooseGood" wx:for="{{onlineProducts}}" wx:key="unqiue" >
+                    <view class="userChooseGoodLeft" bind:tap="itemClicl" data-itemindex = "{{index}}">
+                        <image wx:if="{{item.isClick}}" class="userGoodChooseImage"  src="/assets/imgs/userGoodChooseImageYes.png"/>
+                        <image wx:else class="userGoodChooseImage"  src="/assets/imgs/userGoodChooseImageNo.png"/>
+                    </view>
+                    <view class="userChooseGoodRight" >
+                        <image class="userGoodImage" src="{{item.imgUrl}}" bind:tap="itemDetail" data-itemindex = "{{index}}"/>
+                        <view class="userGoodInfo">
+                            <view class="userGoodInfoName" bind:tap="itemDetail" data-itemindex = "{{index}}">{{item.name}}</view>
+                            <view class="userGoodInfoWeight" bind:tap="itemDetail" data-itemindex = "{{index}}">{{item.spec}}</view>
+                            <view class="userGoodInfoBottom">
+                                <view class="userGoodInfoBottomPrice">￥{{item.price}}</view>
+                                <!-- <view class="userGoodInfoBottomRight">
+                                    <view class="userGoodInfoReduce" catchtap ="reduceNum" data-itemindex = "{{index}}" data-item = "{{item}}">-</view>
+                                    <view class="userBuyGoodNum">{{item.count}}</view>
+                                    <view class="userGoodInfoAdd" catchtap ="addNum" data-itemindex = "{{index}}" data-item = "{{item}}">+</view>
+                                </view> -->
+                                <view class="userGoodInfoBottomRight">
+                                     <view class="userGoodInfoReduce" catchtap ="reduceNum" data-itemindex = "{{index}}" data-item = "{{item}}">-</view>
+                                     <view class="userBuyGoodNum">{{item.count}}</view>
+                                     <view class="userGoodInfoAdd" catchtap ="addNum" data-itemindex = "{{index}}" data-item = "{{item}}">+</view>
+                                 </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="noDataView" bind:tap="goGoods" wx:else >
+                <image class="noDataImage" src="/assets/imgs/addressNoDataImage.png"/>
+                <view class="noDataBtn">去逛逛</view>
+            </view>
+        </view>
+
+        <view wx:if="{{offLineProducts.length>0}}" class="unShopsView">
+            <view class="unShopsViewTop">
+                <view class="unShopViewTopTitle">下架商品({{offLineGoodNum}}件)</view>
+                <view class="unShopViewTopClear" bind:tap="clearUnderGood">清空</view>
+            </view>
+            <view class="unShopsViewBottom">
+                <view class="unShopGood" wx:for="{{offLineProducts}}" wx:key="unique">
+                    <view class="unShopGoodTip">已下架</view>
+                    <image class="unShopGoodImage" src="{{item.imgUrl}}"/>
+                    <view class="unShopGoodInfo">
+                        <view class="unShopGoodInfoName">{{item.name}}</view>
+                        <view class="unShopGoodInfoWeight">{{item.spec}}</view>
+                        <view class="unShopGoodInfoTip">商品已下架</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="moreGoods">
+            <view class="moreGoodTop">
+                <image class="moretopImage" src="/assets/imgs/shopMoreShopTopImage.png"/>
+                <view class="moreGoodToptitle">更多精选商品</view> 
+            </view>
+
+             <view class="goods">
+                <view class="good" wx:for="{{marketedProductsList}}" bind:tap="goodDetail" data-itemindex = "{{index}}" wx:key="unique">
+                    <image class="shopInfoImage" src="{{item.imgUrl}}" mode="aspectFit" />
+                    <view class="title">{{item.productName}}</view>
+                    <view class="price-wapper">
+                        <view class="price">￥{{item.lowPrice}}</view>
+                        <image class="shopImage" src="/assets/imgs/shopImage.png" catchtap='showBuyModal' data-itemindex = "{{index}}"/>
+                    </view>
+                </view>
+            </view>
+           
+          </view>
+
+    </scroll-view>
+
+
+
+<!-- <scroll-view class="container" id="containerId" style="height:{{contrainHight}}px;" scroll-y="{{true}}">
+    
+    <view class="scroll-view" scroll-y="{{true}}" style="height:{{scrollHight}}px">
+        <view class="userChooseGoods">
+            <view class="DataView" wx:if="{{onlineProducts.length>0}}">
+                <view class="userChooseGood" wx:for="{{onlineProducts}}" wx:key="unqiue" >
+                    <view class="userChooseGoodLeft" bind:tap="itemClicl" data-itemindex = "{{index}}">
+                        <image wx:if="{{item.isClick}}" class="userGoodChooseImage"  src="/assets/imgs/userGoodChooseImageYes.png"/>
+                        <image wx:else class="userGoodChooseImage"  src="/assets/imgs/userGoodChooseImageNo.png"/>
+                    </view>
+                    <view class="userChooseGoodRight" >
+                        <image class="userGoodImage" src="{{item.imgUrl}}" bind:tap="itemDetail" data-itemindex = "{{index}}"/>
+                        <view class="userGoodInfo">
+                            <view class="userGoodInfoName" bind:tap="itemDetail" data-itemindex = "{{index}}">{{item.name}}</view>
+                            <view class="userGoodInfoWeight" bind:tap="itemDetail" data-itemindex = "{{index}}">{{item.spec}}</view>
+                            <view class="userGoodInfoBottom">
+                                <view class="userGoodInfoBottomPrice">￥{{item.price}}</view>
+                                <view class="userGoodInfoBottomRight">
+                                    <view class="userGoodInfoReduce" catchtap ="reduceNum" data-itemindex = "{{index}}" data-item = "{{item}}">-</view>
+                                    <view class="userBuyGoodNum">{{item.count}}</view>
+                                    <view class="userGoodInfoAdd" catchtap ="addNum" data-itemindex = "{{index}}" data-item = "{{item}}">+</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="noDataView" bind:tap="goGoods" wx:else >
+                <image class="noDataImage" src="/assets/imgs/addressNoDataImage.png"/>
+                <view class="noDataBtn">去逛逛</view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{offLineProducts.length>0}}" class="unShopsView">
+            <view class="unShopsViewTop">
+                <view class="unShopViewTopTitle">下架商品({{offLineGoodNum}}件)</view>
+                <view class="unShopViewTopClear" bind:tap="clearUnderGood">清空</view>
+            </view>
+            <view class="unShopsViewBottom">
+                <view class="unShopGood" wx:for="{{offLineProducts}}" wx:key="unique">
+                    <view class="unShopGoodTip">已下架</view>
+                    <image class="unShopGoodImage" src="{{item.imgUrl}}"/>
+                    <view class="unShopGoodInfo">
+                        <view class="unShopGoodInfoName">{{item.name}}</view>
+                        <view class="unShopGoodInfoWeight">{{item.spec}}</view>
+                        <view class="unShopGoodInfoTip">商品已下架</view>
+                    </view>
+                </view>
+            </view>
+    </view>
+
+
+    <view class="moreGoods">
+            <view class="moreGoodTop">
+                <image class="moretopImage" src="/assets/imgs/shopMoreShopTopImage.png"/>
+                <view class="moreGoodToptitle">更多精选商品</view> 
+            </view>
+
+             <view class="goods">
+                <view class="good" wx:for="{{marketedProductsList}}" bind:tap="goodDetail" data-itemindex = "{{index}}" wx:key="unique">
+                    <image class="shopInfoImage" src="{{item.imgUrl}}" mode="aspectFit" />
+                    <view class="title">{{item.productName}}</view>
+                    <view class="price-wapper">
+                        <view class="price">￥{{item.lowPrice}}</view>
+                        <image class="shopImage" src="/assets/imgs/shopImage.png" catchtap='showBuyModal' data-itemindex = "{{index}}"/>
+                    </view>
+                </view>
+            </view>
+           
+    </view>
+
+    
+
+
+</scroll-view> -->
+<view class="bottomChooseView" wx:if="{{onlineProducts.length>0}}">
+        <view class="bottomChooseLeft">
+            <view class="bottomChooseLeftTip" bind:tap="allChoose">
+                <image wx:if="{{allChoose}}" class="bottomChooseImageYes"  src="/assets/imgs/userGoodChooseImageYes.png"/>
+                <image wx:else class="bottomChooseImageYes"  src="/assets/imgs/userGoodChooseImageNo.png"/>
+                <view class="bottomChooseLeftTipTitle">全选</view>
+            </view>
+            <view wx:if="{{!userOpenEdit}}" class="bottomCooseMoney">￥{{totMoney}}</view>
+        </view>
+        <view bind:tap="sureBtnClick" class="bottomChooseright">{{btnText}}</view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <view class="container" id="containerId" style="height:{{contrainHight}}px;" scroll-y="{{true}}">
+    <view class="top">
+        <view class="topLeft" bind:tap="goHomeClick">
+            <image class="tipImage" src="/assets/imgs/shopingTopImage.png"/>
+            <view class="topTitle">方晴面包坊</view>
+             <view class="arrow"></view>
+        </view>
+        <view class="topright" bind:tap="editClicl" wx:if="{{onlineProducts.length>0}}">{{editText}}</view>
+    </view>
+    <view class="scroll-view" scroll-y="{{true}}" style="height:{{scrollHight}}px">
+        <view class="userChooseGoods">
+            <view class="DataView" wx:if="{{onlineProducts.length>0}}">
+                <view class="userChooseGood" wx:for="{{onlineProducts}}" wx:key="unqiue" >
+                    <view class="userChooseGoodLeft" bind:tap="itemClicl" data-itemindex = "{{index}}">
+                        <image wx:if="{{item.isClick}}" class="userGoodChooseImage"  src="/assets/imgs/userGoodChooseImageYes.png"/>
+                        <image wx:else class="userGoodChooseImage"  src="/assets/imgs/userGoodChooseImageNo.png"/>
+                    </view>
+                    <view class="userChooseGoodRight" >
+                        <image class="userGoodImage" src="{{item.imgUrl}}" bind:tap="itemDetail" data-itemindex = "{{index}}"/>
+                        <view class="userGoodInfo">
+                            <view class="userGoodInfoName" bind:tap="itemDetail" data-itemindex = "{{index}}">{{item.name}}</view>
+                            <view class="userGoodInfoWeight" bind:tap="itemDetail" data-itemindex = "{{index}}">{{item.spec}}</view>
+                            <view class="userGoodInfoBottom">
+                                <view class="userGoodInfoBottomPrice">￥{{item.price}}</view>
+                                <view class="userGoodInfoBottomRight">
+                                    <view class="userGoodInfoReduce" catchtap ="reduceNum" data-itemindex = "{{index}}" data-item = "{{item}}">-</view>
+                                    <view class="userBuyGoodNum">{{item.count}}</view>
+                                    <view class="userGoodInfoAdd" catchtap ="addNum" data-itemindex = "{{index}}" data-item = "{{item}}">+</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="noDataView" bind:tap="goGoods" wx:else >
+                <image class="noDataImage" src="/assets/imgs/addressNoDataImage.png"/>
+                <view class="noDataBtn">去逛逛</view>
+            </view>
+        </view>
+
+        <view wx:if="{{offLineProducts.length>0}}" class="unShopsView">
+            <view class="unShopsViewTop">
+                <view class="unShopViewTopTitle">下架商品({{offLineGoodNum}}件)</view>
+                <view class="unShopViewTopClear" bind:tap="clearUnderGood">清空</view>
+            </view>
+            <view class="unShopsViewBottom">
+                <view class="unShopGood" wx:for="{{offLineProducts}}" wx:key="unique">
+                    <view class="unShopGoodTip">已下架</view>
+                    <image class="unShopGoodImage" src="{{item.imgUrl}}"/>
+                    <view class="unShopGoodInfo">
+                        <view class="unShopGoodInfoName">{{item.name}}</view>
+                        <view class="unShopGoodInfoWeight">{{item.spec}}</view>
+                        <view class="unShopGoodInfoTip">商品已下架</view>
+                    </view>
+                </view>
+            </view>
+         </view>
+        
+        <view class="moreGoods">
+            <view class="moreGoodTop">
+                <image class="moretopImage" src="/assets/imgs/shopMoreShopTopImage.png"/>
+                <view class="moreGoodToptitle">更多精选商品</view> 
+            </view>
+
+             <view class="goods">
+                <view class="good" wx:for="{{marketedProductsList}}" bind:tap="goodDetail" data-itemindex = "{{index}}" wx:key="unique">
+                    <image class="shopInfoImage" src="{{item.imgUrl}}" mode="aspectFit" />
+                    <view class="title">{{item.productName}}</view>
+                    <view class="price-wapper">
+                        <view class="price">￥{{item.lowPrice}}</view>
+                        <image class="shopImage" src="/assets/imgs/shopImage.png" catchtap='showBuyModal' data-itemindex = "{{index}}"/>
+                    </view>
+                </view>
+            </view>
+           
+        </view>
+
+
+    </view>
+    
+    <view class="bottomChooseView" wx:if="{{onlineProducts.length>0}}">
+        <view class="bottomChooseLeft">
+            <view class="bottomChooseLeftTip" bind:tap="allChoose">
+                <image wx:if="{{allChoose}}" class="bottomChooseImageYes"  src="/assets/imgs/userGoodChooseImageYes.png"/>
+                <image wx:else class="bottomChooseImageYes"  src="/assets/imgs/userGoodChooseImageNo.png"/>
+                <view class="bottomChooseLeftTipTitle">全选</view>
+            </view>
+            <view wx:if="{{!userOpenEdit}}" class="bottomCooseMoney">￥{{totMoney}}</view>
+        </view>
+        <view bind:tap="sureBtnClick" class="bottomChooseright">{{btnText}}</view>
+    </view>
+
+
+</scroll-view> -->
+
+
+<!-- 点击立即购买 弹出购买遮罩层 -->
+<view class="cover_screen" bindtap="hideBuyModal" wx:if="{{showModalStatus}}"></view>
+<!-- 点击立即购买 弹窗 -->
+<view animation="{{animationData}}" class="buyBox" wx:if="{{showModalStatus}}">
+        <view class="buyBoxTop">
+                <view class="topLeft">
+                    <image class="SmallImage" src="{{chooseItemDic.imgUrl}}"/>
+                    <view class="topLeftInfo">
+                         <view class="buyBoxTitle">{{name}}</view>
+                         <view class="buyBoxPrice">￥{{chooseItemDic.price}}</view>
+                    </view>
+                 </view>
+                 <view class="topRight" bindtap="hideBuyModal">
+                    <image class="disMissImage" src="/assets/imgs/disMissImage.png"/>
+                 </view>
+        </view>
+         <view class="middle">
+                 <view class="middleTopLine"></view>
+                 <view class="middleTip">规格:</view>
+                 <view class="middleChoose">
+                         <view class ="chooseSizeView" wx:for="{{goodChooseSizeArr}}" bind:tap="chooseSize" data-itemindex = "{{index}}" wx:key="unique">
+                                 <view class="chooseSizeSelected" wx:if="{{item.selected}}">{{item.value}}</view>
+                                 <view class="chooseSizeNormal" wx:else >{{item.value}}</view>
+                         </view>
+                 </view>
+                 <view class="middleBottomLine"></view>
+        </view>
+        <view class="bottom">
+                <view class="tip">购买数量
+                </view>
+                <view class="bottomRight">
+                    <view class="reduce" bind:tap="buyBoxReduceNum">-</view>
+                    <view class="num">{{userBuyGoodNum}}</view>
+                    <view class="add" bind:tap="buyBoxAddNum">+</view>
+                </view>
+        </view>
+         <view class="remainCountView">剩余库存:{{chooseItemDic.remainCount}}件</view>
+         <view class="btnView" wx:if="{{itemDetail.isOnline ==true}}">
+                 <view class="addShoping" bindtap='goToCar'>加入购物车</view>
+                 <view class="buyShoping" bindtap='buyShoping'>立即购买</view>
+         </view> 
+         <view class="btnView" wx:if="{{itemDetail.isOnline ==false}}">
+            <view class="offLineView">该商品已下架</view>
+         </view> 
+</view>
+
+<!-- <wxs module="we">
+  var toFixed = function (value) {
+  return value.toFixed(2);
+}
+module.exports = {
+   toFixed :toFixed
+}
+</wxs> -->

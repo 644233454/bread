@@ -1,0 +1,48 @@
+<!--pages/addAddressInfo/addAddressInfo.wxml-->
+<nav-bar title="{{title}}"
+        navBarColor="#fff"
+        statusBarColor="#fff"
+        titleColor="#000"
+        back="true"
+        home="false">
+</nav-bar>
+<view class="container">
+    <view class="nameView">
+        <view class="nameTip">姓名</view>
+        <input class="nameInput" placeholder="收货人姓名" placeholder-class="inputPlaceholder" value="{{name}}" maxlength="50" bindinput="nameInput"/>
+    </view>
+    <view class="telView">
+         <view class="telViewTopLine"></view>
+         <view class="telViewInfo">
+             <view class="telViewTip">电话</view>
+             <input class="telInput" type="number" placeholder="收货人手机号" placeholder-class="inputPlaceholder" value="{{tel}}" maxlength="11" bindinput="telInput"/>
+         </view>
+         <view class="telViewBottomLine"></view>
+    </view>
+    <view class="cityView">
+         <view class="cityViewTip">地区</view>
+         <picker class="pickView" mode="region" bindchange="bindRegionChange" value="{{region}}">
+            <view class="picker {{cityInfo?'value':'default'}}">
+            {{cityInfo||"选择省/市/区"}}
+            </view>
+        </picker>
+    </view>
+    <view class="addressView">
+         <view class="addressViewTopLine"></view>
+         <view class="addressViewInfo">
+             <view class="addressViewInfoTip">详细地址</view>
+             <textarea class="detailTextIos" placeholder="街道门牌、楼层房间号等信息" bindblur="bindTextAreaBlur" value="{{detailValue}}"  bindinput="detailInput" wx:if="{{platform=='ios'}}"></textarea>
+             <textarea class="detailTextOther" placeholder="街道门牌、楼层房间号等信息" bindblur="bindTextAreaBlur" value="{{detailValue}}"  bindinput="detailInput" wx:else></textarea>
+         </view>
+    </view>
+</view>
+
+<view class="switchView">
+    <view class="switchTip">设为默认地址</view>
+    <switch class="switchValue" checked="{{switchCheckedTrueOrFalse}}" style='zoom:.7;' type="switch" bindchange="changeSwitch"/>
+    
+</view>
+
+<view class="btnView" bind:tap="sureBtn">保存并使用</view>
+
+<view wx:if="{{changeAddressTip}}" class="btnDeteleView" bind:tap="deteleBtn">删除收货地址</view>

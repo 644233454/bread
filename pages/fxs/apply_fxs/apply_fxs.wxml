@@ -1,0 +1,22 @@
+<nav-bar title="申请" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+  <image src="{{page_bg}}" class="iv_bg"></image>
+  <view class="v_input">
+    <view class="v_item">
+      <text class="tv_text">姓名</text>
+      <input class="et" placeholder="请输入姓名" type="text" bindinput="getNameValue" maxlength="10"/>
+    </view>
+    <view class="v_item">
+      <text class="tv_text">电话</text>
+      <input class="et" placeholder="请输入电话" type="number" bindinput="getPhoneValue" maxlength="15" />
+    </view>
+    <view class="v_item">
+      <text class="tv_text">城市</text>
+      <input class="et" placeholder="请输入城市" type="text" bindinput="getCityValue" maxlength="15"/>
+    </view>
+  </view>
+
+  <button class="bt" bindtap="bt_apply">申请</button>
+</view>

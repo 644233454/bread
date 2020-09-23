@@ -1,0 +1,595 @@
+Page{
+    background-color: #F7F7F6;
+}
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.progressView{
+    width: 100%;
+    background-color: #ffffff;
+    padding-top: 20rpx;
+    padding-bottom: 10rpx;
+}
+
+.topView{
+    width: 100%;
+    height: 100rpx;
+    background-color: #ffffff;
+    display: flex;
+
+    align-items: center;
+}
+.activeTitleTip{
+    /* display: flex; */
+    display: inline-block;
+    color: #ffffff;
+    background-color: #FBA72F;
+    font-size: 24rpx;
+    width: 100rpx;
+    margin-right: 20rpx;
+    text-align: center;
+    line-height: 37rpx;
+  }
+.closeImage{
+    width: 70rpx;
+    /* height: 70rpx; */
+    margin-left: 40rpx;
+    margin-right: 20rpx;
+}
+.topViewRight{
+    width: 100%;
+    height: 70rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.closeTitle{
+    color: #333333;
+    font-size: 28rpx;
+}
+.closeTitleInfo{
+    color: #999999;
+    font-size: 24rpx;
+}
+/* 订单信息 */
+.bottomView{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+}
+.AddressInfo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 128rpx;
+    background-color: #ffffff;
+}
+.addressInfoTop{
+    width: 100%;
+    height: 37rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.addressInfoTopLeft{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 20rpx;
+}
+.addressInfoImage{
+    width: 18rpx;
+    height: 22rpx;
+    
+}
+.addressInfoName{
+    color: #333333;
+    font-size: 26rpx;
+    margin-left: 20rpx;
+}
+.addressInfoTopTel{
+    color: #333333;
+    font-size: 26rpx;
+    margin-right: 20rpx;
+}
+.addressInfoDetail{
+    color: #999999;
+    font-size: 22rpx;
+    margin-left: 58rpx;
+    margin-top: 10rpx;
+}
+.addressBottomImage{
+    width: 100%;
+    height: 4rpx;
+    margin-top: 10rpx;
+
+}
+.goodInfo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+}
+.goodInfoTop{
+    display: flex;
+    width: 100%;
+    height: 72rpx;
+    align-items: center;
+    background-color: #ffffff;
+}
+.goodInfoTopImage{
+    width: 28rpx;
+    height: 27rpx;
+    margin-left: 20rpx;
+}
+.goodInfoTopTitle{
+    margin-left: 20rpx;
+    color: #333333;
+    font-size: 28rpx;
+}
+.goodInfoMiddle{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    /* height: 200rpx; */
+}
+.GoodInfoMiddleItem{
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    height: 200rpx;
+    display: flex;
+    align-items: center;
+}
+.shopInfoImage{
+    width: 164rpx;
+    height: 164rpx;
+    margin-left: 20rpx;
+}
+
+.goodInfoMiddleRight{
+    height: 164rpx;
+    width: 506rpx;
+    display: flex;
+    margin-left: 20rpx;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.goodInfoMiddleTitle{
+    /* color: #333333;
+    font-size: 26rpx;
+    font-weight: bold;
+    width: 100%;
+    height: 37rpx;
+    max-height: 37rpx;
+    line-height: 37rpx; */
+
+    font-size: 26rpx;
+    color: #333333;
+    word-break: break-all;
+    width: 90%;
+    height: auto;
+    flex-direction: row;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+.goodInfoMiddleWeight{
+    color: #999999;
+    font-size: 26rpx;
+    height: 37rpx;
+    width: 100%;
+}
+.goodInfoMiddleBottom{
+    width: 100%;
+    height: 37rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.goodInfoMiddlePrice{
+    color: #F3345C;
+    font-size: 26rpx;
+    height: 37rpx;
+    line-height: 37rpx;
+}
+.goodInfoMiddleNum{
+    color: #333333;
+    font-size: 26rpx;
+    height: 37rpx;
+    line-height: 37rpx;
+    margin-right: 20rpx;
+}
+.sendType{
+    width: 100%;
+    background-color: #ffffff;
+    /* height: 177rpx; */
+    display: flex;
+    flex-direction: column;
+
+}
+.sendTypeTop{
+    width: 100%;
+    height: 87rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sendTypeTopLeft{
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+}
+.sendTypeTopRight{
+    color: #333333;
+    font-size: 28rpx;
+    margin-right: 20rpx;
+}
+.sendTypeMidLine{
+    width: 100%;
+    margin-left: 20rpx;
+    background-color: #E5E5E5;
+    height: 2rpx;
+}
+.sendTypeBottome{
+    width: 100%;
+    min-height: 87rpx;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.sendTypeBottomeLeft{
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+    margin-top: 20rpx;
+}
+.sendTypeBottomeRight{
+    color: #999999;
+    font-size: 28rpx;
+    margin-top: 20rpx;
+    margin-right: 20rpx;
+}
+.middleView{
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+}
+.middleMoneyView{
+    width: 100%;
+    height: 64rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.middleMoneyViewLeft{
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+}
+.middleMoneyViewRight{
+    color: #999999;
+    font-size: 28rpx;
+    margin-right: 20rpx;
+}
+.middleFreightMoneyView{
+    width: 100%;
+    height: 64rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.middleFreightMoneyViewLeft{
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+}
+.middleFreightMoneyViewRight{
+    color: #999999;
+    font-size: 28rpx;
+    margin-right: 20rpx;
+}
+.middleOrderNumView{
+    width: 100%;
+    height: 64rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.middleOrderNumViewLeft{
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+}
+.middleOrderNumViewRight{
+    color: #999999;
+    font-size: 28rpx;
+    margin-right: 20rpx;
+}
+
+
+
+.middleTopLine{
+    width: 100%;
+    height: 2rpx;
+    background-color: #E5E5E5;
+    margin-left: 20rpx;
+}
+.middleTotMoney{
+    width: 100%;
+    height: 90rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #ffffff;
+    
+}
+.middleTotMoneyTip{
+    color: #999999;
+    font-size: 28rpx;
+    margin-right: 20rpx;
+}
+.middleTotMoneyValue{
+    color: #F3345C;
+    font-size: 28rpx;
+    margin-right: 20rpx;
+}
+.middleViewSpaceView{
+    width: 100%;
+    background-color:#F7F7F6;
+    height: 120rpx;
+}
+.btnView{
+    width: 100%;
+    height: 88rpx;
+    display: flex;
+    flex-direction: column;
+}
+.btnViewTopLine{
+    width: 100%;
+    height: 2rpx;
+    background-color: #E5E5E5;
+    margin-left: 20rpx;
+}
+.btnViewBtnView{
+    width: 100%;
+    height: 86rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.callView{
+    width: 374rpx;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.callImage{
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 20rpx;
+}
+.callTitle{
+    color: #333333;
+    font-size: 24rpx;
+}
+.btnViewBtnViewMiddleLine{
+    background-color: #E5E5E5;
+    width: 2rpx;
+    height: 50rpx;
+}
+.onlineView{
+    width: 374rpx;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.onlineImage{
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 20rpx;
+}
+.onlineTitle{
+    color: #333333;
+    font-size: 24rpx;
+}
+.OrderInfoBottomView{
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+}
+.orderNum{
+    width: 100%;
+    height: 64rpx;
+    display: flex;
+    align-items: center;
+
+}
+.orderViewLeft{
+    color: #333333;
+    font-size: 24rpx;
+    margin-left: 40rpx;
+}
+.orderViewBtn{
+    color: #666666;
+    font-size: 24rpx;
+    width: 80rpx;
+    text-align: center;
+    border: 2rpx solid #E8E8E8;
+    margin-left: 60rpx;
+}
+.orderPayTime{
+    width: 100%;
+    height: 64rpx;
+    /* align-items: center; */
+}
+.orderPayTimeValue{
+    color: #333333;
+    font-size: 24rpx;
+    margin-left: 40rpx;
+    height: 100%;
+    line-height: 64rpx;
+}
+.orderLine{
+    width: 100%;
+    height: 2rpx;
+    background-color: #E5E5E5;
+    margin-left: 40rpx;
+}
+.orderBottomView{
+    color: #337DFB;
+    width: 100%;
+    height: 90rpx;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 90rpx;
+}
+.bottomPayView{
+    width: 100%;
+    height: 100rpx;
+    position: fixed;
+    bottom: 0px;
+    background-color:#ffffff;
+    display: flex;
+}
+.payLeftView{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.payLeftTip{
+    color: #333333;
+    font-size: 28rpx;
+    margin-right: 10rpx;
+}
+.payMoney{
+    color: #F3345C;
+    font-size: 28rpx;
+    margin-right: 20rpx;
+}
+.payBtn{
+    width: 35%;
+    height: 100%;
+    color: #ffffff;
+    background-color: #F3345C;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 100rpx;
+}
+
+
+.periodView{
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: #ffffff;
+}
+.periodViewDes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 87rpx;
+    width: 100%;
+}
+.periodViewDesLeft{
+    margin-left: 30rpx;
+    line-height: 87rpx;
+    color: #333333;
+    font-size: 28rpx;
+}
+.periodViewDesRight{
+   margin-right: 20rpx;
+   line-height: 87rpx;
+   font-size: 28rpx;
+   color: #333333;
+}
+.periodViewDesBottomLine{
+    width: 100%;
+    margin-left: 30rpx;
+    height: 2rpx;
+    color: #E5E5E5;
+}
+.periodViewData{
+    width: 100%;
+    height: 117rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.periodViewDataLeft{
+    height: 117rpx;
+    line-height: 117rpx;
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 30rpx;
+}
+.periodViewDataRight{
+    display: flex;
+    height: 117rpx;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20rpx;
+}
+.periodViewDataRightLeft{
+    display: flex;
+    flex-direction: column;
+    height: 117rpx;
+    justify-content: center;
+}
+.periodViewDataRightLeftTop{
+    color: #F3355C;
+    font-size: 28rpx;
+    text-align: end;
+    width: auto;
+}
+.periodViewDataRightLeftBottom{
+    color: #F3355C;
+    font-size: 28rpx;
+    text-align: end;
+    width: auto;
+}
+.periodViewDataBottomLine{
+    width: 100%;
+    margin-left: 30rpx;
+    height: 2rpx;
+    color: #E5E5E5;
+}
+.periodViewType{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 87rpx;
+    width: 100%;
+}
+.periodViewTypeLeft{
+    margin-left: 30rpx;
+    line-height: 87rpx;
+    color: #333333;
+    font-size: 28rpx;
+}
+.periodViewTypeRight{
+    margin-right: 20rpx;
+   line-height: 87rpx;
+   font-size: 28rpx;
+   color: #333333;
+}

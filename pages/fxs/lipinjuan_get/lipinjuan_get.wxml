@@ -1,0 +1,27 @@
+<nav-bar title="臻致商城" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<loading wx:if="{{showLoading}}">
+  加载中...
+</loading>
+
+<view class="container">
+  <image style="width:100%;height:100%;position:absolute;" mode="scaleToFill" src="{{BG}}"></image>
+
+  <view style="height:83rpx;width:507rpx;background-color:white;position:absolute;margin-left:120rpx;bottom:316rpx; border-radius:8rpx;display:flex;"
+  >
+  <input placeholder="请输入手机号码" type="number"  maxlength="11" style="height:83rpx;width:270rpx;margin-left:41rpx;" bindinput="getPhoneValue"/>
+  <text style="color:{{countDownText=='获取验证码'?'#F3355C':'#999999'}};font-size:24rpx;height:83rpx;width:220rpx;padding-right:11rpx;display:flex;align-items:center;justify-content:flex-end;" bindtap="getCode">{{countDownText}}</text>
+  </view>
+
+   <view style="height:83rpx;width:507rpx;background-color:white;position:absolute;margin-left:120rpx;bottom:199rpx; border-radius:8rpx;"
+  >
+  <input placeholder="请输入验证码" type="text"  maxlength="20" style="height:83rpx;width:360rpx;margin-left:41rpx;" bindinput="getCodeValue"/>
+  </view>
+
+   <view style="height:98rpx;width:750rpx;background-color:#F3355C;position:absolute;bottom:0rpx;" 
+  >
+  </view>
+  <text style="height:98rpx;width:300rpx;color:white;font-size:32rpx;position:absolute;bottom:0rpx;margin-left:225rpx;display:flex;justify-content:center;align-items:center;" bindtap="getLiPin">确定领取</text>
+  
+</view>

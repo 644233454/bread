@@ -1,0 +1,166 @@
+page{
+   background-color: #f7f7f6;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.v_top{
+  height: 384rpx;
+  position: relative;
+}
+#iv_top_bg{
+   position: absolute;
+   width: 100%;
+   top: 0;
+   height: 307rpx;
+}
+.v_card{
+  position: absolute ;
+  background-color: white;
+  width: 690rpx;
+  height: 245rpx;
+  top: 102rpx;
+  left: 29rpx;
+}
+#tv_TipOnnText{
+  position: absolute;
+  color: #333333;
+  left: 50rpx;
+  top: 44rpx;
+  font-size: 28rpx;
+}
+#tv_time{
+  position: absolute;
+  color: #333333;
+  right: 40rpx;
+  top: 44rpx;
+  font-size: 28rpx;
+}
+
+
+
+
+/*指示器 */
+
+.v_indicator {
+  position: absolute;
+  top: 116rpx;
+  right: -25rpx;
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+/*指示器顶部文字外层  整个长度=596+100*/
+
+.v_indicator_topText {
+  width: 696rpx;
+  margin-left: 29rpx;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+}
+
+#tv_indicator_topText {
+  width: 120rpx;
+  font-size: 20rpx;
+  color: #FF4958;
+  text-align: center;
+}
+
+/*指示器底部文字*/
+
+.v_indicator_bottomText {
+  margin-top: 10rpx;
+  width: 696rpx;
+  margin-left: 29rpx;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+}
+
+#tv_indicator_bottomText {
+  width: 120rpx;
+  font-size: 20rpx;
+  color: #FF4958;
+  text-align: center;
+}
+
+/*指示器中间部分*/
+
+.v_indicator_content {
+  margin-top: 10rpx;
+  width: 750rpx;
+  height: 20rpx;
+  display: flex;
+}
+
+/*指示器中间部分 浅色圆点外层 整个长度是596rpx，每个圆点所占的长度就是20rpx,每个单位直线所占的长度就是（596-20）/（圆点的个数-1）*/
+
+.v_indicator_content_shadowDots {
+  width: 596rpx;
+  margin-left: 79rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*指示器中间部分 浅色圆点*/
+
+.v_indicator_content_shadowDot {
+  height: 20rpx;
+  width: 20rpx;
+  background-color: #FFCDD0;
+  border-radius: 10rpx;
+}
+
+/*指示器中间部分 浅色直线*/
+
+.v_indicator_content_shadowLines {
+  width: 576rpx;
+  margin-top: 6rpx;
+  height: 8rpx;
+  margin-left: 89rpx;
+  margin-right: 85rpx;
+  background-color: #FFCDD0;
+  position: absolute;
+}
+
+/*指示器中间部分 深色直线*/
+
+.v_indicator_content_Lines {
+  margin-left: 89rpx;
+  margin-top: 6rpx;
+  height: 8rpx;
+  background-color: #F3345C;
+  position: absolute;
+}
+
+/*指示器中间部分 深色圆点外层 距离左边距79 长度=（整个圆点外层的长度+单条实线的长度/2-20）*/
+
+.v_indicator_content_Dots {
+  position: absolute;
+  height: 20rpx;
+  margin-left: 79rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*指示器中间部分 深色圆点*/
+
+.v_indicator_content_Dot {
+  height: 20rpx;
+  width: 20rpx;
+  background-color: #F3345C;
+  border-radius: 10rpx;
+}
+
+
+#tv_ruleText{
+  font-size: 32rpx;
+  color: #333333;
+  margin-left: 30rpx;
+}

@@ -1,0 +1,41 @@
+<!--pages/logisticsInfoList/logisticsInfoList.wxml-->
+<nav-bar bind:backTap="back" 
+          bind:homeTap="home"
+          back = "true"
+          home = "false"
+          title="物流信息">
+</nav-bar>
+
+<scroll-view class="scrollViewList" wx:if="{{logisticsInfos.length>1}}" scroll-y="{{true}}">
+    <view class="logisticsInfoItem" wx:for="{{logisticsInfos}}" wx:key="unique" wx:for-index="index" bind:tap="itemClick" data-item ="{{item}}" data-index ="{{index}}" >
+        <view class="itemLeft">
+                 <view class="itemNum">快递{{index+1}}</view>
+                 <view class="itemName">承运来源：{{item.logisticsMerchant}}</view>
+                 <view class="logisticsNum">运单编号：{{item.logisticsNum}}<view class="copyBtn" catchtap="copyListClick" data-item ="{{item}}">复制</view></view>
+        </view>
+       <view class="arror"></view>
+    </view>
+</scroll-view>
+
+<view class="logisticsInfoTop" wx:if="{{logisticsInfos.length==1}}" >
+     <view class="logisticsInfoToptitle">快递信息</view>
+     <view class="logisticsInfoToptitleName">承运来源：{{logisticsInfoItem.logisticsMerchant}}</view>
+     <view class="logisticsInfoToptitleNum">运单编号：{{logisticsInfoItem.logisticsNum}}<view class="copyBtn" catchtap="copyClick" data-item ="{{logisticsInfoItem.logisticsNum}}">复制</view></view>  
+ </view>
+ <scroll-view class="logisticsInfoScrollView" wx:if="{{logisticsInfos.length==1}}" scroll-y="{{true}}">
+    <view class="logisticsInfoContaoner">
+        <view class="logisticsInfoDetailItem" wx:for="{{newLogisticsInfoDetail}}" wx:key="unique">
+            <view class="logisticsInfoItemLeftView">
+                 <view class="point"></view>
+                 <view class="Line" wx:if="{{index !=newLogisticsInfoDetail.length-1}}"></view>
+             </view>
+            <view class="logisticsInfoItemRightView">
+              <view class="title">{{item.title}}</view>
+              <view class="content">{{item.description}}</view>
+              <view class="time">{{item.time}}</view>
+             </view>
+         </view>
+    </view>
+</scroll-view>
+
+

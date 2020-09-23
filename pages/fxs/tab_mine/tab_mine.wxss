@@ -1,0 +1,657 @@
+page {
+  background-color: #f7f7f6;
+}
+
+.container {
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/*=========================红色背景区域 */
+
+.v_top {
+  border-radius: 15rpx;
+  margin-top: 6rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  position: relative;
+}
+.iv_topBg{
+  width: 100%;
+  height: 100%;
+}
+
+#iv_top_bg_default_portrait {
+  position: absolute;
+  top: 18rpx;
+  left: 20rpx;
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+}
+
+#tv_top_default_name {
+  position: absolute;
+  font-size: 32rpx;
+  color: white;
+  top: 26rpx;
+  left: 174rpx;
+}
+
+.v_top_star {
+  position: absolute;
+ top: 82rpx;
+  left: 174rpx;
+  height: 24rpx;
+}
+
+#iv_top_star {
+  height: 24rpx;
+  width: 24rpx;
+  margin-right: 12rpx;
+}
+
+#tv_top_generalize_commission {
+  position: absolute;
+  color: white;
+  font-size: 28rpx;
+  right: 36rpx;
+  top: 36rpx;
+}
+
+#tv_top_generalize_commission_Text {
+  position: absolute;
+  color: white;
+  font-size: 28rpx;
+  right: 36rpx;
+  top: 73rpx;
+}
+
+#v_limitTime_task_award {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 174rpx;
+  left: 49rpx;
+  padding-bottom: 10rpx;
+  padding-right: 10rpx;
+}
+
+#tv_top_limitTime_task_award {
+  color: white;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+}
+
+#iv_top_bg_tip {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+#tv_top_end_time {
+  position: absolute;
+  color: white;
+  font-size: 20rpx;
+  right: 36rpx;
+  margin-top: 174rpx;
+}
+
+/*=====================指示器================================*/
+
+.v_indicator {
+  position: absolute;
+  width: 750rpx;
+  display: flex;
+  margin-left: -30rpx;
+  flex-direction: column;
+  bottom: 10rpx;
+}
+
+.v_indicator_top {
+  width: 676rpx;
+  height: 38rpx;
+  margin-left: 39rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.v_indicator_center {
+  width: 596rpx;
+  height: 20rpx;
+  margin-left: 79rpx;
+  display: flex;
+}
+
+.v_indicator_bottom {
+   width: 750rpx;
+  height: 38rpx;
+  box-sizing: border-box;
+  padding-left: 39rpx;
+  padding-right: 35rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items:center;
+  
+}
+
+
+/*=======================我的资产 top: -96rpx; margin-top: 20rpx;*/
+
+.v_property {
+  background-color: white;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 168rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+/*=======================我的收益 top: -96rpx;*/
+
+.v_earnings {
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 352rpx;
+  background-color: white;
+}
+
+#tv_earningsText {
+  position: absolute;
+  color: #333;
+  font-size: 32rpx;
+  margin-left: 26rpx;
+  margin-top: 20rpx;
+}
+
+#tv_earningsAccumulate {
+  position: absolute;
+  color: #333;
+  font-size: 28rpx;
+  margin-left: 26rpx;
+  margin-top: 90rpx;
+}
+
+#tv_earningsAccumulateText {
+  position: absolute;
+  color: #999;
+  font-size: 24rpx;
+  margin-left: 26rpx;
+  margin-top: 130rpx;
+}
+
+.v_earningsOrder {
+  right: 240rpx;
+  height: 200rpx;
+  width: 230rpx;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.v_earningsClient {
+  right: 0rpx;
+  height: 200rpx;
+  width: 200rpx;
+  margin-right: 30rpx;
+  position: absolute;
+}
+
+#tv_earningsOrder {
+  margin-top: 90rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+
+#tv_earningsOrderText {
+  color: #999;
+  font-size: 24rpx;
+}
+
+#tv_earningsClient {
+  position: absolute;
+  color: #333;
+  font-size: 28rpx;
+  right: 26rpx;
+  margin-top: 90rpx;
+}
+
+#tv_earningsClientText {
+  position: absolute;
+  color: #999;
+  font-size: 24rpx;
+  right: 26rpx;
+  margin-top: 130rpx;
+}
+
+#tv_earningsNotInclude {
+  position: absolute;
+  color: #333;
+  font-size: 24rpx;
+  margin-left: 26rpx;
+  margin-top: 189rpx;
+}
+
+#v_earningsLine {
+  position: absolute;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  margin-top: 233rpx;
+  height: 1rpx;
+  width: 670rpx;
+  background-color: #d8d8d8;
+}
+
+#tv_earningsToday {
+  position: absolute;
+  color: #333;
+  font-size: 28rpx;
+  margin-left: 26rpx;
+  margin-top: 260rpx;
+}
+
+#tv_earningsTodayText {
+  position: absolute;
+  color: #999;
+  font-size: 24rpx;
+  margin-left: 26rpx;
+  margin-top: 300rpx;
+}
+
+#tv_earningsTodayOrder {
+  position: absolute;
+  color: #333;
+  font-size: 28rpx;
+  margin-top: 260rpx;
+  width: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 290rpx;
+}
+
+#tv_earningsTodayOrderText {
+  position: absolute;
+  color: #999;
+  font-size: 24rpx;
+  margin-top: 300rpx;
+  margin-left: 317rpx;
+}
+
+#tv_earningsTodayNewClient {
+  position: absolute;
+  color: #333;
+  font-size: 28rpx;
+  right: 60rpx;
+  margin-top: 260rpx;
+}
+
+#tv_earningsTodayNewClientText {
+  position: absolute;
+  color: #999;
+  font-size: 24rpx;
+  right: 60rpx;
+  margin-top: 300rpx;
+}
+
+/*=======================我的销售员 top: -96rpx;*/
+
+.v_salesman {
+  background-color: white;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 227rpx;
+}
+
+#tv_salesmanText {
+  position: absolute;
+  color: #333;
+  font-size: 32rpx;
+  margin-left: 26rpx;
+  margin-top: 20rpx;
+}
+
+#tv_salesmanEarnings {
+  position: absolute;
+  color: #333;
+  font-size: 28rpx;
+  margin-left: 26rpx;
+  margin-top: 90rpx;
+}
+
+#tv_salesmanEarningsText {
+  position: absolute;
+  color: #999;
+  font-size: 24rpx;
+  margin-left: 26rpx;
+  margin-top: 130rpx;
+}
+
+#tv_salesmanOrder {
+  position: absolute;
+  color: #333;
+  font-size: 28rpx;
+  margin-top: 90rpx;
+  width: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 290rpx;
+}
+
+#tv_salesmanOrderText {
+  position: absolute;
+  color: #999;
+  font-size: 24rpx;
+  margin-top: 130rpx;
+  margin-left: 317rpx;
+}
+
+#tv_salesmanClient {
+  position: absolute;
+  color: #333;
+  font-size: 28rpx;
+  right: 60rpx;
+  margin-top: 90rpx;
+}
+
+#tv_salesmanClientText {
+  position: absolute;
+  color: #999;
+  font-size: 24rpx;
+  right: 60rpx;
+  margin-top: 130rpx;
+}
+
+#tv_salesmanNotInclude {
+  position: absolute;
+  color: #333;
+  font-size: 24rpx;
+  margin-left: 26rpx;
+  margin-top: 179rpx;
+}
+
+/*=======================底部四个tab top: -96rpx;*/
+
+.v_bottom {
+  background-color: white;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 175rpx;
+  margin-bottom: 22rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.v_bottomGeneralize {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  align-items: center;
+}
+
+.iv_bottom_bg {
+  margin-top: 15rpx;
+  width: 87rpx;
+  height: 83rpx;
+}
+
+.tv_botton {
+  margin-top: 13rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+
+/*底部弹框*/
+
+.v_sheetDialog {
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+}
+
+#v_sheetDialogContent {
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  bottom: 0rpx;
+  height: 381rpx;
+}
+
+#v_sheetDialogContentOne {
+  display: flex;
+  background-color: #f9f6f6;
+  height: 286rpx;
+  flex-direction: row;
+}
+
+#v_sheetDialogContentTwo {
+  width: 100%;
+  height: 115rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+#tv_sheetDialogContentCancel {
+  color: #333;
+  font-size: 30rpx;
+}
+
+#v_sheetDialogContentOneOne, #v_sheetDialogContentOneTwo,
+#v_sheetDialogContentOneThree {
+  width: 250rpx;
+  height: 286rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#iv_sheetDialogContentOneOne {
+  margin-top: 63rpx;
+  width: 110rpx;
+  height: 110rpx;
+}
+
+#tv_sheetDialogContentOneOne {
+  margin-top: 11rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+
+/*小程序码弹框*/
+
+.v_DialogOne {
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+}
+
+#v_DialogOneContent {
+  position: fixed;
+  background-color: white;
+  width: 528rpx;
+  margin-top: 265rpx;
+  height: 576rpx;
+  margin-left: 111rpx;
+  border-radius: 16rpx;
+}
+
+#iv_DialogOne_dismiss {
+  position: fixed;
+  width: 44rpx;
+  height: 44rpx;
+  margin-top: 198rpx;
+  margin-left: 593rpx;
+}
+
+#iv_DialogOneContent_BG {
+  width: 449rpx;
+  height: 469rpx;
+  margin-top: 39rpx;
+  margin-left: 40rpx;
+}
+
+#v_DialogOneBottom {
+  position: fixed;
+  margin-top: 896rpx;
+  display: flex;
+}
+
+#iv_DialogOneBottom {
+  margin-left: 238rpx;
+  height: 34rpx;
+  width: 28rpx;
+  margin-right: 20rpx;
+}
+
+#tv_DialogOneBottom {
+  color: #fff;
+  font-size: 28rpx;
+}
+
+/*生成海报商品弹框*/
+
+.v_DialogTwo {
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+}
+
+#v_DialogTwoContent {
+  position: fixed;
+  background-color: white;
+  width: 528rpx;
+  margin-top: 145rpx;
+  height: 820rpx;
+  margin-left: 111rpx;
+  border-radius: 16rpx;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+#iv_DialogTow_dismiss {
+  position: fixed;
+  width: 44rpx;
+  height: 44rpx;
+  margin-top: 78rpx;
+  margin-left: 593rpx;
+}
+
+#iv_DialogTwoContent_BG {
+  width: 487rpx;
+  height: 490rpx;
+  margin-top: 21rpx;
+  background-color: gray;
+}
+
+#v_DialogTwoBottom {
+  position: fixed;
+  margin-top: 1016rpx;
+  display: flex;
+}
+
+#iv_DialogTwoBottom {
+  margin-left: 238rpx;
+  height: 34rpx;
+  width: 28rpx;
+  margin-right: 20rpx;
+}
+
+#tv_DialogTwoBottom {
+  color: #fff;
+  font-size: 28rpx;
+}
+
+#tv_DialogTwoContent_product_name {
+  margin-top: 22rpx;
+  color: #666;
+  font-size: 22rpx;
+}
+
+#iv_DialogTwoContent_code {
+  margin-top: 8rpx;
+  width: 171rpx;
+  height: 179rpx;
+}
+
+#tv_DialogTwoContent_text {
+  margin-top: 12rpx;
+  color: #666;
+  font-size: 22rpx;
+}
+
+.bt_share {
+}
+
+.bt_share::after {
+  border: none;
+}
+
+#v_sheetDialogContentOneThreeOne {
+  display: flex;
+  flex-direction: column;
+}
+
+#tv_sheetDialogContentOneOneShare {
+  margin-top: -6rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+
+/*=============================================申请成为分销商*/
+
+.v_applyFXS {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sv_applyFXS_wraper {
+  width: 100%;
+  flex: 1;
+  margin-bottom: 40px;
+}
+
+.iv_applyFXS_long {
+  width: 100%;
+}
+
+.v_applyFXS_bt {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  background-color: #f3345c;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.tv_applyFXS_bottom {
+  font-size: 32rpx;
+  color: white;
+}

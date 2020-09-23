@@ -1,0 +1,35 @@
+.good{
+    display: inline-flex;
+    flex-direction: column;
+    width: 100rpx;
+    
+
+}
+.photo{
+    width: 50%;
+    height: 100rpx;
+    margin-bottom: 25rpx;
+
+}
+.title{
+    width: 100%;
+    font-weight: bold;
+    font-size: 26rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.price-warpper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.price{
+    color: #F3345C;
+    font-size: 30rpx;
+    font-weight: bold;
+    margin-left: 10rpx;
+}
+.shopImage{
+    margin-right: 10rpx;
+}

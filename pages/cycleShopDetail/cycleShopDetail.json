@@ -1,0 +1,7 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "nav-bar": "/cmps/nav-bar/nav-bar",
+    "shareView": "/cmps/shareView/shareView"
+  }
+}

@@ -1,0 +1,169 @@
+/* pages/userCommentGoodInfo/userCommentGoodInfo.wxss */
+.container{
+width: 100%;
+display: flex;
+flex-direction: column;
+}
+.GoodInfoMiddleItemTop{
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    height: 200rpx;
+
+    align-items: center;
+    }
+    .shopInfoImage{
+    width: 164rpx;
+    height: 164rpx;
+    margin-left: 20rpx;
+    }
+    
+    .goodInfoMiddleRight{
+    height: 164rpx;
+    width: 506rpx;
+    display: flex;
+    margin-left: 20rpx;
+    flex-direction: column;
+    justify-content: space-evenly;
+    }
+    .goodInfoMiddleTitle{
+        font-size: 26rpx;
+        color: #333333;
+        word-break: break-all;
+        width: 90%;
+        height: auto;
+        flex-direction: row;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+    }
+    .activeTitleTip{
+
+        display: inline-block;
+        color: #ffffff;
+        background-color: #FBA72F;
+        font-size: 24rpx;
+        width: 100rpx;
+        margin-right: 20rpx;
+        text-align: center;
+        line-height: 37rpx;
+      }
+      .activeTitleRedeemTip{
+    
+        display: inline-block;
+        color: #ffffff;
+        background-color: #5EA7FD;
+        font-size: 24rpx;
+        width: 100rpx;
+        margin-right: 20rpx;
+        text-align: center;
+        line-height: 37rpx;
+      }
+    .goodInfoMiddleWeight{
+    color: #999999;
+    font-size: 26rpx;
+    height: 37rpx;
+    width: 100%;
+    }
+    .goodInfoMiddleBottom{
+    width: 100%;
+    height: 37rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+    .goodInfoMiddlePrice{
+    color: #F3345C;
+    font-size: 26rpx;
+    height: 37rpx;
+    line-height: 37rpx;
+    }
+    .goodInfoMiddleNum{
+    color: #333333;
+    font-size: 26rpx;
+    height: 37rpx;
+    line-height: 37rpx;
+    margin-right: 20rpx;
+    }
+    .GoodInfoMiddleItemBottom{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 110rpx;
+    display: flex;
+    align-items: flex-end;
+    /* justify-content: end; */
+    }
+    .itemTopLine{
+    background-color: #f7f7f7;
+    width: 100%;
+    height: 2rpx;
+    }
+    .detailText{
+    width: 730rpx;
+    height: 140rpx;
+    font-size: 28rpx;
+    margin-left: 10rpx;
+    margin-top: 20rpx;
+    /* background-color: #F3345C; */
+    }
+  .ImagePloader{
+    width: 100%;
+    display: flex;
+   flex-direction: row;
+   
+} 
+.showImage{
+    width: 200rpx;
+    margin-left: 20rpx;
+    display: flex;
+}
+.upImage{
+    width: 200rpx;
+    position: relative;
+}
+.deleteBtn{
+    position: absolute;
+    right: 0rpx;
+    top: 0rpx;
+}
+
+.ChooseBtnView{
+    width: 140rpx;
+    height: 140rpx;
+    margin-left: 20rpx;
+    margin-top: 20rpx;
+    /* background-color: salmon; */
+}
+.addImage{
+    width: 140rpx;
+    height: 140rpx;
+}
+    
+
+
+
+
+
+
+
+
+    .sureBtn{
+    width: 670rpx;
+    height: 80rpx;
+    margin-left: 40rpx;
+    background-color: #F3345C;
+    color: #f7f7f7;
+    font-size: 36rpx;
+    text-align: center;
+    line-height: 80rpx;
+    border-radius: 10rpx;
+    bottom: 20rpx;
+    /* z-index: 99; */
+    position: fixed;
+    
+    }
+    

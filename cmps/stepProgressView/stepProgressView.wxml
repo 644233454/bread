@@ -1,0 +1,18 @@
+<!--cmps/stepProgressView/stepProgressView.wxml-->
+<view class="containerView">
+    <view class="stepView" wx:if="{{stepArr.length>0}}" wx:for="{{stepArr}}" wx:for-index="index" wx:key="unique">
+        <view class="topView">
+            <view class="DotView">
+                 <view class="DotViewGar"  wx:if="{{ item.selected=='0'}}"></view>
+                 <view class="DotViewRed" wx:if="{{item.selected=='1'}}"></view>
+            </view>
+             <view class="LineView" wx:if="{{index!=stepArr.length-1}}">
+                 <view class="LineViewGar" wx:if="{{ item.selected=='0'}}" ></view>
+                <view class="LineViewRed" wx:if="{{item.selected=='1'}}" ></view>
+             </view>
+        </view>
+         <view class="titleViewGar" wx:if="{{item.selected=='0'}}">{{item.title}}</view>
+        <view class="titleViewRed" wx:if="{{item.selected=='1'}}">{{item.title}}</view>
+    </view>
+</view>
+ 

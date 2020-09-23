@@ -1,0 +1,5 @@
+<nav-bar title="搜索" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+</view>

@@ -1,0 +1,79 @@
+.container{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: flex-end;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.2;
+    overflow: hidden;
+    z-index: 1000;
+    color: #fff;
+}
+.buyBox {
+    width: 100%;
+    height: 335rpx;
+    /* box-sizing: border-box; */
+    position: fixed;
+    /* display: flex; */
+    flex-direction: column;
+    background-color: #F9F6F6;
+    /* justify-content: flex-start; */
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+    /* background: #ffffff; */
+    /* padding: 20rpx; */
+    /* padding-left: 20rpx; */
+    /* overflow: hidden; */
+  }
+.btnView{
+    width: 100%;
+    height: 240rpx;
+    display: flex;
+    position: fixed;
+    bottom: 115rpx;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #F9F6F6;
+
+}
+.itemBtn{
+    height: 100%;
+    /* width: 30%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.btnImage{
+    width: 110rpx;
+    height: 110rpx;
+}
+.btnTitle{
+    color: #333333;
+    font-size: 26rpx;
+    width: 110rpx;
+    height: 30rpx;
+    margin-top: 15rpx;
+    line-height: 30rpx;
+    /* text-align: center; */
+}
+.cancelBtn{
+    width: 100%;
+    height: 95rpx;
+    text-align: center;
+    line-height: 95rpx;
+    color: #333333;
+    font-size: 30rpx;
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;
+}
+
+
+
+

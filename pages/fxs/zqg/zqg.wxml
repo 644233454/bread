@@ -1,0 +1,55 @@
+<nav-bar title="周期购" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+
+  <view class="search-wrapper" id="v_bodyTop">
+    <input confirm-type="search" value="{{couponCode}}" v-model="keyword" placeholder="请输入订单号/商品名" bindconfirm='search_function' class="input_search" bindinput="getInputValue"></input>
+    <icon class="searchcion" size='20' type='search' bindtap="icon_search_function"></icon>
+  </view>
+
+  <view class="v_list">
+    <scroll-view scroll-y="true" style="height:{{sv_Height}}rpx;" bindscrolltolower="bottomRefresh"   class="sv_item" refresher-enabled="{{true}}"
+  refresher-threshold="{{100}}"
+  refresher-triggered="{{triggered}}"
+  bindrefresherpulling="onPulling"
+  bindrefresherrefresh="onRefresh"
+  bindrefresherrestore="onRestore"
+  bindrefresherabort="onAbort">
+
+      <block wx:for="{{listData}}" wx:key="index">
+        <view class='v_item' bindtap="v_item_itemOnClick" data-index="{{item}}">
+          <view class="v_item_top">
+            <view class="v_item_top_left">
+              <image mode="widthFix" src="/assets/imgs/zqg.png" class="iv_MallLogo"></image>
+              <text class="tv_MallName">方晴面包坊</text>
+              <image mode="widthFix" src="" class="iv_enterMall"></image>
+            </view>
+            <view class="v_item_top_right">
+              <text class="tv_ProdectType">{{item.status=='FINISH'?item.statusDes:item.deliveryDate}}</text>
+            </view>
+          </view>
+          <text class="tv_ProductNumber">订单编号：{{item.orderNum}}</text>
+          <view class="v_item_bottom">
+            <image mode="scaleToFill" src="{{item.imgUrl}}" class="iv_ProductLogo"></image>
+            <view class="v_item_bottom_right">
+              <view class="v_item_bottom_right_Line1">
+                <view class="v_item_bottom_right_Line1_left">
+                  <text class="tv_ZQG_bg">周期购</text>
+                  <text class="tv_productName">{{item.name}}</text>
+                </view>
+                <text class="tv_ProdectTimes"></text>
+              </view>
+              <text class="tv_ZQG_ticket_code">周期购券码：{{item.couponCode}}</text>
+              <text class="tv_ZQG_progress">周期购进度：{{item.progress
+}}</text>
+            </view>
+
+          </view>
+        </view>
+      </block>
+      <view class="v_loadingComplete" hidden="{{!loadingComplete}}">已加载全部</view>
+    </scroll-view>
+  </view>
+
+</view>

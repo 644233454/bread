@@ -1,0 +1,146 @@
+page {
+  background-color: #f7f7f6;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/*========================*/
+
+.v_item {
+  background-color: white;
+  width: 690rpx;
+  margin-top: 20rpx;
+  height: 238rpx;
+  border-radius: 15rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_item_line1 {
+  width: 100%;
+  height: 65rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.v_item_line2 {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.v_item_line3 {
+  width: 100%;
+  height: 33rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.v_item_line4 {
+  width: 100%;
+  height: 49rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.tv_item_deliverTime {
+  margin-left: 26rpx;
+  margin-top: 17rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.tv_item_deliverQi {
+  margin-right: 26rpx;
+  margin-top: 7rpx;
+  color: #f3345c;
+  font-size: 28rpx;
+}
+
+.iv_ProductPic {
+  height: 100rpx;
+  width: 100rpx;
+  margin-left: 26rpx;
+  background-color: #d8d8d8;
+}
+
+.v_item_line2_right {
+  margin-left: 20rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.v_item_line2_right_top {
+  display: flex;
+  flex-direction: row;
+  height: 38rpx;
+}
+
+.v_item_line2_right_bottom {
+  display: flex;
+  flex-direction: row;
+  margin-top: 17rpx;
+  justify-content: space-between;
+}
+
+.tv_item_zqgText {
+  width: 96rpx;
+  height: 38rpx;
+  background-color: #fba72f;
+  color: white;
+  font-size: 24rpx;
+  line-height: 38rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.tv_item_ProductName {
+  margin-left: 10rpx;
+  color: #333;
+  font-size: 26rpx;
+  font-weight: bold;
+  text-overflow: ellipsis; /**超出文字用省略号代替**/
+  overflow: hidden; /**多出不分隐藏**/
+  -webkit-line-clamp: 1; /**设定行数为1**/
+}
+
+.tv_item_rate {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.tv_item_ProductTimes {
+  color: #999;
+  font-size: 24rpx;
+  padding-right: 26rpx;
+}
+
+.tv_item_price {
+  color: #999;
+  font-size: 25rpx;
+  padding-right: 26rpx;
+}
+
+.tv_item_yj {
+  color: #333;
+  font-size: 24rpx;
+  padding-right: 26rpx;
+  font-weight: bold;
+}

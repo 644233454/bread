@@ -1,0 +1,190 @@
+Page{
+    background-color: #F7F7F6;
+}
+.container{
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+
+
+}
+.nameView{
+    display: flex;
+    width: 100%;
+    height: 87rpx;
+    align-items: center;
+}
+.nameTip{
+    color: #000000;
+    font-size: 28rpx;
+    width: 130rpx;
+    margin-left: 20rpx;
+}
+.nameInput{
+    width: 500rpx;
+    margin-left: 80rpx;
+}
+.inputPlaceholder{
+    color: #B2B2B2;
+    font-size: 28rpx;
+}
+.telView{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 87rpx; 
+}
+.telViewTopLine{
+    background-color: #E5E5E5;
+    width: 100%;
+    margin-left: 20rpx;
+    height: 2rpx;
+}
+.telViewInfo{
+    display: flex;
+    width: 100%;
+    height: 87rpx;
+    align-items: center;
+}
+.telViewTip{
+    color: #000000;
+    font-size: 28rpx;
+    width: 130rpx;
+    margin-left: 20rpx;
+}
+.telInput{
+    width: 500rpx;
+    margin-left: 80rpx;
+}
+.telViewBottomLine{
+    background-color: #E5E5E5;
+    width: 100%;
+    margin-left: 20rpx;
+    height: 2rpx;
+}
+.cityView{
+    display: flex;
+    width: 100%;
+    height: 87rpx;
+    align-items: center;
+}
+.cityViewTip{
+    color: #000000;
+    font-size: 28rpx;
+    width: 130rpx;
+    line-height: 20;
+    margin-left: 20rpx;
+}
+
+.pickView{
+    width: 520rpx;
+    margin-left: 80rpx;
+    /* align-items: center; */
+    display: flex;
+}
+.picker.default{
+        width: 520rpx;
+        height: 87rpx;
+        color: #B2B2B2;
+        font-size: 28rpx;
+        line-height: 87rpx;
+}
+/* value */
+.picker.value{
+     width: 520rpx;
+     height: 87rpx;
+     color: #333333;
+     font-size: 28rpx;
+     line-height: 87rpx;
+}
+
+.addressView{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.addressViewTopLine{
+    
+    background-color: #E5E5E5;
+    width: 100%;
+    height: 2rpx;
+}
+.addressViewInfo{
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+   
+}
+.addressViewInfoTip{
+    color: #000000;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+    margin-top: 20rpx;
+    height: 100rpx;
+    width: 130rpx;
+}
+.detailTextIos{
+    /* display: block; */
+    width: 500rpx;
+    height: 100rpx;
+    font-size: 28rpx;
+    margin-left: 80rpx;
+    margin-top: 6rpx;
+}
+.detailTextOther{
+    /* display: block; */
+    width: 500rpx;
+    height: 100rpx;
+    font-size: 28rpx;
+    margin-left: 80rpx;
+    margin-top: 20rpx;
+}
+.switchView{
+    width: 100%;
+    height: 88rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    margin-top: 20rpx;
+}
+.switchTip{
+    color: #000000;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+}
+.switchValue{
+    width: 80rpx;
+    /* height: 100%; */
+    margin-right: 40rpx;
+}
+
+.btnView{
+    /* width: 100%; */
+   background-color: #F3345C;
+   color: #ffffff;
+   font-size: 32rpx;
+   height: 94rpx;
+   line-height: 94rpx;
+   text-align: center;
+   border-radius: 10rpx;
+   margin: 80rpx 30rpx;
+}
+.detailText{
+
+}
+.btnDeteleView{
+    background-color: #ffffff;
+    color: #F3345C;
+    font-size: 32rpx;
+    border: 2rpx solid #F3345C;
+    height: 94rpx;
+    line-height: 94rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    margin: 80rpx 30rpx;
+
+}
+

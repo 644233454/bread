@@ -1,0 +1,193 @@
+<nav-bar title="分销中心" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="false" home="false">
+</nav-bar>
+
+<loading wx:if="{{showLoading}}">
+  加载中...
+</loading>
+
+<!--一开始longBG是空就会优先加载此页面，就会显得突兀-->
+<view class="container" wx:if="{{userInfo.roleId!='1'&& showMainPage}}">
+  <view class="v_top" style="height:{{userInfo.isInActivity?310:170}}rpx;">
+    <image src="{{topBg}}" class="iv_topBg" />
+    <image src="{{topBgDefaultPortrait}}" mode="widthFix" id="iv_top_bg_default_portrait" bindtap="iv_top_DefaultPortrait_onClick"></image>
+    <text id="tv_top_default_name">{{topBgDefaultName}}</text>
+    <view class="v_top_star">
+      <block wx:for="{{userInfo.star}}" wx:key="index">
+        <image mode="widthFix" id="iv_top_star" src="{{topBgStar}}"></image>
+      </block>
+    </view>
+    <text id="tv_top_generalize_commission">{{userInfo.commission*100}}%</text>
+    <text id="tv_top_generalize_commission_Text">推广佣金</text>
+    <!--wx:if="{{userInfo.isInActivity}}"-->
+    <view id="v_limitTime_task_award" bindtap="v_limitTime_task_award_Click" wx:if="{{false}}">
+      <text id="tv_top_limitTime_task_award">限时任务奖励</text>
+      <image src="{{topBgTip}}" mode="widthFix" id="iv_top_bg_tip"></image>
+    </view>
+    <text id="tv_top_end_time" wx:if="{{userInfo.isInActivity}}">{{nextActivityRewardText}}</text>
+
+    <!--指示器-->
+    <view class="v_indicator" wx:if="{{userInfo.isInActivity}}">
+      <view class="v_indicator_top">
+        <text style="height:38rpx;width:100rpx;color:#FFFFFF;font-size:20rpx;display:flex;justify-content:center;align-items:center;margin-left:{{indicatorPercent*576}}rpx;">{{indicatorCurrentValue}}</text>
+      </view>
+      <view class="v_indicator_center">
+        <view style="heigh:20rpx;width:596rpx; display:flex;flex-direction:row;align-items:center;justify-content:space-between;">
+          <block wx:for="{{indicatorBottom.length*2-1}}" wx:key="index">
+            <view style="width:{{index%2==0?20:(596-20*indicatorBottom.length)/(indicatorBottom.length-1)+2}}rpx;height:{{index%2==0?20:8}}rpx;border-radius:{{index%2==0?10:0}}rpx;background-color:{{'#ffffff'}};opacity:{{index<=indicatorIndex?1:index%2==0?0.8:0.6}};"></view>
+          </block>
+        </view>
+        <view style="height:20rpx;width:{{596*indicatorPercent}}rpx;position:absolute;display:flex;align-items:center;">
+          <canvas canvas-id="myCanvas" style="height:20rpx; width:{{596*indicatorPercent}}rpx" />
+        </view>
+      </view>
+      <view class="v_indicator_bottom">
+        <block wx:for="{{indicatorBottom}}" wx:key="index">
+          <text style="height:38rpx;width:100rpx;color:#FFFFFF;font-size:20rpx; text-align:center;display:flex;justify-content:center;align-items:center;">{{item}}</text>
+        </block>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+  <view class="v_property">
+    <view style="height:45rpx;width:690rpx;box-sizing:border-box;display:flex;flex-direction:row;justify-content:space-between;padding-left:26rpx;padding-right:15rpx;margin-top:20rpx;align-items:center;">
+    <view>
+      <text style="color:#333333;font-size:32rpx;">我的资产</text>
+      <image src="{{propertyEye?propertyEyeOpen:propertyEyeClose}}" mode="widthFix" bindtap="iv_property_eye_click" style="width:66rpx;height:45rpx;padding-left:16rpx;padding-right:16rpx;box-sizing:border-box;"></image>
+      </view>
+      <text style="color:#F3355C;font-size:21rpx;" wx:if="{{userInfo.isLastDay}}">今天是提现截止日期，别忘记提现哦！</text>
+    </view>
+    <view style="height:55rpx;width:690rpx;box-sizing:border-box;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;margin-top:14rpx;padding-left:26rpx;padding-right:43rpx;">
+      <text style="color:#333333;font-size:42rpx;">{{propertyEye?userInfo.balance:"***"}}</text>
+      <view style="height:55rpx;width:103rpx;color:#ffffff;font-size:24rpx;background-color:#FF4258;border-radius:5rpx;display:flex;justify-content:center;align-items:center;" bindtap="bt_v_property_tipClick">提现</view>
+    </view>
+  </view>
+
+  <view></view>
+
+  <view class="v_earnings" bindtap="v_earings_statistics_onClick" style="top:{{userInfo.isInActivity?-96:0}}rpx;">
+    <text id="tv_earningsText">我的收益</text>
+    <text id="tv_earningsAccumulate">{{userInfo.totalIncome}}</text>
+    <text id="tv_earningsAccumulateText">{{userInfo.roleId!="2"?"累计分销商收益":"累计销售员收益"}}</text>
+    <view class="v_earningsOrder" catchtap="v_earningsOrder_click">
+      <text id="tv_earningsOrder">{{userInfo.totalOrderCount}}</text>
+      <text id="tv_earningsOrderText">累计订单</text>
+    </view>
+    <view class="v_earningsClient" catchtap="v_earningsClient_click">
+      <text id="tv_earningsClient">{{userInfo.totalCustomer}}</text>
+      <text id="tv_earningsClientText">累计客户</text>
+    </view>
+    <text id="tv_earningsNotInclude">未含待结算{{userInfo.toSettelIncome}}元</text>
+    <view id="v_earningsLine"></view>
+    <text id="tv_earningsToday">{{userInfo.todayIncome}}</text>
+    <text id="tv_earningsTodayText">今日收益</text>
+    <text id="tv_earningsTodayOrder">{{userInfo.todayOrderCount}}</text>
+    <text id="tv_earningsTodayOrderText">今日订单</text>
+    <text id="tv_earningsTodayNewClient">{{userInfo.todayCustomer}}</text>
+    <text id="tv_earningsTodayNewClientText">今日新增客户</text>
+  </view>
+
+  <!--销售员不能邀请销售员-->
+  <view class="v_salesman" bindtap="v_salesman_onClick" wx:if="{{userInfo.roleId!='2'}}">
+    <text id="tv_salesmanText">我的销售员</text>
+    <text id="tv_salesmanEarnings">{{userInfo.sellerTotalIncome}}</text>
+    <text id="tv_salesmanEarningsText">累计销售员收益</text>
+    <text id="tv_salesmanOrder">{{userInfo.sellerOrderCount}}</text>
+    <text id="tv_salesmanOrderText">累计订单</text>
+    <text id="tv_salesmanClient">{{userInfo.sellerCount}}</text>
+    <text id="tv_salesmanClientText">累计销售员</text>
+    <text id="tv_salesmanNotInclude">未含待结算{{userInfo.sellerToSettleIncome}}元</text>
+  </view>
+
+  <view class="v_bottom">
+    <view class="v_bottomGeneralize" bindtap="v_generalize_onClick">
+      <image mode="widthFix" src="{{bottomGeneralize}}" class="iv_bottom_bg"></image>
+      <text class="tv_botton">推广商品</text>
+    </view>
+    <!--销售员不能邀请销售员-->
+    <view class="v_bottomGeneralize" bindtap="v_invite_onClick" wx:if="{{userInfo.roleId!='2'}}">
+      <image mode="widthFix" src="{{bottomInvite}}" class="iv_bottom_bg"></image>
+      <text class="tv_botton">邀请销售员</text>
+    </view>
+    <view class="v_bottomGeneralize" bindtap="v_income_expenses_onClick">
+      <image mode="widthFix" src="{{bottomDetail}}" class="iv_bottom_bg"></image>
+      <text class="tv_botton">收入明细</text>
+    </view>
+    <view class="v_bottomGeneralize" bindtap="v_withdraw_record_onClick">
+      <image mode="widthFix" src="{{bottomWithdrawRecord}}" class="iv_bottom_bg"></image>
+      <text class="tv_botton">提现记录</text>
+    </view>
+  </view>
+
+
+
+
+
+
+  <view hidden="{{sheetDialogHidden}}" class="v_sheetDialog" catchtouchmove="{{sheetDialogMove}}" bindtap="v_sheetDialog_click">
+    <view id="v_sheetDialogContent">
+      <view id="v_sheetDialogContentOne">
+        <view id="v_sheetDialogContentOneOne" catchtap="v_sheetDialogContentOneOne_click">
+          <image src="{{sheetDialogBgOne}}" mode="widthFix" id="iv_sheetDialogContentOneOne"></image>
+          <text id="tv_sheetDialogContentOneOne">小程序码</text>
+        </view>
+        <!--catchtap="v_sheetDialogContentOneThree_click"-->
+        <view id="v_sheetDialogContentOneThree">
+          <button open-type="share" class="bt_share">
+            <view id="v_sheetDialogContentOneThreeOne">
+              <image src="{{sheetDialogBgThree}}" mode="widthFix" id="iv_sheetDialogContentOneOne"></image>
+              <text id="tv_sheetDialogContentOneOneShare">分享链接</text>
+            </view>
+          </button>
+        </view>
+        <view id="v_sheetDialogContentOneTwo" catchtap="v_sheetDialogContentOneTwo_click">
+          <image src="{{sheetDialogBgTwo}}" mode="widthFix" id="iv_sheetDialogContentOneOne"></image>
+          <text id="tv_sheetDialogContentOneOne">图文二维码</text>
+        </view>
+
+      </view>
+      <view id="v_sheetDialogContentTwo" catchtap="v_sheetDialogContent_cancel_click" open-type="share">
+        <text id="tv_sheetDialogContentCancel">取消</text>
+      </view>
+    </view>
+  </view>
+
+  <view hidden="{{DialogOneHidden}}" class="v_DialogOne" catchtouchmove="{{DialogOneMove}}" bindtap="v_DialogOne_click">
+    <image src="{{DialogOne_dismissBg}}" mode="widthFix" id="iv_DialogOne_dismiss"></image>
+    <view id="v_DialogOneContent" bindlongpress="v_DialogOneContent_lonePress">
+      <image src="{{DialogxcxmUrl}}" mode="widthFix" id="iv_DialogOneContent_BG"></image>
+    </view>
+    <view id="v_DialogOneBottom">
+      <image id="iv_DialogOneBottom" src="{{DialogOne_print}}"></image>
+      <text id="tv_DialogOneBottom">长按图片保存至相册</text>
+    </view>
+  </view>
+
+  <view hidden="{{DialogTwoHidden}}" class="v_DialogTwo" catchtouchmove="{{DialogTwoMove}}" bindtap="v_DialogTwo_click">
+    <image src="{{DialogOne_dismissBg}}" mode="widthFix" id="iv_DialogTow_dismiss"></image>
+    <view id="v_DialogTwoContent" bindlongpress="v_DialogTwoContent_lonePress">
+      <image src="{{DialogData.imgUrl}}" mode="widthFix" id="iv_DialogTwoContent_BG"></image>
+      <view id="tv_DialogTwoContent_product_name">{{DialogData.productName}}</view>
+      <image src="{{DialogxcxmUrl}}" mode="widthFix" id="iv_DialogTwoContent_code"></image>
+      <view id="tv_DialogTwoBottom" id="tv_DialogTwoContent_text">长按识别二维码</view>
+    </view>
+    <view id="v_DialogTwoBottom">
+      <image id="iv_DialogTwoBottom" src="{{DialogOne_print}}"></image>
+      <text id="tv_DialogTwoBottom">长按图片保存至相册</text>
+    </view>
+  </view>
+
+</view>
+
+
+<view class="v_applyFXS" wx:if="{{userInfo.roleId=='1'}}">
+  <scroll-view scroll-y class="sv_applyFXS_wraper">
+    <image class="iv_applyFXS_long" mode="widthFix" src="{{longBG}}"></image>
+  </scroll-view>
+  <view class="v_applyFXS_bt" bindtap="v_applyFXS_bt">
+    <text class="tv_applyFXS_bottom">{{applyButtonText}}</text>
+  </view>
+</view>

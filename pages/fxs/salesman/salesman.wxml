@@ -1,0 +1,76 @@
+<nav-bar title="销售员统计" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+  <view class="search-wrapper">
+    <input confirm-type="search" v-model="keyword" placeholder="请输入手机号搜索" bindconfirm='search_function' class="input_search" bindinput="getInputValue"></input>
+    <icon class="searchcion" size='20' type='search' bindtap="icon_search_function"></icon>
+  </view>
+
+  <view class="v_tab" id="v_bodyTop">
+    <view class="v_all" bindtap="v_TabAll_onclick">
+      <view class="v_TabWrap" style="background-color:{{TabSelected==0?TabSelectedBGColor:TabUnSelectedBGColor}}">
+        <text id="tv_all" style="color:{{TabSelected==0?TabSelectedColor:TabUnSelectedColor}}">{{tabAll}}</text>
+      </view>
+    </view>
+    <view class="v_fivestar" bindtap="v_TabFiveStar_onclick">
+      <view class="v_TabWrap" style="background-color:{{TabSelected==1?TabSelectedBGColor:TabUnSelectedBGColor}}">
+        <text id="tv_fivestar" style="color:{{TabSelected==1?TabSelectedColor:TabUnSelectedColor}}">{{tabFiveStar}}</text>
+      </view>
+    </view>
+    <view class="v_fourstar" bindtap="v_TabFourStar_onclick">
+      <view class="v_TabWrap" style="background-color:{{TabSelected==2?TabSelectedBGColor:TabUnSelectedBGColor}}">
+        <text id="tv_fourstar" style="color:{{TabSelected==2?TabSelectedColor:TabUnSelectedColor}}">{{tabFourStar}}</text>
+      </view>
+    </view>
+    <view class="v_threestar" bindtap="v_TabThreeStar_onclick">
+      <view class="v_TabWrap" style="background-color:{{TabSelected==3?TabSelectedBGColor:TabUnSelectedBGColor}}">
+        <text id="tv_threestar" style="color:{{TabSelected==3?TabSelectedColor:TabUnSelectedColor}}">{{tabThreeStar}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="v_tabContent">
+    <scroll-view style="height:{{sv_Height}}rpx;" scroll-y="true" bindscrolltolower="bottomRefresh" class="sv_item">
+
+      <view id="v_listHead">
+        <text id="tv_listHeadOne">共</text>
+        <text id="tv_listHeadSalesmanNumber">{{listData.length}}</text>
+        <text id="tv_listHeadTwo">个销售员</text>
+      </view>
+      <view class="v_tabContentList">
+        <block wx:for="{{listData}}" wx:key="index">
+          <view class='v_item' bindtap="v_item_itemAllOnClick">
+            <image id="iv_userAvatar" mode="scaleToFill" src="{{item.imgUrl}}"></image>
+            <view id="v_userType" wx:if="{{flase}}">
+              <text id="tv_userTypeText">{{typeText}}</text>
+            </view>
+            <text id="tv_userName">{{item.nickName}}</text>
+            <view id="v_starWrap">
+              <block wx:for="{{item.star}}" wx:key="index">
+                <image id="iv_star" mode="scaleToFill" src="{{star}}"></image>
+              </block>
+            </view>
+            <text id="tv_userPhone">手机号：{{item.phone}}</text>
+            <view id="v_firstRow">
+              <text class="tv_text">累计收益：</text>
+              <text class="tv_textChange">{{item.totalIncome}}</text>
+              <text class="tv_text" id="tv_text_accumulateCustomer">累计客户：</text>
+              <text class="tv_textChange">{{item.totalCustomer}}</text>
+            </view>
+            <view id="v_secondRow">
+              <text class="tv_text" id="tv_text_generalizeOrder">推广订单：</text>
+              <text class="tv_textChange">{{item.totalCustomerOrder}}</text>
+            </view>
+            <view id="v_call" bindtap="v_contactTA_click" data-index="{{item}}">
+              <text id="tv_callText">联系TA</text>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="v_loading" hidden="{{!loading}}">正在载入更多...</view>
+      <view class="v_loadingComplete" hidden="{{!loadingComplete}}">已加载全部</view>
+    </scroll-view>
+  </view>
+
+</view>

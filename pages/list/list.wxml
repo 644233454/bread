@@ -1,0 +1,154 @@
+
+    <nav-bar bind:backTap="back" 
+            bind:homeTap="home"
+            back = "false"
+            home = "false"
+            title="好货">
+        </nav-bar>
+
+    <view class="search-wrapper" bind:tap="searchGoods">
+                <view class="search">
+                    <image src="/assets/imgs/ic_search.png" />
+                    请输入搜索商品
+                </view>
+    </view>
+     <view class="goodTop">
+                <view class="lineWhileView"></view>
+                <view class="title-wrapper">
+                    <view class="tipLine"></view>
+                    <view class="topTitle">全部商品</view>
+                </view>
+            </view>
+    <scroll-view class="scrollerView" style="height:{{scrollerVieHight}}px;" scroll-y="{{true}}" bindscrolltolower="searchScrollLower">
+        
+        <view class="goods" style="min-height:{{scrollerVieHight}}px;">
+                <view class="good" wx:for="{{goodsList}}" bind:tap="goodDetail" data-itemindex = "{{index}}" wx:key="unique">
+                    <image class="shopInfoImage" src="{{item.imgUrl}}" mode="aspectFit" />
+                    <view class="activeTitleTip" wx:if="{{item.productType =='PERIOD'}}"> 周期购 </view>
+                    <view class="title">{{item.productName}}</view>
+                    <view class="price-wapper">
+                        <view class="price">￥{{item.lowPrice}}</view>
+                        <image class="shopImage" src="/assets/imgs/shopImage.png" catchtap='showBuyModal' data-itemindex = "{{index}}"/>
+                    </view>
+                </view>      
+        </view>
+         <!-- <view class="bottomView">
+                    <view class="bottomTopTip">臻于至善·致于千里</view>
+                    <view class="bottomTopTip">—— Reach Extreme Rice ——</view>
+         </view> -->
+
+        
+         </scroll-view>
+ 
+<!-- 点击立即购买 弹出购买遮罩层 -->
+<view class="cover_screen" bindtap="hideBuyModal" wx:if="{{showModalStatus}}"></view>
+<!-- 点击立即购买 弹窗 -->
+<view animation="{{animationData}}" class="buyBox" wx:if="{{showModalStatus}}">
+        <view class="top">
+                <view class="topLeft">
+                    <image class="SmallImage" src="{{chooseItemDic.imgUrl}}"/>
+                    <view class="topLeftInfo">
+                         <view class="buyBoxTitle">{{name}}</view>
+                         <view class="buyBoxPrice">￥{{chooseItemDic.price}}</view>
+                         <view class="remainCountView">库存:{{chooseItemDic.remainCount}}件</view>
+                    </view>
+                 </view>
+                 <view class="topRight" bindtap="hideBuyModal">
+                    <image class="disMissImage" src="/assets/imgs/disMissImage.png"/>
+                 </view>
+        </view>
+         <view class="middle" wx:if="{{type =='PERIOD'}}">
+                 <view class="middleTopLine"></view>
+                 <view class="middleTip">周期购规格:</view>
+                 <view class="middleChoose">
+                         <view class ="chooseSizeView" wx:for="{{goodChooseSizeArr}}" bind:tap="chooseSize" data-itemindex = "{{index}}" data-item = "{{item}}" wx:key="unique">
+                                 <view class="chooseSizeSelected" wx:if="{{item.selected}}">{{item.periodsDes}}</view>
+                                 <view class="chooseSizeNormal" wx:else >{{item.periodsDes}}</view>
+                         </view>
+                 </view>
+
+                 <view class="timesTip">发货时间:
+                     <view class="timesVlaue">{{chooseItemDic.deliveryPeriodDes}},共{{chooseItemDic.periodsDes}}</view>
+                 </view>
+
+                
+                 
+                 <view class="timesChoose">
+                         <view class ="timesSizeView" wx:for="{{goodTimesChooseSizeArr}}" bind:tap="chooseTimes" wx:for-item="priodItem" data-itemindex = "{{index}}" data-item = "{{item}}" wx:key="unique">
+                                 <view class="timesSizeSelected" wx:if="{{priodItem.selected}}">{{priodItem.title}}</view>
+                                 <view class="timesSizeNormal" wx:else >{{priodItem.title}}</view>
+                         </view>  
+                 </view>
+                 <view class="middleBottomLine"></view>
+        </view>
+        <view class="middle" wx:if="{{type =='NORMAL'}}">
+                 <view class="middleTopLine"></view>
+                 <view class="middleTip">规格:</view>
+                 <view class="middleChoose">
+                         <view class ="chooseSizeView" wx:for="{{goodChooseSizeArr}}" bind:tap="chooseNormalSize" data-itemindex = "{{index}}" wx:key="unique">
+                                 <view class="chooseSizeSelected" wx:if="{{item.selected}}">{{item.value}}</view>
+                                 <view class="chooseSizeNormal" wx:else >{{item.value}}</view>
+                         </view>
+                 </view>
+                 <view class="middleBottomLine"></view>
+        </view>
+        <view class="bottom">
+                <view class="tip">购买数量
+                </view>
+                <view class="bottomRight">
+                    <view class="reduce" bind:tap="reduceNum">-</view>
+                    <view class="num">{{userBuyGoodNum}}</view>
+                    <view class="add" bind:tap="addNum">+</view>
+                </view>
+        </view>
+
+         <view class="btnView" wx:if="{{type =='NORMAL'}}">
+                 <view class="addShoping" bindtap='goToCar' >加入购物车</view>
+                 <view class="buyShoping" bindtap='buyShoping'>立即购买</view>
+         </view> 
+         <view class="btnView" wx:if="{{type =='PERIOD'}}">
+                 <view class="periodBuyShoping" bindtap='buyBoxShoping'>立即购买</view>
+         </view> 
+
+
+
+        <!-- <view class="top">
+                <view class="topLeft">
+                    <image class="SmallImage" src="{{topImage}}"/>
+                    <view class="topLeftInfo">
+                         <view class="buyBoxTitle">{{name}}</view>
+                         <view class="buyBoxPrice">￥{{chooseItemDic.price}}</view>
+                    </view>
+                 </view>
+                 <view class="topRight" bindtap="hideBuyModal">
+                    <image class="disMissImage" src="/assets/imgs/disMissImage.png"/>
+                 </view>
+        </view>
+         <view class="middle">
+                 <view class="middleTopLine"></view>
+                 <view class="middleTip">规格:</view>
+                 <view class="middleChoose">
+                         <view class ="chooseSizeView" wx:for="{{goodChooseSizeArr}}" bind:tap="chooseSize" data-itemindex = "{{index}}" wx:key="unique">
+                                 <view class="chooseSizeSelected" wx:if="{{item.selected}}">{{item.value}}</view>
+                                 <view class="chooseSizeNormal" wx:else >{{item.value}}</view>
+                         </view>
+                 </view>
+                 <view class="middleBottomLine"></view>
+        </view>
+        <view class="bottom">
+                <view class="tip">购买数量
+                </view>
+                <view class="bottomRight">
+                    <view class="reduce" bind:tap="reduceNum">-</view>
+                    <view class="num">{{userBuyGoodNum}}</view>
+                    <view class="add" bind:tap="addNum">+</view>
+                </view>
+        </view>
+         <view class="remainCountView">剩余库存:{{chooseItemDic.remainCount}}件</view>
+         <view class="btnView">
+                 <view class="addShoping" bindtap='goToCar'>加入购物车</view>
+                 <view class="buyShoping" bindtap='buyShoping'>立即购买</view>
+         </view>  -->
+</view>
+
+<image class="goToShopImage" src="/assets/imgs/homeGoToShop.png" mode="widthFix" bind:tap="goToShop"/>

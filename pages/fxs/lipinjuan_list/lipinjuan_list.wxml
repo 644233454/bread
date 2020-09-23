@@ -1,0 +1,89 @@
+<nav-bar title="礼品券" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+
+  <!--tab-->
+  <view style="width:750rpx;height:40px;display:flex;flex-direction:column;" id="v_bodyTop">
+    <view style="width:750rpx;height:1rpx;background-color:#E8E8E8;"></view>
+    <view style="width:750rpx;background-color:white;display:flex;flex: 1 1 auto;">
+      <view style="height:72rpx;width:375rpx;display:flex;justify-content:center;align-items:center;" bindtap="showTabOne">
+        <text style="color:{{TabSelectedIndex==0?TabSelectedTextColor:TabUnSelectedTextColor}};font-size:22rpx;">{{TabOneText[TabOneSelectedIndex]}}</text>
+        <image src="{{TabSelectedIndex==0?TabSelectedArrowBg:TabUnSelectedArrowBg}}" mode="widthFix" style="width:20rpx;height:10rpx;margin-left:39rpx;"></image>
+      </view>
+      <view style="height:72rpx;width:375rpx;display:flex;justify-content:center;align-items:center;" bindtap="showTabTwo">
+        <text style="color:{{TabSelectedIndex==1?TabSelectedTextColor:TabUnSelectedTextColor}};font-size:22rpx;">{{TabTwoText[TabTwoSelectedIndex]}}</text>
+        <image src="{{TabSelectedIndex==1?TabSelectedArrowBg:TabUnSelectedArrowBg}}" mode="widthFix" style="width:20rpx;height:10rpx;margin-left:39rpx;"></image>
+      </view>
+    </view>
+  </view>
+
+  <!--list-->
+  <view style="height:100%;width:100%;display:flex;flex-direction:column;margin-top:8rpx;">
+    <scroll-view style="height:{{sv_Height}}rpx;" scroll-y="true" bindscrolltolower="bottomRefresh">
+      <block wx:for="{{listData}}" wx:key="index">
+        <view style="width:686rpx;height:350rpx;margin-left:32rpx;margin-top:20rpx;border-radius:20rpx;background-color:white;display:flex;flex-direction:column;" bindtap="itemOnClick" data-index="{{item}}">
+          <image style="width:686rpx;height:350rpx;position:absolute;z-index:0;" mode="widthFix" src="{{item.bgUrl}}"></image>
+          <text style="position:absolute;color:#333333;font-size:22rpx;margin-top:27rpx;margin-left:30rpx;">券码：{{item.code}}</text>
+          <text style="position:absolute;color:#333333;font-size:32rpx;margin-top:69rpx;font-weight:bold;margin-left:30rpx;">{{item.name}}</text>
+          <text style="position:absolute;color:#333333;font-size:24rpx;margin-top:122rpx;margin-left:30rpx;">{{item.productName}} x{{item.productNumber}}</text>
+          <text style="position:absolute;color:#666666;font-size:24rpx;margin-top:292rpx;margin-left:30rpx;">有效期：{{item.beginDateTime}} 至 {{item.endDateTime}}</text>
+          <text wx:if="{{item.status=='UNUSED'}}" style="position:absolute;color:white;font-size:24rpx;width:120rpx;height:52rpx;margin-top:280rpx;margin-left:540rpx;background-color:#F3345C;display:flex;justify-content:center;align-items:center;border-radius:26rpx;">去使用</text>
+
+        </view>
+      </block>
+      <view wx:if="{{loading}}" style="width:750rpx;height:100rpx;display:flex;justify-content:center;align-items:center;">正在载入更多...</view>
+      <view wx:if="{{loadingComplete}}" style="width:750rpx;height:100rpx;display:flex;justify-content:center;align-items:center;">已加载全部</view>
+    </scroll-view>
+  </view>
+
+
+  <!--类型Tab弹框-->
+  <view style="top:{{navigationBarHeight+40}}px;display:flex;flex-direction:column;width:100%;height:100%;position:fixed;" wx:if="{{!TabOneHidden}}">
+    <view style="height:1rpx;width:750rpx;background-color:#E8E8E8;"></view>
+    <view style="width:750rpx;height:140rpx;background-color:white;display:flex;align-items:center;">
+      <view style="width:212rpx;height:72rpx;background-color:{{TabOneSelectedIndex==0?'':'#f5f5f5'}};margin-left:32rpx;display:flex;justify-content:center;align-items:center;" bindtap="TabOneOne">
+        <text style="font-size:28rpx;color:{{TabOneSelectedIndex==0?'#F3345C':'#000000'}};position: absolute;">{{TabOneText[0]}}</text>
+        <image mode="widthFix" src="{{tabBg}}" wx:if="{{TabOneSelectedIndex==0}}" style="width:212rpx;height:72rpx;"></image>
+      </view>
+      <view style="width:212rpx;height:72rpx;background-color:{{TabOneSelectedIndex==1?'':'#f5f5f5'}};margin-left:32rpx;display:flex;justify-content:center;align-items:center;" bindtap="TabOneTwo">
+        <text style="font-size:28rpx;color:{{TabOneSelectedIndex==1?'#F3345C':'#000000'}};position: absolute;">{{TabOneText[1]}}</text>
+        <image mode="widthFix" src="{{tabBg}}" wx:if="{{TabOneSelectedIndex==1}}" style="width:212rpx;height:72rpx;"></image>
+      </view>
+    </view>
+    <view style="opacity:0.5;background-color:black;width:750rpx;flex: 1 1 auto;" bindtap="Tab1Blank"></view>
+  </view>
+
+
+  <!--状态Tab弹框-->
+  <view style="top:{{navigationBarHeight+40}}px;display:flex;flex-direction:column;width:100%;height:100%;position:fixed;" wx:if="{{!TabTwoHidden}}">
+    <view style="height:1rpx;width:750rpx;background-color:#E8E8E8;"></view>
+    <view style="background-color:white;width:750rpx;height:237rpx;">
+      <view style="width:750rpx;height:104rpx;display:flex;align-items:flex-end;">
+        <view style="width:212rpx;height:72rpx;background-color:{{TabTwoSelectedIndex==0?'':'#f5f5f5'}};margin-left:32rpx;display:flex;justify-content:center;align-items:center;" bindtap="TabTwoOne">
+          <text style="font-size:28rpx;color:{{TabTwoSelectedIndex==0?'#F3345C':'#000000'}};position: absolute;">{{TabTwoText[0]}}</text>
+          <image mode="widthFix" src="{{tabBg}}" wx:if="{{TabTwoSelectedIndex==0}}" style="width:212rpx;height:72rpx;"></image>
+        </view>
+
+        <view style="width:212rpx;height:72rpx;background-color:{{TabTwoSelectedIndex==1?'':'#f5f5f5'}};margin-left:32rpx;display:flex;justify-content:center;align-items:center;" bindtap="TabTwoTwo">
+          <text style="font-size:28rpx;color:{{TabTwoSelectedIndex==1?'#F3345C':'#000000'}};position: absolute;">{{TabTwoText[1]}}</text>
+          <image mode="widthFix" src="{{tabBg}}" wx:if="{{TabTwoSelectedIndex==1}}" style="width:212rpx;height:72rpx;"></image>
+        </view>
+
+        <view style="width:212rpx;height:72rpx;background-color:{{TabTwoSelectedIndex==2?'':'#f5f5f5'}};margin-left:32rpx;display:flex;justify-content:center;align-items:center;" bindtap="TabTwoThree">
+          <text style="font-size:28rpx;color:{{TabTwoSelectedIndex==2?'#F3345C':'#000000'}};position: absolute;">{{TabTwoText[2]}}</text>
+          <image mode="widthFix" src="{{tabBg}}" wx:if="{{TabTwoSelectedIndex==2}}" style="width:212rpx;height:72rpx;"></image>
+        </view>
+      </view>
+      <view style="width:750rpx;height:133rpx;">
+        <view style="width:212rpx;height:72rpx;background-color:{{TabTwoSelectedIndex==3?'':'#f5f5f5'}};margin-left:32rpx;margin-top:28rpx;display:flex;justify-content:center;align-items:center;" bindtap="TabTwoFour">
+          <text style="font-size:28rpx;color:{{TabTwoSelectedIndex==3?'#F3345C':'#000000'}};position: absolute;">{{TabTwoText[3]}}</text>
+          <image mode="widthFix" src="{{tabBg}}" wx:if="{{TabTwoSelectedIndex==3}}" style="width:212rpx;height:72rpx;"></image>
+        </view>
+      </view>
+    </view>
+    <view style="opacity:0.5;background-color:black;width:750rpx;flex: 1 1 auto;" bindtap="Tab2Blank"></view>
+
+  </view>
+
+</view>

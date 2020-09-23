@@ -1,0 +1,40 @@
+
+        <nav-bar title="搜索"
+                navBarColor="#fff"
+                statusBarColor="#fff"
+                titleColor="#000"
+                back="true"
+                home="false">
+        </nav-bar>
+         <view class="search-wapper">
+                <view class="search">
+                        <image class="searchImage" src="/assets/imgs/ic_search.png"/>
+                        <input class="input" placeholder="请输入搜索商品" type="text" value ="{{inputValue}}"  focus="{{true}}" confirm-type="search" bindconfirm="bindKeyInput" bindinput='searchText'/>
+                        <!-- <input class="input" placeholder="请输入搜索商品" wx:if="{{inputValue.length}}" type="text" value ="{{inputValue}}"  focus="{{true}}" confirm-type="search" bindconfirm="bindKeyInput" bindinput='searchText' /> -->
+                </view>
+                <view class="cancelBtn" bind:tap="cancel">取消</view>
+        </view>       
+        <!--  bindscrolltoupper="searchToupper" -->
+        <scroll-view class="main" scroll-y="{{true}}"  style="height:{{scrollHight}}px" bindscrolltolower="searchScrollLower">
+                <view class="item" wx:for="{{goodsList}}" wx:key="unique">
+                        <view class="itemView"  >
+                                 <image class="itemImage" src="{{item.imgUrl}}" mode="aspectFit"/>
+                                 <view class="itemInfo" bind:tap="goodDetail" data-itemindex = "{{item}}">
+                                        <view class="itemInfoName"><view class="activeTitleTip" wx:if="{{item.productType =='PERIOD'}}"> 周期购 </view>{{item.productName}} {{item.specValue}}</view>
+                                        <view class="itemInfoNum">
+                                                <view class="itemInfoPrice">￥{{item.price}}</view>
+                                                <view class="itemInfoPaye">{{item.buyCount}}人付款</view>
+                                        </view>
+                                        <view class="itemInfoAddres">产地：杭州 库存：{{item.remainCount}}单</view>
+
+                                </view>
+                                <view class="shopImageView" bind:tap="goshopCar" data-itemindex = "{{item}}">
+                                        <image class="shopImage" src="/assets/imgs/shopImage.png"/>
+                                </view>
+
+                         </view>
+                       
+                        <view class="bottomLine"></view>
+                </view>  
+        </scroll-view>
+       

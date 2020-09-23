@@ -1,0 +1,113 @@
+<nav-bar bind:backTap="back" 
+          bind:homeTap="home"
+          back = "false"
+          home = "false"
+          title="我的">
+</nav-bar>
+<view class="container">
+    <view class="topView">
+        <image class="backImage" src="/assets/imgs/mytopViewBackImage.png"/>
+         
+        <view class="userinfo" wx:if="{{isAuth}}">
+            <image class="headImage"   src="{{headImgUrl}}" mode="cover"/>
+            <view class="name" >{{nickName}}</view>
+        </view>
+
+        <button class="userinfo" open-type="getUserInfo" bindgetuserinfo="getUserInfo" wx:else>
+             <image class="headImage"  src="/assets/imgs/userDefaultHead.png"/>
+             <view class="name">点击显示微信头像</view>
+         </button>
+
+    </view>
+    <view class="orderView" >
+        <view class="orderTop" bind:tap="orderListClick">
+            <view class="orderTopLeft">我的订单</view>
+            <view class="orderTopRightView">
+                <view class="orderTopRightTitle">查看全部订单</view>
+                <view class="arrow"></view>
+            </view>
+        </view>
+        <view class="orderMidLine"></view>
+        <view class="orderBottom">
+            <view class="orderBtn" wx:for="{{orderItem}}" wx:key="unique" bind:tap="orderTypeClicl" data-itemindex = "{{index}}">
+                <image class="orderBtnImage" src="{{item.image}}"/>
+                <view class="orderBtntitle">{{item.title }}</view>
+               <view class="numberView" data-itemindex = "{{index}}" wx:if="{{tipNumberList[index]>0}}">{{tipNumberList[index]}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="itemView">
+    <!-- wx:if="{{roleId==1||roleId==3}}" -->
+        <!-- <view class="containerItem" bind:tap="itemClick" data-itemindex = "0" wx:if="{{roleId==2||roleId==3||roleId==1}}" >
+            <view class="itemLeft">
+                     <image class="itemLeftImage" src="/assets/imgs/myDistribution.png"/>
+              
+                    <view class="itemLefttitle" wx:if="{{roleId==2}}">销售中心</view>
+                    <view class="itemLefttitle" wx:if="{{roleId==3}}">分销中心</view>
+                    <view class="itemLefttitle" wx:if="{{roleId==1}}">申请成为分销商</view>
+                 </view>
+                 <view class="itemRightArrow"></view>
+        </view> -->
+         <!-- <view class="containerItem" bind:tap="itemClick" data-itemindex = "1" >
+            <view class="itemLeft">
+                     <image class="itemLeftImage" src="/assets/imgs/lipinjuan.png"/>
+                    <view class="itemLefttitle">礼品券</view>
+                 </view>
+                 <view class="itemRightArrow"></view>
+        </view> -->
+        <!-- <view class="containerItem" bind:tap="itemClick" data-itemindex = "2" >
+            <view class="itemLeft">
+                     <image class="itemLeftImage" src="/assets/imgs/zqg.png"/>
+                    <view class="itemLefttitle">周期购</view>
+                 </view>
+                 <view class="itemRightArrow"></view>
+        </view> -->
+         <view class="containerItem" bind:tap="itemClick" data-itemindex = "3">
+            <view class="itemLeft">
+                     <image class="itemLeftImage" src="/assets/imgs/myAddress.png"/>
+                    <view class="itemLefttitle">收货地址</view>
+                 </view>
+                 <view class="itemRightArrow"></view>
+        </view>
+         <button class="peopleService" open-type="contact">
+                 <view class="itemLeft">
+                     <image class="itemLeftImage" src="/assets/imgs/myServe.png"/>
+                    <view class="itemLefttitle">在线客服</view>
+                 </view>
+                 <view class="itemRightArrow"></view>
+            </button>
+         <view class="containerItem" bind:tap="itemClick" data-itemindex = "4">
+            <view class="itemLeft">
+                     <image class="itemLeftImage" src="/assets/imgs/myTel.png"/>
+                    <view class="itemLefttitle">联系商家</view>
+                 </view>
+                 <view class="itemRightArrow"></view>
+        </view>
+
+
+
+
+
+        <!-- <view class="item" wx:for="{{items}}" wx:key="unique"  >
+            <view class="containerItem"  bind:tap="itemClick" data-itemindex = "{{index}}"  wx:if="{{index!=2}}">
+                <view class="itemLeft">
+                     <image class="itemLeftImage" src="{{item.image}}"/>
+                    <view class="itemLefttitle">{{item.title}}</view>
+                 </view>
+                 <view class="itemRightArrow"></view>
+                
+            </view>
+            
+        </view> -->
+    </view>
+
+    
+
+</view>
+
+<userPhoneNumber animation="{{animationData}}"  bindgetuserinfo="getUserInfo" catch:hide="phoneHideClick" style="height:{{scrollHight}}px"
+ class="shareView" wx:if="{{userPhoneStatus}}"></userPhoneNumber>
+<!-- <view class="bottomView">
+        <view class="bottomTopTip">臻于至善·致于千里</view>
+        <view class="bottomTopTip">—— Reach Extreme Rice ——</view>
+</view> -->

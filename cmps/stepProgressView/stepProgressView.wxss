@@ -1,0 +1,75 @@
+/* cmps/stepProgressView/stepProgressView.wxss */
+.containerView{
+    width: 650rpx;
+    display: flex;
+    flex-direction: row;
+    margin-left: 100rpx;
+    background-color: #ffffff;
+}
+.stepView{
+    display: flex;
+    flex-direction: column;
+
+}
+.topView{
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+}
+.DotView{
+
+}
+.DotViewGar{
+    width: 20rpx;
+    height: 20rpx;
+    background-color: #DDDDDD;
+    border-radius: 10rpx;
+    margin-top: -7rpx;
+}
+.DotViewRed{
+    width: 20rpx;
+    height: 20rpx;
+    background-color: #F3345C;
+    border-radius: 10rpx;
+    margin-top: -7rpx;
+}
+.LineView{
+
+}
+.LineViewGar{
+    width: 245rpx;
+    height: 6rpx;
+    background-color: #DDDDDD;
+}
+.LineViewRed{
+    width: 245rpx;
+    height: 6rpx;
+    background-color: #F3345C;
+}
+.titleViewGar{
+    background-color: #ffffff;
+    color: #DDDDDD;
+    font-size: 24rpx;
+    margin-left: -35rpx;
+    margin-top: 20rpx;
+}
+.titleViewRed{
+    background-color: #ffffff;
+    color: #F3345C;
+    font-size: 24rpx;
+    margin-left: -35rpx;
+    margin-top: 20rpx;
+}
+/* .lastStep{
+    display: flex;
+    flex-direction: column;
+}
+.lastStepTitleGar{
+    color: #DDDDDD;
+    font-size: 24rpx;
+}
+.lastStepTitleRed{
+    color: #F3345C;
+    font-size: 24rpx;
+} */
+

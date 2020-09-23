@@ -1,0 +1,30 @@
+<!--pages/logisticsInfoDetail/logisticsInfoDetail.wxml-->
+<nav-bar bind:backTap="back" 
+          bind:homeTap="home"
+          back = "true"
+          home = "false"
+          title="物流信息">
+</nav-bar>
+<view class="logisticsInfoItem" >
+     <view class="itemNum">快递{{index}}</view>
+     <view class="itemName">承运来源：{{logisticsInfo.logisticsMerchant}}</view>
+     <view class="logisticsNum">运单编号：{{logisticsInfo.logisticsNum}}<view class="copyBtn" catchtap="copyClick" data-item ="{{logisticsInfo.logisticsNum}}">复制</view></view>  
+ </view>
+
+<scroll-view class="scrollView" scroll-y="{{true}}" >
+    <view class="contaoner" wx:if="{{newLogisticsInfoDetail.length>0}}">
+        <view class="detailItem" wx:for="{{newLogisticsInfoDetail}}" wx:key="unique">
+            <view class="itemLeftView">
+                 <view class="point"></view>
+                 <view class="Line" wx:if="{{index !=newLogisticsInfoDetail.length-1}}"></view>
+             </view>
+            <view class="itemRightView">
+              <view class="title">{{item.title}}</view>
+              <view class="content">{{item.description}}</view>
+              <view class="time">{{item.time}}</view>
+             </view>
+         </view>
+    </view>
+   
+</scroll-view>
+ <view class="noDataInfo" wx:if="{{newLogisticsInfoDetail.length==0}}">暂无物流轨迹信息,请稍后重试 </view>

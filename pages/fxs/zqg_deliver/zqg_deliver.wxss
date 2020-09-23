@@ -1,0 +1,505 @@
+page {
+  background-color: #f7f7f6;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 29rpx;
+  overflow-x: hidden;
+}
+
+/*========================*/
+
+.v_indicator {
+  width: 750rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_indicator_top {
+  display: flex;
+  flex-direction: row;
+}
+
+.iv_indicator_car {
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 48rpx;
+  margin-top: 19rpx;
+}
+
+.v_indicator_top_right {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
+.tv_indicator_top_right_text {
+  color: #333;
+  font-size: 28rpx;
+  margin-top: 19rpx;
+  margin-left: 21rpx;
+}
+
+.tv_indicator_remainDays {
+  color: #999;
+  font-size: 24rpx;
+  margin-left: 21rpx;
+}
+
+/*=======================================Indicator*/
+
+.v_indicatorView {
+  margin-top: 44rpx;
+  width: 750rpx;
+  height: 82rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_indicatorView_line {
+  padding-left: 102rpx;
+  width: 750rpx;
+  height: 44rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.v_indicatorView_text {
+  width: 750rpx;
+  height: 38rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.v_indicatorView_line_dot1 {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 10rpx;
+}
+
+.v_indicatorView_line_line1 {
+  height: 4rpx;
+  width: 243rpx;
+  margin-top: 8rpx;
+}
+
+.v_indicatorView_line_dot2 {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 10rpx;
+}
+
+.v_indicatorView_line_line2 {
+  height: 4rpx;
+  width: 243rpx;
+  margin-top: 8rpx;
+}
+
+.v_indicatorView_line_dot3 {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 10rpx;
+}
+
+.v_indicatorView_text1 {
+  font-size: 24rpx;
+  height: 38rpx;
+  width: 144rpx;
+  margin-left: 40rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.v_indicatorView_text2 {
+  font-size: 24rpx;
+  height: 38rpx;
+  width: 144rpx;
+  margin-left: 119rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.v_indicatorView_text3 {
+  font-size: 24rpx;
+  height: 38rpx;
+  width: 144rpx;
+  margin-left: 119rpx;
+  display: flex;
+  justify-content: center;
+}
+
+/*========================暂无物流信息*/
+.v_noLogistic{
+  margin-top: 20rpx;
+  width: 750rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/*========================收货人：某某某*/
+.v_SD{
+  width: 750rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+/*========================东北大米2019年新米一年周期购*/
+
+.v_product_list {
+  margin-top: 20rpx;
+  width: 750rpx;
+}
+
+.v_product_list_warp {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20rpx;
+}
+
+.v_mallName {
+  width: 750rpx;
+  height: 72rpx;
+  background-color: white;
+  padding-left: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.iv_mallName {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.tv_mallName {
+  margin-left: 20rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.v_product_right {
+  margin-top: 12rpx;
+  display: flex;
+  flex-direction: column;
+  margin-right: 50rpx;
+}
+
+.v_product_right_Line1 {
+  margin-left: 19rpx;
+  display: flex;
+  height: 74rpx;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.v_product_right_Line1_left {
+  width: 416rpx;
+  height: 74rpx;
+  font-size: 0;
+}
+
+.iv_ProductLogo {
+  margin-top: 12rpx;
+  margin-left: 49rpx;
+  width: 164rpx;
+  height: 164rpx;
+  background-color: #dad8d9;
+}
+
+.tv_ZQG_bg {
+  color: white;
+  font-size: 24rpx;
+  width: 96rpx;
+  height: 38rpx;
+  background-color: #fba72f;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tv_productName {
+  color: #333;
+  font-size: 26rpx;
+  font-weight: bold;
+  margin-left: 105rpx;
+  line-height: 38rpx;
+}
+
+.tv_ProdectTimes {
+  margin-left: 19rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+
+.tv_ZQG_ticket_code {
+  margin-top: 13rpx;
+  margin-left: 19rpx;
+  color: #666;
+  font-size: 22rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.tv_ZQG_progress {
+  margin-top: 7rpx;
+  margin-left: 19rpx;
+  color: #666;
+  font-size: 22rpx;
+}
+
+/*==============================配送方式，买家留言============*/
+
+.v_PM {
+  width: 750rpx;
+  background-color: white;
+}
+
+.v_P {
+  height: 87rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tv_P_left {
+  color: #333;
+  font-size: 24rpx;
+}
+
+.tv_P_right {
+  color: #333;
+  font-size: 24rpx;
+}
+
+.v_M {
+  width: 750rpx;
+  margin-top: 11rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 23rpx;
+  padding-bottom: 23rpx;
+}
+
+/*==============================商品金额,运费,实付款============*/
+
+.v_SYS {
+  width: 750rpx;
+  height: 302rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_SPJR {
+  height: 64rpx;
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+}
+
+.v_YF {
+  height: 74rpx;
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+}
+
+.v_FKFS {
+  height: 53rpx;
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+}
+
+.v_SFK {
+  width: 750rpx;
+  height: 90rpx;
+  box-sizing: border-box;
+  padding-right: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/*==============================拨打电话,在线客服============*/
+
+.v_PZ {
+  height: 89rpx;
+  width: 750rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_PZ_wrap {
+  width: 750rpx;
+  height: 88rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.v_call {
+  height: 87rpx;
+  width: 374rpx;
+  box-sizing: border-box;
+  padding-top: 33rpx;
+}
+
+.iv_call {
+  margin-left: 133rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.bt_service {
+  border-radius: 0;
+  height: 100%;
+  width: 374rpx;
+  background-color: #fff;
+}
+
+.bt_service::after {
+  border: none;
+}
+
+.iv_service {
+  margin-top: 33rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+
+/*==============================订单编号,创建时间,对此订单有疑问？============*/
+
+.v_order {
+  margin-top: 10rpx;
+  width: 750rpx;
+  height: 282rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_order_line1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.tv_orderNumber {
+  margin-left: 30rpx;
+  margin-top: 31rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+
+.v_copy {
+  margin-top: 21rpx;
+  margin-left: 28rpx;
+  height: 48rpx;
+  width: 108rpx;
+  font-size: 24rpx;
+  color: #666;
+  line-height: 48rpx;
+  border: 1rpx solid #E8E8E8;
+  border-radius: 6rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tv_createTime {
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+
+.tv_payTime {
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+
+.v_order_line2 {
+  width: 720rpx;
+  margin-left: 30rpx;
+  height: 1rpx;
+  margin-top: 24rpx;
+  background-color: #e5e5e5;
+}
+
+.bt_question {
+  width: 750rpx;
+  height: 86rpx;
+  color: #337dfb;
+  font-size: 28rpx;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bt_question::after {
+  border: none;
+}
+
+/*======================确认收货===============*/
+
+.v_sure {
+  margin-top: 20rpx;
+  background-color: white;
+  width: 750rpx;
+  height: 98rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.bt_sure {
+  font-size: 28rpx;
+  margin-right: 30rpx;
+  width: 138rpx;
+  height: 58rpx;
+  border: 0.5px solid #f3345c;
+  background-color: white;
+  line-height: 58rpx;
+  border-radius: 5rpx;
+  color: #f3345c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,37 @@
+<!--pages/userCommentGoodInfo/userCommentGoodInfo.wxml-->
+<nav-bar class="nav" bind:backTap="back" 
+    bind:homeTap="home"
+    back = "true"
+    home = "false"
+    title="发表评论">
+</nav-bar> 
+<view class="container">
+    <view class="GoodInfoMiddleItemTop">
+        <image class="shopInfoImage" src="{{goodIem.imgUrl}}"/>
+        <view class="goodInfoMiddleRight">
+            <!-- <view class="goodInfoMiddleTitle">{{goodIem.name}}</view> -->
+            <view class="goodInfoMiddleTitle"><view class="activeTitleTip" wx:if="{{type =='PERIOD'}}"> 周期购 </view><view class="activeTitleRedeemTip" wx:if="{{type =='REDEEM'}}"> 礼品券 </view>{{goodIem.name}}</view>
+            <view class="goodInfoMiddleWeight">{{goodIem.spec}}</view>
+             <view class="goodInfoMiddleBottom">
+                <view class="goodInfoMiddlePrice">￥{{goodIem.price}}</view>
+                <view class="goodInfoMiddleNum">x {{goodIem.count}}</view>
+             </view>
+         </view>
+     </view>
+     <view class="GoodInfoMiddleItemBottom">
+         <view class="itemTopLine"></view>
+        <textarea class="detailText" placeholder="快来评价一下吧~分享给更多人" bindinput="detailInput">
+        </textarea>
+    </view>
+</view>
+<view class="ImagePloader">
+    <view class="showImage" wx:for="{{tempFilePaths}}" wx:key="unique">
+        <image class="upImage" src="{{item}}" mode="widthFix" data-index="{{index}}" bindtap="previewImg">
+        <icon type='cancel' class="deleteBtn" data-index="{{index}}" catchtap="deleteImg"></icon>
+        </image>
+    </view>
+</view>
+<view class="ChooseBtnView"  bindtap="chooseImg">
+    <image mode="aspectFit" src="/assets/imgs/addImage.png" class="addImage"/>
+</view>
+<view class="sureBtn" bind:tap="sureBtn">发表评论</view>

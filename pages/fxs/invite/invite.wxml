@@ -1,0 +1,23 @@
+<nav-bar title="邀请卡"
+        navBarColor="#fff"
+        statusBarColor="#fff"
+        titleColor="#000"
+        back="true"
+        home="false">
+</nav-bar>
+
+<loading wx:if="{{showLoading}}">
+  加载中...
+</loading>
+
+<view class="container">
+  <image mode="scaleToFill" src="{{bg}}" id="iv_bg"></image>
+
+  <view id="v_content">
+    <image mode="scaleToFill" id="iv_userAvatar" src="{{topBgDefaultPortrait}}"></image>
+    <text id="tv_userName">{{topBgDefaultName}}</text>
+    <text id="tv_slogan">{{slogan}}</text>
+    <image mode="widthFix" id="iv_qrcode" src="{{info}}"></image>
+  </view>
+  
+</view>

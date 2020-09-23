@@ -1,0 +1,49 @@
+<nav-bar title="客户统计" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+  <view class="search-wrapper" id="v_bodyTop">
+    <input confirm-type="search" v-model="keyword" placeholder="请输入手机号搜索" bindconfirm='search_function' class="input_search" bindinput="getInputValue"></input>
+    <icon class="searchcion" size='20' type='search' bindtap="icon_search_function"></icon>
+  </view>
+
+  <view id="v_list">
+    <scroll-view style="height:{{sv_Height}}rpx;" scroll-y="true" bindscrolltolower="bottomRefresh" class="sv_item">
+
+      <view id="v_listHead">
+        <text id="tv_listHeadOne">共</text>
+        <text id="tv_listHeadCustomeNumber">{{listData.length}}</text>
+        <text id="tv_listHeadTwo">个客户</text>
+      </view>
+
+      <block wx:for="{{listData}}" wx:key="index">
+        <view class='v_item' bindtap="v_item_itemOnClick">
+          <image src="{{item.headImgUrl}}" mode="scaleToFill" id="iv_head"></image>
+          <view id="v_itemOne">
+            <text id="tv_name">{{item.nickName}}</text>
+            <view id="v_itemOneOne">
+              <text id="tv_volumeTransactionText">成交额：</text>
+              <text id="tv_volumeTransaction">{{item.orderAmount}}</text>
+              <text id="tv_orderNumberText">订单数：</text>
+              <text id="tv_orderNumber">{{item.orderCount}}</text>
+            </view>
+            <text id="tv_latelyOrderTime">最近下单时间：{{item.lastOrderTime}}</text>
+            <text id="tv_comeFrom">渠道来源：{{item.channel}}</text>
+          </view>
+          <view id="v_itemTwo">
+            <view id="v_itemTwoOne" bindtap="v_contactTA_click" data-index="{{item}}">
+              <text id="tv_itemTwoOne">联系TA</text>
+            </view>
+            <view id="v_itemTwoTwo" catchtap="v_cjsp_click" data-index="{{item}}">
+              <text id="tv_itemTwoTwo">推荐商品</text>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <view class="v_loading" hidden="{{!loading}}">正在载入更多...</view>
+      <view class="v_loadingComplete" hidden="{{!loadingComplete}}">已加载全部</view>
+    </scroll-view>
+  </view>
+
+</view>

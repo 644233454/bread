@@ -1,0 +1,36 @@
+<nav-bar title="收入详情" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+  <view class="v_body">
+    <view id="v_top">
+      <image mode="widthFix" id="iv_resaultIcon" src="{{resaultIcon}}"></image>
+      <text id="tv_amount">￥{{date.amount}}</text>
+      <text id="tv_resaultText">{{date.incomeType==0?"销售佣金":date.incomeType==1?"分销商佣金":date.incomeType==2?"活动奖励":""}}</text>
+    </view>
+    <view class="v_status">
+      <text class="tv_statusText">类型</text>
+      <text class="tv_status">{{date.incomeType==0?"销售佣金":date.incomeType==1?"分销商佣金":date.incomeType==2?"活动奖励":""}}</text>
+    </view>
+    <view class="v_status">
+      <text class="tv_statusText">备注</text>
+      <text class="tv_status">{{date.remark}}</text>
+    </view>
+    <view class="v_status">
+      <text class="tv_statusText">时间</text>
+      <text class="tv_status">{{date.incomeTime}}</text>
+    </view>
+    <view class="v_status" wx:if="{{date.incomeType!=2}}">
+      <text class="tv_statusText">订单号</text>
+      <text class="tv_status">{{date.orderNum}}</text>
+    </view>
+     <view class="v_status">
+      <text class="tv_statusText">支付渠道</text>
+      <text class="tv_status">{{date.payChannel}}</text>
+    </view>
+     <view class="v_status">
+      <text class="tv_statusText">余额</text>
+      <text class="tv_status">{{date.afterBalance}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "nav-bar": "/cmps/nav-bar/nav-bar",
+    "stepProgressView": "/cmps/stepProgressView/stepProgressView"
+  }
+}

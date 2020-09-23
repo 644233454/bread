@@ -1,0 +1,136 @@
+/* pages/searchGoods/searchGoods.wxss */
+.container{
+    background-color: #ffffff;
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+}
+.search-wapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #ffffff;
+}
+.search{
+    color: #999999;
+    font-size: 28rpx;
+    display: flex;
+    width: 650rpx;
+    align-items: center;
+    margin-left: 20rpx;
+    background-color: #F5F5F5;
+    border-radius: 30rpx;
+    height: 60rpx;
+}
+.searchImage{
+    width: 32rpx;
+    height: 32rpx;
+    margin: 0rpx 20rpx;
+}
+.activeTitleTip{
+    /* display: flex; */
+    display: inline-block;
+    color: #ffffff;
+    background-color: #FBA72F;
+    font-size: 24rpx;
+    width: 100rpx;
+    margin-right: 20rpx;
+    text-align: center;
+    line-height: 40rpx;
+  }
+.input{
+    width: 500rpx;
+}
+.cancelBtn{
+    color: #333333;
+    font-size: 32rpx;
+    margin: 0rpx 20rpx;
+    width: 80rpx;
+}
+.main{
+   display: inline-flex;
+   flex-direction: column;
+   background-color: #ffffff; 
+   margin-top: 10rpx;
+}
+.item{
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10rpx 0rpx;
+    /* height: 180rpx; */
+}
+.itemView{
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+}
+.itemImage{
+    width: 145rpx;
+    height: 145rpx;
+    margin: 10rpx 40rpx;
+}
+.itemInfo{
+    width: 574rpx;
+    height: 170rpx;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.itemInfoName{
+
+
+  word-break: break-all;
+  width: 90%;
+  height: auto;
+  flex-direction: row;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+}
+.itemInfoNum{
+    margin-top: 10rpx;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+.itemInfoPrice{
+    color: #F3345C;
+    font-size: 32rpx;
+}
+.itemInfoPaye{
+    margin: 0rpx 40rpx;
+    color: #A1A1A1;
+    font-size: 24rpx;
+}
+.itemInfoAddres{
+    margin-top: 10rpx;
+    color: #A1A1A1;
+    font-size: 24rpx;
+}
+.shopImageView{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    width: 100rpx;
+    height: 145rpx;
+}
+.shopImage{
+    width: 44rpx;
+    height: 44rpx;
+}
+.bottomLine{
+    background-color: #EEEEEE;
+    width: 658rpx;
+    height: 2rpx;
+    margin-top: 10rpx;
+}
+

@@ -1,0 +1,136 @@
+page{
+   background-color: #f7f7f6;
+}
+.container{
+ 
+}
+
+#v_tab{
+  background-color: white;
+  height: 72rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.v_tabAll{
+  margin-top: 18rpx;
+  margin-left: 21rpx;
+  height: 40rpx;
+  width: 98rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 20rpx;
+  background-color: #F6F6F6;
+}
+.tv_tabAll{
+  color: #999999;
+  font-size: 22rpx;
+}
+
+#v_customeTime{
+  position: absolute;
+  height: 72rpx;
+  right: 30rpx;
+}
+#tv_customeTimeText{
+  color: #999999;
+  font-size: 22rpx;
+  margin-top: 22rpx;
+  right: 56rpx;
+  margin-right: 10rpx;
+}
+#iv__customeTimeBg{
+  height: 10rpx;
+  width: 20rpx;
+  right: 30rpx;
+  margin-top: 30rpx;
+}
+
+#v_one{
+  width: 690rpx;
+  margin-left: 30rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  height: 227rpx;
+  margin-top: 3rpx;
+  display: flex;
+  flex-direction: column;
+}
+#tv_totalEraingsText{
+  color: #333333;
+  font-size: 28rpx;
+  margin-left: 26rpx;
+  margin-top: 24rpx;
+}
+#tv_totalEraings{
+   color: #333333;
+  font-size: 36rpx;
+  margin-left: 26rpx;
+  margin-top: 18rpx;
+}
+#tv_djs{
+  color: #999999;
+  font-size: 24rpx;
+  margin-left: 26rpx;
+  margin-top: 14rpx;
+}
+#v_earinsDetail{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  margin-left: 530rpx;
+  margin-top: 139rpx;
+}
+#tv_earinsDetailText{
+  color: #F3345C;
+  font-size: 24rpx;
+}
+#iv_earinsDetailRightArrow{
+  margin-top: 5rpx;
+  width: 48rpx;
+  height: 25rpx;
+}
+
+#v_two{
+  width: 690rpx;
+  margin-left: 30rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  height: 227rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+#v_leijikehu{
+  display: flex;
+  flex-direction: column;
+}
+#tv_leijikehu{
+  color: #333333;
+  font-size: 32rpx;
+  margin-left: 26rpx;
+  margin-top: 86rpx;
+
+}
+#tv_leijikehuText{
+  color: #999999;
+  font-size: 24rpx;
+  margin-left: 26rpx;
+  margin-top: 15rpx;
+
+}
+#iv_centerline{
+  height: 138rpx;
+  width: 1rpx;
+  margin-left: 183rpx;
+  margin-top: 58rpx;
+}
+#v_leijidingdan{
+  display: flex;
+  flex-direction: column;
+  margin-left: 48rpx;
+}
+
+

@@ -1,0 +1,22 @@
+<nav-bar title="收入明细"
+        navBarColor="#fff"
+        statusBarColor="#fff"
+        titleColor="#000"
+        back="true"
+        home="false">
+</nav-bar>
+
+<view class="container">
+  <view id="v_list">
+    <block wx:for="{{listData}}" wx:key="index">
+      <view class='v_item' bindtap="v_item_itemOnClick" data-index="{{item}}">
+        <image mode="widthFix" id="iv_item_icon" src="{{itemBg}}"></image>
+        <!--incomeType 0销售佣金 1分销商佣金-->
+        <text id="tv_item_typeText">{{item.incomeType==0?"销售佣金":item.incomeType==1?"分销商佣金":item.incomeType==2?"活动奖励":""}}</text>
+        <text id="tv_item_timeText">{{item.incomeTime}}</text>
+        <text id="tv_item_amountText">¥{{item.amount}}</text>
+      </view>
+    </block>
+  </view>
+
+</view>

@@ -1,0 +1,475 @@
+<nav-bar bind:backTap="back" 
+          bind:homeTap="home"
+          back = "true"
+          home = "false"
+          title="订单列表">
+</nav-bar>
+<view class="topTitleView">
+    <view class="topLineView"></view>
+    <view class="ttileArrView">
+        <view class="titleView" wx:for="{{titleArr}}" wx:key="unique" bind:tap="itemClicl" data-itemindex = "{{index}}">
+            <view class="numberView" data-itemindex = "{{index}}" wx:if="{{tipNumberList[index]>0}}">{{tipNumberList[index]}}</view>
+             <view class="selectedTitle" wx:if="{{item.selected}}">{{item.title}}</view>
+             <view class="normalTitle" wx:else>{{item.title}}</view>
+
+             <view class="selectedLine" wx:if="{{item.selected}}"></view>
+             <view class="normalLine" wx:else></view>
+
+        </view>
+    </view>
+</view>
+<scroll-view class="container" scroll-y="{{true}}" style="max-height:{{scrollHight}}px" bindscrolltolower="searchScrollLower">
+    <!-- 全部 -->
+    <view class="allOrderView" wx:if="{{selectedTitleIndex ==0}}">
+        <view class="orderList" wx:if="{{userAllOrderList.length>0}}">
+            <view class="orderView" wx:for="{{userAllOrderList}}" wx:key="unique" data-itemindex = "{{index}}">
+                 <view class="orderViewInfoTop" bind:tap="userOrderInfoClick" data-item = "{{item}}">
+                     <view class="orderViewInfoTopStatus">
+                          <view class="orderViewInfoTopStatusTop">
+                              <view class="orderViewInfoTopStatusTopLeft">
+                                 <image class="orderViewInfoStoreImage" src="/assets/imgs/shopingTopImage.png"/>
+                                 <view class="orderViewInfoStoreName">方晴面包坊</view>
+                              </view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==0}}">等待买家付款</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==1}}">等待商家发货</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==2}}">商家已发货</view>
+                               <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==3}}">交易完成</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==4}}">交易完成</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==5}}">交易关闭</view>
+                          </view>
+                          <view class="orderViewInfoTopStatusOrderNum">订单编号:{{item.orderNum}}</view>
+                     </view>
+                     <view class="orderViewInfoTopDetailList">
+                          <view class="orderViewInfoTopDetail" wx:for="{{item.productList}}" wx:key="unique">
+                              <image class="orderViewInfoImage" src="{{item.imgUrl}}"/>
+                              <view class="orderViewInfoTopDetailRight">
+                                 <view class="orderViewInfoTopDetailName"><view class="activeTitleTip" wx:if="{{item.type =='PERIOD'}}"> 周期购 </view><view class="activeTitleRedeemTip" wx:if="{{item.type =='REDEEM'}}"> 礼品券 </view>{{item.name}}</view>
+                                 <view class="orderViewInfoTopDetailWight">{{item.spec}}</view>
+                                 <view class="orderViewInfoTopDetailPriceView">
+                                    <view class="orderViewInfoTopDetailPrice">￥{{item.price}}</view>
+                                     <view class="orderViewInfoTopDetailNum">x {{item.count}}</view>
+                                 </view>
+                             </view>
+                              <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIReFund.png" wx:if="{{item.refundInfo.refundStatus==1}}"/>
+                              <image class="reFundImage" mode="aspectFit" src="/assets/imgs/alreayReFund.png" wx:if="{{item.refundInfo.refundStatus==2}}"/>
+                              <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIRefuse.png" wx:if="{{item.refundInfo.refundStatus==3}}"/>
+                         </view>
+                     </view>
+                     <view class="orderViewInfoTopMoney">
+                         <view class="orderViewInfoTopMoneyTip">共{{item.productCount}}件商品 共计:</view>
+                         <view class="orderViewInfoTopTotMoney">￥{{item.orderAmount}}</view>
+                     </view>
+                 </view>
+                 <view class="orderViewInfoBottom" wx:if="{{item.orderStatus==0||item.orderStatus==1||item.orderStatus==2||item.orderStatus==3||item.orderStatus==4||item.orderStatus==5}}">
+                     <view class="orderViewInfoLine"></view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==0}}">
+                         <view class="orderInfoCancelBtn" bind:tap="userCancelOrderClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}" data-type ="allOrderView">取消</view>
+                         <view class="orderInfoPayBtn" bind:tap="userPayOrderClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">去支付</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==1}}">
+                        <view class="adminView" wx:if="{{roleId ==0}}">
+                            <view class="reFundClickBtn" bind:tap="goToSentItem" data-item ="{{item}}">确认发货</view>
+                        </view>
+                        <view class="NormalView" wx:else>
+                            <view class="reFundClickBtn" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" wx:if="{{item.productList.length!=1 && item.type =='NORMAL'}}">申请退款</view>
+                            <view class="reFundClickBtn"  wx:if="{{item.productList.length==1 && item.type =='NORMAL'}}">
+                                <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==0}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                                <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==1}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款中</view>
+                                <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==2}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">已退款</view>
+                                <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==3}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                            </view>
+                         </view>
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==2}}">
+                         <view class="reFundClickBtn" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" wx:if="{{item.productList.length!=1 && item.type =='NORMAL'}}">申请退款</view>
+                         <view class="reFundClickBtn"  wx:if="{{item.productList.length==1 && item.type =='NORMAL'}}">
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==0}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==1}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款中</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==2}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">已退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==3}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                         </view>
+                         <view class="useReceiveOrderClickBtn" bind:tap="useReceiveOrderClick"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" data-type ="allOrderView">确认收货</view>
+                     </view>
+                      <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==5}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">查看详情</view>
+                     </view>
+                    <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==4}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <!-- <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==4}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userCommentClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">追加评价</view>
+                     </view> -->
+                      <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==3}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userCommentClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">我要评价</view>
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">查看详情</view>
+                     </view>
+                 </view>
+             </view>
+        </view>
+        <view class="noDataView" wx:else>
+            <image class="noDataImage" src="/assets/imgs/addressNoDataImage.png"/>
+            <view class="noDataTitle">暂无订单</view>
+        </view> 
+    </view>
+    <!-- 待付款 -->
+    <view class="waitPayView" wx:if="{{selectedTitleIndex ==1}}">
+        <view class="orderList" wx:if="{{waitPayList.length>0}}">
+            <view class="orderView" wx:for="{{waitPayList}}" wx:key="unique" data-itemindex = "{{index}}">
+                 <view class="orderViewInfoTop" bind:tap="userOrderInfoClick" data-item = "{{item}}">
+                     <view class="orderViewInfoTopStatus">
+                          <view class="orderViewInfoTopStatusTop">
+                              <view class="orderViewInfoTopStatusTopLeft">
+                                 <image class="orderViewInfoStoreImage" src="/assets/imgs/shopingTopImage.png"/>
+                                 <view class="orderViewInfoStoreName">方晴面包坊</view>
+                              </view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==0}}">等待买家付款</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==1}}">等待商家发货</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==2}}">商家已发货</view>
+                               <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==3}}">交易完成</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==4}}">交易完成</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==5}}">交易关闭</view>
+                          </view>
+                          <view class="orderViewInfoTopStatusOrderNum">订单编号:{{item.orderNum}}</view>
+                     </view>
+                     <view class="orderViewInfoTopDetailList">
+                          <view class="orderViewInfoTopDetail" wx:for="{{item.productList}}" wx:key="unique">
+                              <image class="orderViewInfoImage" src="{{item.imgUrl}}"/>
+                              <view class="orderViewInfoTopDetailRight">
+                                 <view class="orderViewInfoTopDetailName"><view class="activeTitleTip" wx:if="{{item.type =='PERIOD'}}"> 周期购 </view><view class="activeTitleRedeemTip" wx:if="{{item.type =='REDEEM'}}"> 礼品券 </view>{{item.name}}</view>
+                                 <view class="orderViewInfoTopDetailWight">{{item.spec}}</view>
+                                 <view class="orderViewInfoTopDetailPriceView">
+                                    <view class="orderViewInfoTopDetailPrice">￥{{item.price}}</view>
+                                     <view class="orderViewInfoTopDetailNum">x {{item.count}}</view>
+                                 </view>
+                             </view>
+                               <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIReFund.png" wx:if="{{item.refundInfo.refundStatus==1}}"/>
+                              <image class="reFundImage" mode="aspectFit" src="/assets/imgs/alreayReFund.png" wx:if="{{item.refundInfo.refundStatus==2}}"/>
+                              <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIRefuse.png" wx:if="{{item.refundInfo.refundStatus==3}}"/>
+                         </view>
+                     </view>
+                     <view class="orderViewInfoTopMoney">
+                        <view class="orderViewInfoTopMoneyTip">共{{item.productCount}}件商品 共计:</view>
+                         <view class="orderViewInfoTopTotMoney">￥{{item.orderAmount}}</view>
+                     </view>
+                 </view>
+                 <view class="orderViewInfoBottom" wx:if="{{item.orderStatus==0||item.orderStatus==1||item.orderStatus==2||item.orderStatus==3||item.orderStatus==4||item.orderStatus==5}}">
+                     <view class="orderViewInfoLine"></view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==0}}">
+                         <view class="orderInfoCancelBtn" bind:tap="userCancelOrderClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}" data-type ="allOrderView">取消</view>
+                         <view class="orderInfoPayBtn" bind:tap="userPayOrderClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">去支付</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==1}}">
+                         <view class="reFundClickBtn" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" wx:if="{{item.productList.length!=1 && item.type =='NORMAL'}}">申请退款</view>
+                         <view class="reFundClickBtn"  wx:if="{{item.productList.length==1 && item.type =='NORMAL'}}">
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==0}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==1}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款中</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==2}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">已退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==3}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                         </view>
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==2}}">
+                         <view class="reFundClickBtn" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" wx:if="{{item.productList.length!=1 && item.type =='NORMAL'}}">申请退款</view>
+                         <view class="reFundClickBtn"  wx:if="{{item.productList.length==1 && item.type =='NORMAL'}}">
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==0}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==1}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款中</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==2}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">已退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==3}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                         </view>
+                         <view class="useReceiveOrderClickBtn" bind:tap="useReceiveOrderClick"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" data-type ="allOrderView">确认收货</view>
+                     </view>
+                      <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==5}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==4}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <!-- <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==4}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userCommentClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">追加评价</view>
+                     </view> -->
+                      <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==3}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userCommentClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">我要评价</view>
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">查看详情</view>
+                     </view>
+                 </view>
+             </view>
+        </view>
+        <view class="noDataView" wx:else>
+            <image class="noDataImage" src="/assets/imgs/addressNoDataImage.png"/>
+            <view class="noDataTitle">暂无订单</view>
+        </view> 
+    </view>
+    <!-- 待发货 -->
+    <view class="waitSendView" wx:if="{{selectedTitleIndex ==2}}">
+        <view class="orderList" wx:if="{{waitSendList.length>0}}">
+            <view class="orderView" wx:for="{{waitSendList}}" wx:key="unique" data-itemindex = "{{index}}">
+                 <view class="orderViewInfoTop" bind:tap="userOrderInfoClick" data-item = "{{item}}">
+                     <view class="orderViewInfoTopStatus">
+                          <view class="orderViewInfoTopStatusTop">
+                              <view class="orderViewInfoTopStatusTopLeft">
+                                 <image class="orderViewInfoStoreImage" src="/assets/imgs/shopingTopImage.png"/>
+                                 <view class="orderViewInfoStoreName">方晴面包坊</view>
+                              </view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==0}}">等待买家付款</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==1}}">等待商家发货</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==2}}">商家已发货</view>
+                               <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==3}}">交易完成</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==4}}">交易完成</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==5}}">交易关闭</view>
+                          </view>
+                          <view class="orderViewInfoTopStatusOrderNum">订单编号:{{item.orderNum}}</view>
+                     </view>
+                     <view class="orderViewInfoTopDetailList">
+                          <view class="orderViewInfoTopDetail" wx:for="{{item.productList}}" wx:key="unique">
+                              <image class="orderViewInfoImage" src="{{item.imgUrl}}"/>
+                              <view class="orderViewInfoTopDetailRight">
+                                 <view class="orderViewInfoTopDetailName"><view class="activeTitleTip" wx:if="{{item.type =='PERIOD'}}"> 周期购 </view><view class="activeTitleRedeemTip" wx:if="{{item.type =='REDEEM'}}"> 礼品券 </view>{{item.name}}</view>
+                                 <view class="orderViewInfoTopDetailWight">{{item.spec}}</view>
+                                 <view class="orderViewInfoTopDetailPriceView">
+                                    <view class="orderViewInfoTopDetailPrice">￥{{item.price}}</view>
+                                     <view class="orderViewInfoTopDetailNum">x {{item.count}}</view>
+                                 </view>
+                             </view>
+                               <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIReFund.png" wx:if="{{item.refundInfo.refundStatus==1}}"/>
+                              <image class="reFundImage" mode="aspectFit" src="/assets/imgs/alreayReFund.png" wx:if="{{item.refundInfo.refundStatus==2}}"/>
+                              <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIRefuse.png" wx:if="{{item.refundInfo.refundStatus==3}}"/>
+                         </view>
+                     </view>
+                     <view class="orderViewInfoTopMoney">
+                         <view class="orderViewInfoTopMoneyTip">共{{item.productCount}}件商品 共计:</view>
+                         <view class="orderViewInfoTopTotMoney">￥{{item.orderAmount}}</view>
+                     </view>
+                 </view>
+                 <view class="orderViewInfoBottom" wx:if="{{item.orderStatus==0||item.orderStatus==1||item.orderStatus==2||item.orderStatus==3||item.orderStatus==4||item.orderStatus==5}}">
+                     <view class="orderViewInfoLine"></view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==0}}">
+                         <view class="orderInfoCancelBtn" bind:tap="userCancelOrderClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}" data-type ="allOrderView">取消</view>
+                         <view class="orderInfoPayBtn" bind:tap="userPayOrderClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">去支付</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==1}}">
+                        <view class="adminView" wx:if="{{roleId ==0}}">
+                            <view class="reFundClickBtn" bind:tap="goToSentItem" data-item ="{{item}}">确认发货</view>
+                        </view>
+                        <view class="NormalView" wx:else>
+                            <view class="reFundClickBtn" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" wx:if="{{item.productList.length!=1 && item.type =='NORMAL'}}">申请退款</view>
+                            <view class="reFundClickBtn"  wx:if="{{item.productList.length==1 && item.type =='NORMAL'}}">
+                                <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==0}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                                <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==1}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款中</view>
+                                <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==2}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">已退款</view>
+                                <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==3}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                            </view>
+                         </view>
+
+
+                         
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==2}}">
+                        <view class="reFundClickBtn" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" wx:if="{{item.productList.length!=1 && item.type =='NORMAL'}}">申请退款</view>
+                         <view class="reFundClickBtn"  wx:if="{{item.productList.length==1 && item.type =='NORMAL'}}">
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==0}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==1}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款中</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==2}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">已退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==3}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                         </view>
+                         <view class="useReceiveOrderClickBtn" bind:tap="useReceiveOrderClick"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" data-type ="allOrderView">确认收货</view>
+                     </view>
+                      <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==5}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==4}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <!-- <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==4}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userCommentClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">追加评价</view>
+                     </view> -->
+                      <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==3}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userCommentClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">我要评价</view>
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">查看详情</view>
+                     </view>
+                 </view>
+             </view>
+        </view>
+        <view class="noDataView" wx:else>
+            <image class="noDataImage" src="/assets/imgs/addressNoDataImage.png"/>
+            <view class="noDataTitle">暂无订单</view>
+        </view> 
+    </view>
+    <!-- 已发货 -->
+    <view class="alreadySendView" wx:if="{{selectedTitleIndex ==3}}">
+        <view class="orderList" wx:if="{{alreadySendList.length>0}}">
+            <view class="orderView" wx:for="{{alreadySendList}}" wx:key="unique" data-itemindex = "{{index}}">
+                 <view class="orderViewInfoTop" bind:tap="userOrderInfoClick" data-item = "{{item}}">
+                     <view class="orderViewInfoTopStatus">
+                          <view class="orderViewInfoTopStatusTop">
+                              <view class="orderViewInfoTopStatusTopLeft">
+                                 <image class="orderViewInfoStoreImage" src="/assets/imgs/shopingTopImage.png"/>
+                                 <view class="orderViewInfoStoreName">方晴面包坊</view>
+                              </view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==0}}">等待买家付款</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==1}}">等待商家发货</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==2}}">商家已发货</view>
+                               <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==3}}">交易完成</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==4}}">交易完成</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==5}}">交易关闭</view>
+                          </view>
+                          <view class="orderViewInfoTopStatusOrderNum">订单编号:{{item.orderNum}}</view>
+                     </view>
+                     <view class="orderViewInfoTopDetailList">
+                          <view class="orderViewInfoTopDetail" wx:for="{{item.productList}}" wx:key="unique">
+                              <image class="orderViewInfoImage" src="{{item.imgUrl}}"/>
+                              <view class="orderViewInfoTopDetailRight">
+                                 <view class="orderViewInfoTopDetailName"><view class="activeTitleTip" wx:if="{{item.type =='PERIOD'}}"> 周期购 </view><view class="activeTitleRedeemTip" wx:if="{{item.type =='REDEEM'}}"> 礼品券 </view>{{item.name}}</view>
+                                 <view class="orderViewInfoTopDetailWight">{{item.spec}}</view>
+                                 <view class="orderViewInfoTopDetailPriceView">
+                                    <view class="orderViewInfoTopDetailPrice">￥{{item.price}}</view>
+                                     <view class="orderViewInfoTopDetailNum">x {{item.count}}</view>
+                                 </view>
+                             </view>
+                               <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIReFund.png" wx:if="{{item.refundInfo.refundStatus==1}}"/>
+                              <image class="reFundImage" mode="aspectFit" src="/assets/imgs/alreayReFund.png" wx:if="{{item.refundInfo.refundStatus==2}}"/>
+                              <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIRefuse.png" wx:if="{{item.refundInfo.refundStatus==3}}"/>
+                         </view>
+                     </view>
+                     <view class="orderViewInfoTopMoney">
+                         <view class="orderViewInfoTopMoneyTip">共{{item.productCount}}件商品 共计:</view>
+                         <view class="orderViewInfoTopTotMoney">￥{{item.orderAmount}}</view>
+                     </view>
+                 </view>
+                 <view class="orderViewInfoBottom" wx:if="{{item.orderStatus==0||item.orderStatus==1||item.orderStatus==2||item.orderStatus==3||item.orderStatus==4||item.orderStatus==5}}">
+                     <view class="orderViewInfoLine"></view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==0}}">
+                         <view class="orderInfoCancelBtn" bind:tap="userCancelOrderClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}" data-type ="allOrderView">取消</view>
+                         <view class="orderInfoPayBtn" bind:tap="userPayOrderClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">去支付</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==1}}">
+                        <view class="reFundClickBtn" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" wx:if="{{item.productList.length!=1 && item.type =='NORMAL'}}">申请退款</view>
+                         <view class="reFundClickBtn"  wx:if="{{item.productList.length==1 && item.type =='NORMAL'}}">
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==0}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==1}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款中</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==2}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">已退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==3}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                         </view>
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==2}}">
+                         <view class="reFundClickBtn" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" wx:if="{{item.productList.length!=1 && item.type =='NORMAL'}}">申请退款</view>
+                         <view class="reFundClickBtn"  wx:if="{{item.productList.length==1 && item.type =='NORMAL'}}">
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==0}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==1}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款中</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==2}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">已退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==3}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                         </view>
+                         <view class="useReceiveOrderClickBtn" bind:tap="useReceiveOrderClick"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" data-type ="allOrderView">确认收货</view>
+                     </view>
+                      <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==5}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==4}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <!-- <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==4}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userCommentClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">追加评价</view>
+                     </view> -->
+                      <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==3}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userCommentClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">我要评价</view>
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">查看详情</view>
+                     </view>
+                 </view>
+             </view>
+        </view>
+        <view class="noDataView" wx:else>
+            <image class="noDataImage" src="/assets/imgs/addressNoDataImage.png"/>
+            <view class="noDataTitle">暂无订单</view>
+        </view> 
+    </view>
+    <!-- 待评价 -->
+    <view class="waitCommentView" wx:if="{{selectedTitleIndex ==4}}">
+        <view class="orderList" wx:if="{{waitCommentList.length>0}}">
+            <view class="orderView" wx:for="{{waitCommentList}}" wx:key="unique" data-itemindex = "{{index}}">
+                 <view class="orderViewInfoTop" bind:tap="userOrderInfoClick" data-item = "{{item}}">
+                     <view class="orderViewInfoTopStatus">
+                          <view class="orderViewInfoTopStatusTop">
+                              <view class="orderViewInfoTopStatusTopLeft">
+                                 <image class="orderViewInfoStoreImage" src="/assets/imgs/shopingTopImage.png"/>
+                                 <view class="orderViewInfoStoreName">方晴面包坊</view>
+                              </view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==0}}">等待买家付款</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==1}}">等待商家发货</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==2}}">商家已发货</view>
+                               <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==3}}">交易完成</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==4}}">交易完成</view>
+                              <view class="orderViewInfoTopStatusRight" wx:if="{{item.orderStatus==5}}">交易关闭</view>
+                          </view>
+                          <view class="orderViewInfoTopStatusOrderNum">订单编号:{{item.orderNum}}</view>
+                     </view>
+                     <view class="orderViewInfoTopDetailList">
+                          <view class="orderViewInfoTopDetail" wx:for="{{item.productList}}" wx:key="unique">
+                              <image class="orderViewInfoImage" src="{{item.imgUrl}}"/>
+                              <view class="orderViewInfoTopDetailRight">
+                                 <view class="orderViewInfoTopDetailName"><view class="activeTitleTip" wx:if="{{item.type =='PERIOD'}}"> 周期购 </view><view class="activeTitleRedeemTip" wx:if="{{item.type =='REDEEM'}}"> 礼品券 </view>{{item.name}}</view>
+                                 <view class="orderViewInfoTopDetailWight">{{item.spec}}</view>
+                                 <view class="orderViewInfoTopDetailPriceView">
+                                    <view class="orderViewInfoTopDetailPrice">￥{{item.price}}</view>
+                                     <view class="orderViewInfoTopDetailNum">x {{item.count}}</view>
+                                 </view>
+                              </view>
+                                <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIReFund.png" wx:if="{{item.refundInfo.refundStatus==1}}"/>
+                              <image class="reFundImage" mode="aspectFit" src="/assets/imgs/alreayReFund.png" wx:if="{{item.refundInfo.refundStatus==2}}"/>
+                              <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIRefuse.png" wx:if="{{item.refundInfo.refundStatus==3}}"/>
+                         </view>
+                     </view>
+                     <view class="orderViewInfoTopMoney">
+                         <view class="orderViewInfoTopMoneyTip">共{{item.productCount}}件商品 共计:</view>
+                         <view class="orderViewInfoTopTotMoney">￥{{item.orderAmount}}</view>
+                     </view>
+                 </view>
+                 <view class="orderViewInfoBottom" wx:if="{{item.orderStatus==0||item.orderStatus==1||item.orderStatus==2||item.orderStatus==3||item.orderStatus==4||item.orderStatus==5}}">
+                     <view class="orderViewInfoLine"></view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==0}}">
+                         <view class="orderInfoCancelBtn" bind:tap="userCancelOrderClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}" data-type ="allOrderView">取消</view>
+                         <view class="orderInfoPayBtn" bind:tap="userPayOrderClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">去支付</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==1}}">
+                         <view class="reFundClickBtn" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" wx:if="{{item.productList.length!=1 && item.type =='NORMAL'}}">申请退款</view>
+                         <view class="reFundClickBtn"  wx:if="{{item.productList.length==1 && item.type =='NORMAL'}}">
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==0}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==1}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款中</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==2}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">已退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==3}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                         </view>
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==2}}">
+                         <view class="reFundClickBtn" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" wx:if="{{item.productList.length!=1 && item.type =='NORMAL'}}">申请退款</view>
+                         <view class="reFundClickBtn"  wx:if="{{item.productList.length==1 && item.type =='NORMAL'}}">
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==0}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==1}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款中</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==2}}"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">已退款</view>
+                            <view class="reFundClickSingBtn" wx:if="{{item.productList[0].refundInfo.refundStatus==3}}" bind:tap="reFundClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">申请退款</view>
+                         </view>
+                         <view class="useReceiveOrderClickBtn" bind:tap="useReceiveOrderClick"  data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}" data-type ="allOrderView">确认收货</view>
+                     </view>
+                      <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==5}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==4}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">查看详情</view>
+                     </view>
+                     <!-- <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==4}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userCommentClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">追加评价</view>
+                     </view> -->
+                      <view class="orderViewInfoBottomWaitPayView" wx:if="{{item.orderStatus==3}}">
+                         <view class="serOrderInfoClickBtn" bind:tap="userCommentClick" data-itemindex = "{{selectedTitleIndex}}" data-item ="{{item}}">我要评价</view>
+                         <view class="serOrderInfoClickBtn" bind:tap="userOrderInfoClick" data-itemindex = "{{selectedTitleIndex}}"  data-item ="{{item}}">查看详情</view>
+                     </view>
+                 </view>
+             </view>
+        </view>
+        <view class="noDataView" wx:else>
+            <image class="noDataImage" src="/assets/imgs/addressNoDataImage.png"/>
+            <view class="noDataTitle">暂无订单</view>
+        </view> 
+    </view>
+</scroll-view>

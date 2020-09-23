@@ -1,0 +1,246 @@
+<nav-bar title="商品详情"
+        navBarColor="#fff"
+        statusBarColor="#fff"
+        titleColor="#000"
+        back="true"
+        home="false">
+</nav-bar>
+<scroll-view class="container" scroll-y="{{true}}" style="height:{{scrollHight}}px">
+        <view class="topInfo">
+                <!-- <image class="goodImage" src="{{topImage}}"/> -->
+
+                <swiper class='swiper-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='height:{{Height}}'>
+                <block wx:for="{{ bannerUrls }}">
+                        <swiper-item>
+                        <view>
+                                <image class="slide-image" src="{{ item}}"  bindload='imgHeight' mode='widthFix'></image>
+                        </view>
+                        </swiper-item>
+                </block>
+                </swiper>
+
+
+
+                <view class="goodNameView">
+                        <view class="goodNameTitle" bind:tap="shareClick">{{name}}</view>
+
+                        <button class="goodShareView" open-type="share">
+                                 <image class="shareImage" src="/assets/imgs/goodDetailShare.png"/>
+                        </button>
+
+                        <!-- <view class="goodShareView">
+                                <image class="shareImage" src="/assets/imgs/goodDetailShare.png"/>
+                        </view> -->
+                </view>
+                <view class="goodPrice">
+                        <!-- lowPerHightPrice -->
+                        <view class="goodPriceLeft" wx:if="{{lowPerHightPrice}}">￥{{lowPrice}}</view>
+                        <view class="goodPriceLeft" wx:else>￥{{lowPrice}}~{{highPrice}}</view>
+                        
+                </view>
+                <view class="topInfotip">
+                        <view class="topInfoTiptitle">限时促销</view>
+                </view>
+                <view class="topInfoBottom">
+                        <view class="toInfoBottomLeft">快递:包邮</view>
+                        <view class="toInfoBottomMid">月销:{{sellCount}}</view>
+                        <view class="toInfoBottomRight">杭州</view>
+                </view>
+        </view>
+        <view class="chooseView">
+                <view class="chooseTopView" catchtap='showBuyModal'>
+                        <view class="chooseTopTitle">选择:规格</view>
+                        <view class="chooseTopRight">
+                                <view class="chooseTopValue">{{chooseItemDic.value}}</view>
+                                <view class="arror"></view>
+                        </view>
+                </view>
+                <!-- <view class="choosebottomView">
+                        <view class="choosebottomViewLine"></view>
+                        <view class="choosebottomViewInfo">
+                                <view class="choosebottomTitle">配送:快递</view>
+                                <view class="choosebottomRight">
+                                        <view class="choosebottomValue">包邮</view>
+                                 <view class="arror"></view>
+                        </view>
+                        </view>
+                </view> -->
+
+               
+        </view>
+        <view class="commentView" wx:if="{{commentList.length>0}}">
+                <view class="commentTop">
+                         <view class="commentTopLeft">宝贝评价</view>
+                         <view class="commentTopRight" bind:tap="allCommentClick">
+                                <view class="commentTopRightTitle">全部评价</view>
+                                <view class="arror"></view>
+                         </view>
+                </view>
+
+                <view class="commentListView" wx:if="{{showCommentList.length>0}}" wx:for="{{showCommentList}}" wx:key="unique">
+
+                        <view class="comentConetItem">
+                                <view class="contentTopLine"></view>
+                                <view class="contentUser">
+                                        <image class="userHeadImage" src="{{item.headImgUrl}}"/>
+                                        <view class="userName">{{item.nickName}}</view>
+                                 </view>
+                                 <view class="contentText">{{item.description}}</view>
+                                 <view class="ImagePloader">
+                                         <view class="showImage" wx:for="{{item.imgUrls}}" wx:key="unique" wx:for-item="ImageItem">
+                                          <image class="upImage" src="{{ImageItem}}" mode="widthFix" data-index="{{index}}" data-item="{{item}}" bindtap="previewImg">
+                                          </image>
+                                         </view>
+                                  </view>
+                         </view>
+               
+                </view>
+                 <view class="commntBottomLine"></view>
+                
+        </view>
+        <view class="imageInfo">
+                <view class="imageInfoTop">商品详情</view>
+                <view class="imageView">
+                         <image class="imageInfoPicture" src="{{description}}"/>
+                         <!-- <view class="bottomView">
+                                <view class="bottomTopTip">臻于至善·致于千里</view>
+                                 <view class="bottomTopTip">—— Reach Extreme Rice ——</view>
+                         </view> -->
+                </view>   
+                
+        </view>
+</scroll-view>
+<view class="bottonView">
+                <view class="bottonViewLeft">
+                        <view class="homeView" bind:tap="goHomeView">
+                                <image class="homeViewImage" src="/assets/imgs/goodDetailHome.png"/>
+                                <view class="homeViewTitle">首页</view>
+                        </view>
+
+                         <button class="peopleService" open-type="contact">
+                                <!-- <view class="telView" bind:tap="goTelView"> -->
+                                <image class="telViewImage" src="/assets/imgs/goodDetailTel.png"/>
+                                <view class="telViewTitle">客服</view>
+                                 <!-- </view> -->
+                         </button>
+
+
+                        
+                        <view class="storeView" bind:tap="goshopingView">
+                                <image class="storeViewImage" src="/assets/imgs/goodDetailStore.png"/>
+                                <view class="storeViewTitle">购物车</view>
+                        </view>
+                </view>
+                <view class="bottonViewRight">
+                        <view class="bottonViewRightStore" bindtap='goToCar' >加入购物车</view>
+                        <view class="bottonViewRightBuy" bindtap='buyShoping'>立即购买</view>
+                </view>
+        </view>
+<!-- 点击立即购买 弹出购买遮罩层 -->
+<view class="cover_screen" bindtap="hideBuyModal" wx:if="{{showModalStatus}}"></view>
+<!-- 点击立即购买 弹窗 -->
+<view animation="{{animationData}}" class="buyBox" wx:if="{{showModalStatus}}">
+        <view class="top">
+                <view class="topLeft">
+                    <image class="SmallImage" src="{{chooseItemDic.imgUrl}}"/>
+                    <view class="topLeftInfo">
+                         <view class="buyBoxTitle">{{name}}</view>
+                         <view class="buyBoxPrice">￥{{chooseItemDic.price}}</view>
+                         <view class="remainCountView">剩余库存:{{chooseItemDic.remainCount}}件</view>
+                    </view>
+                 </view>
+                 <view class="topRight" bindtap="hideBuyModal">
+                    <image class="disMissImage" src="/assets/imgs/disMissImage.png"/>
+                 </view>
+        </view>
+         <view class="middle">
+                 <view class="middleTopLine"></view>
+                 <view class="middleTip">规格:</view>
+                 <view class="middleChoose">
+                         <view class ="chooseSizeView" wx:for="{{goodChooseSizeArr}}" bind:tap="chooseSize" data-itemindex = "{{index}}" wx:key="unique">
+                                 <view class="chooseSizeSelected" wx:if="{{item.selected}}">{{item.value}}</view>
+                                 <view class="chooseSizeNormal" wx:else >{{item.value}}</view>
+                                 
+                         </view>
+                 </view>
+                 <view class="middleBottomLine"></view>
+        </view>
+        <view class="bottom">
+                <view class="tip">购买数量
+                </view>
+                <view class="bottomRight">
+                    <view class="reduce" bind:tap="reduceNum">-</view>
+                    <view class="num">{{userBuyGoodNum}}</view>
+                    <view class="add" bind:tap="addNum">+</view>
+                </view>
+        </view>
+         
+         <view class="btnView">
+                 <view class="addShoping" bindtap='goToCar'>加入购物车</view>
+                 <view class="buyShoping" bindtap='buyShoping'>立即购买</view>
+         </view> 
+</view>
+<view class="shareBtn" bind:tap="shareApp" wx:if="{{roleId==2||roleId==3}}">
+        <image class="userShareImage" src="/assets/imgs/homeInvited.png" mode="aspectFit"/>
+</view>
+
+
+<view hidden="{{sheetDialogHidden}}" class="v_sheetDialog" catchtouchmove="{{sheetDialogMove}}" bindtap="v_sheetDialog_click">
+    <view id="v_sheetDialogContent">
+      <view id="v_sheetDialogContentOne">
+        <view id="v_sheetDialogContentOneOne" catchtap="v_sheetDialogContentOneOne_click">
+          <image src="{{sheetDialogBgOne}}" mode="widthFix" id="iv_sheetDialogContentOneOne"></image>
+          <text id="tv_sheetDialogContentOneOne">小程序码</text>
+        </view>
+        <view id="v_sheetDialogContentOneTwo" catchtap="v_sheetDialogContentOneTwo_click">
+          <image src="{{sheetDialogBgTwo}}" mode="widthFix" id="iv_sheetDialogContentOneOne"></image>
+          <text id="tv_sheetDialogContentOneOne">生成商品海报</text>
+        </view>
+        <!--catchtap="v_sheetDialogContentOneThree_click"-->
+        <view id="v_sheetDialogContentOneThree">
+          <button open-type="share" class="bt_share">
+            <view id="v_sheetDialogContentOneThreeOne">
+              <image src="{{sheetDialogBgThree}}" mode="widthFix" id="iv_sheetDialogContentOneOne"></image>
+              <text id="tv_sheetDialogContentOneOneShare">分享链接</text>
+            </view>
+          </button>
+        </view>
+      </view>
+      <view id="v_sheetDialogContentTwo" catchtap="v_sheetDialogContent_cancel_click" open-type="share">
+        <text id="tv_sheetDialogContentCancel">取消</text>
+      </view>
+    </view>
+
+
+
+
+<view hidden="{{DialogOneHidden}}" class="v_DialogOne" catchtouchmove="{{DialogOneMove}}" bindtap="v_DialogOne_click">
+    <image src="{{DialogOne_dismissBg}}" mode="widthFix" id="iv_DialogOne_dismiss"></image>
+    <view id="v_DialogOneContent" bindlongpress="v_DialogOneContent_lonePress">
+      <image src="{{DialogxcxmUrl}}" mode="widthFix" id="iv_DialogOneContent_BG" wx:if="{{DialogxcxmUrl}}"></image>
+    </view>
+    <view id="v_DialogOneBottom">
+      <image id="iv_DialogOneBottom" src="{{DialogOne_print}}"></image>
+      <text id="tv_DialogOneBottom">长按图片保存至相册</text>
+    </view>
+  </view>
+
+  <view hidden="{{DialogTwoHidden}}" class="v_DialogTwo" catchtouchmove="{{DialogTwoMove}}" bindtap="v_DialogTwo_click">
+    <image src="{{DialogOne_dismissBg}}" mode="widthFix" id="iv_DialogTow_dismiss" catchtap="v_DialogTwo_dismiss"></image>
+    <view id="v_DialogTwoContent" bindlongpress="v_DialogTwoContent_lonePress">
+      <image src="{{topImage}}" mode="widthFix" id="iv_DialogTwoContent_BG"></image>
+      <view id="tv_DialogTwoContent_product_name">{{name}}</view>
+      <image src="{{DialogxcxmUrl}}" mode="widthFix" id="iv_DialogTwoContent_code" wx:if="{{DialogxcxmUrl}}"></image>
+      <view id="tv_DialogTwoBottom" id="tv_DialogTwoContent_text">长按识别二维码</view>
+    </view>
+    <view id="v_DialogTwoBottom">
+      <image id="iv_DialogTwoBottom" src="{{DialogOne_print}}"></image>
+      <text id="tv_DialogTwoBottom">长按图片保存至相册</text>
+    </view>
+  </view>
+
+
+
+  </view>
+
+  

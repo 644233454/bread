@@ -1,0 +1,6 @@
+<view hidden="{{sheetDialogHidden}}">
+  <view class='drawer_screen' bindtap='cancleBtn' />
+  <view class='drawer_box'>
+    <view class="drawer_title">提示</view>
+   </view>
+</view>

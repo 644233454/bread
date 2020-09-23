@@ -1,0 +1,57 @@
+page{
+   background-color: #f7f7f6;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.v_body{
+  margin-top: 19rpx;
+  height: 790rpx;
+  background-color: white;
+  
+}
+
+#v_top{
+  height: 373rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center；
+}
+#iv_resaultIcon{
+  width: 130rpx;
+  height: 130rpx;
+  margin-top: 46rpx;
+}
+#tv_amount{
+  color: #333333;
+  font-size: 38rpx;
+  margin-top: 24rpx;
+  
+}
+#tv_resaultText{
+  color: #999999;
+  font-size: 28rpx;
+  margin-top: 16rpx;
+}
+
+.v_status{
+  height: 56rpx;
+}
+.tv_statusText{
+  position: absolute;
+  left: 30rpx;
+  color: #999999;
+  font-size: 28rpx;
+  margin-top: 16rpx;
+}
+.tv_status{
+  position: absolute;
+  right: 30rpx;
+  color: #333333;
+  font-size: 28rpx;
+}
+

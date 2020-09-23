@@ -1,0 +1,9 @@
+<!--cmps/good/good.wxml-->
+<view class="good" bind:tap="detail">
+     <image class="photo" src="/assets/imgs/shopInfo.png" mode="aspectFit"/>
+     <view class="title">商品名</view>
+     <view class="price-warpper">
+         <view class="price">￥99.99</view>
+         <image class="shopImage" src="/assets/imgs/shopImage.png" mode="aspectFit"/>
+    </view>
+</view>

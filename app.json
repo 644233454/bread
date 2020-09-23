@@ -1,0 +1,94 @@
+{
+  "pages": [
+   
+    "pages/list/list",
+    "pages/my/my",
+    "pages/shoping/shoping",
+   
+    "pages/userOrderAlreadySendDetail/userOrderAlreadySendDetail",
+    "pages/userOrderWaitSendDetail/userOrderWaitSendDetail",
+    "pages/userOrderWaitPayDetail/userOrderWaitPayDetail",
+    "pages/userOrderCloseDetail/userOrderCloseDetail",
+    "pages/myOrderList/myOrderList",
+    "pages/addAddress/addAddress",
+    "pages/goodDetail/goodDetail",
+    "cmps/good/good",
+    "pages/searchGoods/searchGoods",
+    "pages/addAddressInfo/addAddressInfo",
+    "pages/sureOrder/sureOrder",
+    "pages/orderInfoDetail/orderInfoDetail",
+    "pages/payInfo/payInfo",
+    "pages/fxs/tab_mine/tab_mine",
+    "pages/fxs/limitTimeTaskAward/limitTimeTaskAward",
+    "pages/fxs/withdraw/withdraw",
+    "pages/fxs/withdraw_resault/withdraw_resault",
+    "pages/fxs/earings_statistics/earings_statistics",
+    "pages/fxs/salesman/salesman",
+    "pages/fxs/generalize/generalize",
+    "pages/fxs/invite/invite",
+    "pages/fxs/income_expenses/income_expenses",
+    "pages/fxs/withdraw_record/withdraw_record",
+    "pages/fxs/withdraw_record_detail/withdraw_record_detail",
+    "pages/fxs/income_expenses_detail/income_expenses_detail",
+    "pages/fxs/orders_statistics/orders_statistics",
+    "pages/fxs/clients_statistics/clients_statistics",
+    "pages/fxs/exclusive_recommend/exclusive_recommend",
+    "pages/reFund/reFund",
+    "pages/userCommentGood/userCommentGood",
+    "pages/allCommentList/allCommentList",
+    "pages/fxs/apply_fxs/apply_fxs",
+    "pages/userCommentGoodInfo/userCommentGoodInfo",
+    "pages/reFundList/reFundList",
+    "pages/homeInvite/homeInvite",
+    "pages/fxs/zqg/zqg",
+    "pages/fxs/zqg_detail/zqg_detail",
+    "pages/fxs/zqg_deliver/zqg_deliver",
+    "pages/fxs/zqg_schedule/zqg_schedule",
+    "pages/cycleShopDetail/cycleShopDetail",
+    "pages/fxs/search/search",
+    "pages/logisticsInfoList/logisticsInfoList",
+    "pages/logisticsInfoDetail/logisticsInfoDetail",
+    "pages/fxs/lipinjuan_list/lipinjuan_list",
+    "pages/fxs/lipinjuan_get/lipinjuan_get"
+  ],
+  "tabBar": {
+    "color": "#AAAAAA",
+    "selectedColor": "#F3345C",
+    "backgroundColor": "#fff",
+    "list": [
+      
+      {
+        "pagePath": "pages/list/list",
+        "text": "吉利烘焙",
+        "iconPath": "/assets/imgs/tabBarGoods.png",
+        "selectedIconPath": "/assets/imgs/tabBarGoodsing.png"
+      },
+      {
+        "pagePath": "pages/shoping/shoping",
+        "text": "购物车",
+        "iconPath": "/assets/imgs/tabBarShop.png",
+        "selectedIconPath": "/assets/imgs/tabBarShoping.png"
+      },
+      
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/assets/imgs/tabBarMy.png",
+        "selectedIconPath": "/assets/imgs/tabBarMying.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "城市合伙人",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于获取影院信息"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

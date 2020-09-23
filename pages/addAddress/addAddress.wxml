@@ -1,0 +1,43 @@
+
+<nav-bar title="收货地址"
+        navBarColor="#fff"
+        statusBarColor="#fff"
+        titleColor="#000"
+        back="true"
+        home="false">
+</nav-bar>
+<scroll-view class="container" scroll-y="{{true}}" style="height:{{scrollHight}}px">
+    <view class="itemListView" wx:if="{{userAddress.length>0}}">
+        <view wx:for="{{userAddress}}" class="itemView"  wx:key="unique">
+            <view class="itemViewTop">
+                <view class="itemViewTopLeft"  bind:tap="itemClick" data-itemindex = "{{index}}" >
+                    <view class="imageView" >
+                         <image wx:if="{{item.selected}}" class="image" src="/assets/imgs/userGoodChooseImageYes.png"/>
+                         <image wx:else class="image" src="/assets/imgs/userGoodChooseImageNo.png"/>
+                     </view>
+                     <view class="itemViewInfo">
+                         <view class="userName">
+                         {{item.realName}},{{item.phone}}
+                         <view class="defaultView" wx:if="{{item.isDefault}}">默认</view>
+                         </view>
+                        <view class="userAddress">
+                             收货地址:{{item.province}}{{item.city}}{{item.district}}{{item.detail}}
+                         </view>
+                     </view>
+                </view>
+                 <view class="editImageView" bind:tap="editItemClick" data-itemindex = "{{index}}">
+                        <image class="editImage" src="/assets/imgs/addrssChangeValue.png"/>
+                 </view>
+             </view>
+             <view class="itemViewLine"></view>
+         </view>
+    </view>        
+    
+    <view class="noDataView" wx:else>
+        <image class="addressNoDataImage" src="/assets/imgs/addressNoDataImage.png"/>
+        <view class="addressNoDataTitle">还没有添加收货地址~</view>
+    </view>
+</scroll-view>
+<view class="bottomView" bind:tap="addAddressBtn">
+    新增收货地址
+</view>

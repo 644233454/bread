@@ -1,0 +1,53 @@
+<nav-bar title="限时任务奖励" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+
+  <view class="v_top">
+    <image mode="widthFix" src="{{topBg}}" id="iv_top_bg"></image>
+    <view class="v_card">
+      <text id="tv_TipOnnText">限时任务奖励</text>
+      <text id="tv_time">{{countDownText}}</text>
+
+      <!--指示器-->
+      <view class="v_indicator">
+
+        <view class="v_indicator_topText">
+          <block wx:for="{{nextActivityReward}}" wx:key="index">
+            <text id="tv_indicator_topText">{{item}}</text>
+          </block>
+        </view>
+
+        <view class="v_indicator_content">
+          <!--圆点阴影部分-->
+          <view class="v_indicator_content_shadowDots">
+            <block wx:for="{{userInfo.activityLevels}}" wx:key="index">
+              <view class="v_indicator_content_shadowDot"></view>
+            </block>
+          </view>
+          <!--直线阴影部分-->
+          <view class="v_indicator_content_shadowLines"></view>
+          <!--直线实心部分-->
+          <view class="v_indicator_content_Lines" style="width:{{singleLingWidth*nextActivityRewardIndex}}rpx;"></view>
+          <!--圆点实心部分-->
+          <view class="v_indicator_content_Dots" style="width:{{((576/(nextActivityRewardIndex+1))*nextActivityRewardIndex)+20}}rpx;">
+            <block wx:for="{{nextActivityRewardIndex+1}}" wx:key="index">
+              <view class="v_indicator_content_Dot"></view>
+            </block>
+          </view>
+        </view>
+
+        <view class="v_indicator_bottomText">
+          <block wx:for="{{userInfo.activityLevels}}" wx:key="index">
+            <text id="tv_indicator_bottomText">{{item}}</text>
+          </block>
+        </view>
+
+      </view>
+
+    </view>
+  </view>
+  <text id="tv_ruleText">任务规则</text>
+  <view class="v_rule"></view>
+
+</view>

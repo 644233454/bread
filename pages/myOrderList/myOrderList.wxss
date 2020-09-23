@@ -1,0 +1,441 @@
+Page{
+    background-color: #F7F7F6;
+}
+/* 顶部选项区 */
+.topTitleView{
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    
+    /* position: fixed; */
+    /* z-index: 10; */
+
+}
+
+.topLineView{
+    background-color: #E5E5E5;
+    width: 100%;
+    height: 2rpx;
+}
+.ttileArrView{
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    height: 80rpx;
+    margin-top: 10rpx;
+}
+.titleView{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.numberView{
+    position: absolute;
+  top: -5px;
+  right: 2px;
+  min-width: 8px;
+  /* height: 20px;
+  line-height: 20px; */
+  /* margin-top: -11px; */
+  padding: 0 6px;
+  font-weight: normal;
+  color: white;
+  text-align: center;
+  /* text-shadow: 0 1px rgba(0, 0, 0, 0.2); */
+  background: #e23442;
+  /* border: 1px solid: #e23442; */
+  border-radius: 11px;
+  /* background-image: -webkit-linear-gradient(top, #e8616c, #dd202f);
+  background-image: -moz-linear-gradient(top, #e8616c, #dd202f);
+  background-image: -o-linear-gradient(top, #e8616c, #dd202f);
+  background-image: linear-gradient(to bottom, #e8616c, #dd202f);
+  -webkit-box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px rgba(0, 0, 0, 0.12); */
+}
+.selectedTitle{
+    width: 100%;
+    height: 76rpx;
+    text-align: center;
+    line-height: 76rpx;
+    color: #F3345C;
+    font-size: 28rpx;
+}
+.normalTitle{
+    width: 100%;
+    height: 66rpx;
+    text-align: center;
+    line-height: 76rpx;
+    color: #999999;
+    font-size: 28rpx;
+}
+.selectedLine{
+    width: 70rpx;
+    height: 4rpx;
+    background-color:#F3345C;
+}
+.normalLine{
+    width:70rpx;
+    height: 4rpx;
+    background-color:#ffffff;
+}
+/* 无数据处理区 */
+.noDataView{
+    width: 100%;
+    height: 200pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+}
+.noDataImage{
+    width: 345rpx;
+    height: 236rpx;
+    top: 160rpx;
+    /* position: absolute; */
+}
+.noDataTitle{
+    color: #999999;
+    font-size: 28rpx;
+    margin-top: 30rpx;
+}
+
+
+/* 数据区 */
+
+/* 整个页面 */
+.container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+/* 切换页面 */
+.allOrderView{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+}
+/* 列表 */
+.orderList{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 10rpx;
+}
+
+/*item */
+
+.orderView{
+    width: 710rpx;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: #ffffff;
+    margin: 10rpx 20rpx;
+}
+.waitPayView{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.waitSendView{
+   width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.alreadySendView{
+   width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.waitCommentView{
+   width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+/* item数据区 */
+.orderViewInfoTop{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.orderViewInfoTopStatus{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100rpx;
+    margin-top: 10rpx;
+}
+.orderViewInfoTopStatusTop{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+.orderViewInfoTopStatusTopLeft{
+    display: flex;
+    align-items: center; 
+}
+.orderViewInfoStoreImage{
+    width: 28rpx;
+    height: 28rpx;
+    margin-left: 20rpx;
+}
+.orderViewInfoStoreName{
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 10rpx;
+}
+.orderViewInfoTopStatusRight{
+    font-size: 26rpx;
+    color: #F3345C;
+    margin-right: 20rpx;
+}
+.orderViewInfoTopStatusOrderNum{
+    color: #999999;
+    font-size: 22rpx;
+    margin-left: 20rpx;
+    margin-top: 10rpx;
+}
+/* 订单列表区 */
+.orderViewInfoTopDetailList{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10rpx;
+   
+}
+.activeTitleTip{
+    /* display: flex; */
+    display: inline-block;
+    color: #ffffff;
+    background-color: #FBA72F;
+    font-size: 24rpx;
+    width: 100rpx;
+    margin-right: 20rpx;
+    text-align: center;
+    line-height: 37rpx;
+  }
+  .activeTitleRedeemTip{
+    /* display: flex; */
+    display: inline-block;
+    color: #ffffff;
+    background-color: #5EA7FD;
+    font-size: 24rpx;
+    width: 100rpx;
+    margin-right: 20rpx;
+    text-align: center;
+    line-height: 37rpx;
+  }
+.reFundImage{
+    width: 120rpx;
+    height: 120rpx;
+    right: 20rpx;
+    top: 10rpx;
+    position: absolute;
+}
+.orderViewInfoTopDetail{
+    width: 100%;
+    height: 164rpx;
+    display: flex;
+    margin-top: 20rpx;
+    position: relative;
+}
+.orderViewInfoImage{
+    width: 164rpx;
+    height: 164rpx;
+    margin-left: 20rpx;
+}
+.orderViewInfoTopDetailRight{
+    height: 164rpx;
+    width: 506rpx;
+    display: flex;
+    margin-left: 20rpx;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.orderViewInfoTopDetailName{
+    /* color: #333333;
+    font-size: 26rpx;
+    font-weight: bold;
+    width: 100%;
+    height: 37rpx;
+    max-height: 37rpx;
+    line-height: 37rpx; */
+
+
+    font-size: 26rpx;
+    font-weight: bold;
+    word-break: break-all;
+    width: 90%;
+    height: auto;
+    flex-direction: row;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+.orderViewInfoTopDetailWight{
+    color: #999999;
+    font-size: 26rpx;
+    height: 37rpx;
+    width: 100%;
+}
+.orderViewInfoTopDetailPriceView{
+    width: 100%;
+    height: 37rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.orderViewInfoTopDetailPrice{
+    color: #F3345C;
+    font-size: 26rpx;
+    height: 37rpx;
+    line-height: 37rpx;
+}
+.orderViewInfoTopDetailNum{
+    color: #333333;
+    font-size: 26rpx;
+    height: 37rpx;
+    line-height: 37rpx;
+    margin-right: 20rpx;
+}
+/* item支付金额区 */
+.orderViewInfoTopMoney{
+    width: 100%;
+    height: 68rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.orderViewInfoTopMoneyTip{
+    color: #999999;
+    font-size: 28rpx;
+    margin-right: 10rpx;
+}
+.orderViewInfoTopTotMoney{
+    color: #333333;
+    font-size: 32rpx;
+    margin-right: 20rpx;
+}
+
+/* item底部区 */
+.orderViewInfoBottom{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.orderViewInfoLine{
+    width: 100%;
+    background-color: #E8E8E8;
+    height: 2rpx;
+}
+/* 等待支付底部 */
+.orderViewInfoBottomWaitPayView{
+    width: 100%;
+    height: 97rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20rpx;
+}
+.orderInfoCancelBtn{
+    width: 140rpx;
+    height: 60rpx;
+    border: 2rpx solid #F3345C;
+    margin-right: 20rpx;
+    color: #F3345C;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+}
+.orderInfoPayBtn{
+    width: 140rpx;
+    height: 60rpx;
+    border: 2rpx solid #F3345C;
+    color: #F3345C;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+}
+.reFundClickBtn{
+    /* width: 140rpx; */
+    height: 60rpx;
+    border: 2rpx solid #E8E8E8;
+    color: #666666;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+    margin-right: 20rpx;
+    padding: 0rpx 10rpx;
+    justify-content: center;
+}
+.reFundClickSingBtn{
+    /* width: 140rpx; */
+    height: 60rpx;
+    /* border: 2rpx solid #E8E8E8; */
+    color: #666666;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+    /* margin-right: 20rpx; */
+    /* padding: 0rpx 10rpx; */
+}
+.userOrderLogisticsBtn{
+    width: 140rpx;
+    height: 60rpx;
+    border: 2rpx solid #E8E8E8;
+    color: #666666;
+    margin-right: 20rpx;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+}
+.useReceiveOrderClickBtn{
+    width: 140rpx;
+    height: 60rpx;
+    border: 2rpx solid #F3345C;
+    color: #F3345C;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+}
+.serOrderInfoClickBtn{
+    width: 140rpx;
+    height: 60rpx;
+    border: 2rpx solid #E8E8E8;
+    color: #666666;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+    margin-left: 20rpx;
+}
+.adminView{
+    display: flex;
+    flex-direction: row;
+}
+.NormalView{
+    display: flex;
+    flex-direction: row;
+}
+
+

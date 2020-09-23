@@ -1,0 +1,26 @@
+<nav-bar title="提现结果" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+  <view class="v_body">
+    <view id="v_top">
+      <image mode="widthFix" id="iv_resaultIcon" src="{{resaultIcon}}"></image>
+      <text id="tv_resaultText">{{resaultText}}</text>
+      <text id="tv_resaultWornText">{{resaultWornText}}</text>
+    </view>
+    <view id="v_amount">
+      <text class="tv_infoText">提现金额</text>
+       <text  class="tv_infoText2">{{date.amount}}</text>
+    </view>
+    <view id="v_account">
+      <text class="tv_infoText">到账账户</text>
+        <text class="tv_infoText2">{{account}}</text>
+    </view>
+    <view id="v_time">
+      <text class="tv_infoText">发起时间</text>
+       <text class="tv_infoText2">{{date.time}}</text>
+    </view>
+  </view>
+
+
+</view>

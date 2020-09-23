@@ -1,0 +1,392 @@
+Page{
+    background-color: #F7F7F6;
+}
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+.topView{
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    margin-top: 40rpx;
+}
+.topViewTop{
+    width: 100%;
+    height: 88rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.topViewTopLeft{
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 30rpx;
+}
+.topViewTopRight{
+    color: #333333;
+    font-size: 28rpx;
+    margin-right: 40rpx;
+}
+.topViewLine{
+    width: 100%;
+    height: 2rpx;
+    background-color: #E5E5E5;
+    margin-left: 30rpx;
+}
+.topViewBottom{
+    width: 100%;
+    height: 88rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.topViewBottomLeft{
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 30rpx;
+    max-width: 150rpx;
+    max-height: 40rpx;
+}
+.topViewBottomRight{
+    color: #999999;
+    font-size: 28rpx;
+    margin-right: 20rpx;
+    width: 550rpx;
+    text-align: right;
+    overflow: auto;
+}
+.middleView{
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40rpx;
+}
+.middleMoneyView{
+    width: 100%;
+    height: 64rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.middleMoneyViewLeft{
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 30rpx;
+}
+.middleMoneyViewRight{
+    color: #999999;
+    font-size: 28rpx;
+    margin-right: 40rpx;
+}
+.middleFreightMoneyView{
+    width: 100%;
+    height: 64rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.middleFreightMoneyViewLeft{
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 30rpx;
+}
+.middleFreightMoneyViewRight{
+    color: #999999;
+    font-size: 28rpx;
+    margin-right: 40rpx;
+}
+.middlePayStyleView{
+    width: 100%;
+    height: 64rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.middlePayStyleViewLeft{
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 30rpx;
+}
+.middlePayStyleViewRight{
+    color: #999999;
+    font-size: 28rpx;
+    margin-right: 40rpx;
+}
+.middleTopLine{
+    width: 100%;
+    height: 2rpx;
+    background-color: #E5E5E5;
+    margin-left: 30rpx;
+}
+.middleTotMoney{
+    width: 100%;
+    height: 90rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #ffffff;
+    
+}
+.middleTotMoneyTip{
+    color: #999999;
+    font-size: 28rpx;
+    margin-right: 40rpx;
+}
+.middleTotMoneyValue{
+    color: #F3345C;
+    font-size: 28rpx;
+    margin-right: 40rpx;
+}
+.btnView{
+    width: 100%;
+    height: 88rpx;
+    display: flex;
+    flex-direction: column;
+}
+.btnViewTopLine{
+    width: 100%;
+    height: 2rpx;
+    background-color: #E5E5E5;
+    margin-left: 30rpx;
+}
+.btnViewBtnView{
+    width: 100%;
+    height: 86rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.callView{
+    width: 374rpx;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.callImage{
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 20rpx;
+}
+.callTitle{
+    color: #333333;
+    font-size: 24rpx;
+}
+.btnViewBtnViewMiddleLine{
+    background-color: #E5E5E5;
+    width: 2rpx;
+    height: 50rpx;
+}
+.onlineView{
+    width: 374rpx;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.onlineImage{
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 20rpx;
+}
+.onlineTitle{
+    color: #333333;
+    font-size: 24rpx;
+}
+.peopleService{
+    width: 374rpx;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.peopleService::after {
+    border: none; 
+}
+
+
+
+.bottomView{
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40rpx;
+}
+.orderNum{
+    width: 100%;
+    height: 64rpx;
+    margin-top: 10rpx;
+    display: flex;
+    align-items: center;
+
+}
+.orderViewLeft{
+    color: #333333;
+    font-size: 24rpx;
+    margin-left: 30rpx;
+}
+.orderViewBtn{
+    color: #666666;
+    font-size: 24rpx;
+    width: 80rpx;
+    text-align: center;
+    border: 2rpx solid #E8E8E8;
+    margin-left: 60rpx;
+}
+.orderCreateTime{
+    width: 100%;
+    height: 64rpx;
+    /* align-items: center; */
+}
+.orderCreateTimeValue{
+    color: #333333;
+    font-size: 24rpx;
+    margin-left: 30rpx;
+    height: 100%;
+    line-height: 64rpx;
+}
+.orderPayTime{
+    width: 100%;
+    height: 64rpx;
+    /* align-items: center; */
+}
+.orderPayTimeValue{
+    color: #333333;
+    font-size: 24rpx;
+    margin-left: 30rpx;
+    height: 100%;
+    line-height: 64rpx;
+}
+.orderLine{
+    width: 100%;
+    height: 2rpx;
+    background-color: #E5E5E5;
+    margin-left: 30rpx;
+}
+.orderBottomView{
+    color: #337DFB;
+    width: 100%;
+    height: 90rpx;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 90rpx;
+    background-color: #ffffff;
+}
+.orderBottomView::after {
+    border: none; 
+}
+.periodView{
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: #ffffff;
+}
+.periodViewDes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 87rpx;
+    width: 100%;
+}
+.periodViewDesLeft{
+    margin-left: 30rpx;
+    line-height: 87rpx;
+    color: #333333;
+    font-size: 28rpx;
+}
+.periodViewDesRight{
+   margin-right: 20rpx;
+   line-height: 87rpx;
+   font-size: 28rpx;
+   color: #333333;
+}
+.periodViewDesBottomLine{
+    width: 100%;
+    margin-left: 30rpx;
+    height: 2rpx;
+    color: #E5E5E5;
+}
+.periodViewData{
+    width: 100%;
+    height: 117rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.periodViewDataLeft{
+    height: 117rpx;
+    line-height: 117rpx;
+    color: #333333;
+    font-size: 28rpx;
+    margin-left: 30rpx;
+}
+.periodViewDataRight{
+    display: flex;
+    height: 117rpx;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.periodViewDataRightLeft{
+    display: flex;
+    flex-direction: column;
+    height: 117rpx;
+    justify-content: center;
+    margin-right: 20rpx;
+}
+.periodViewDataRightLeftTop{
+    color: #F3355C;
+    font-size: 28rpx;
+    text-align: end;
+    width: auto;
+}
+.periodViewDataRightLeftBottom{
+    color: #F3355C;
+    font-size: 28rpx;
+    text-align: end;
+    width: auto;
+}
+.periodViewDataBottomLine{
+    width: 100%;
+    margin-left: 30rpx;
+    height: 2rpx;
+    color: #E5E5E5;
+}
+.periodViewType{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 87rpx;
+    width: 100%;
+}
+.periodViewTypeLeft{
+    margin-left: 30rpx;
+    line-height: 87rpx;
+    color: #333333;
+    font-size: 28rpx;
+}
+.periodViewTypeRight{
+    margin-right: 20rpx;
+   line-height: 87rpx;
+   font-size: 28rpx;
+   color: #333333;
+}
+.sendTypeMidLine{
+    background-color: #E5E5E5;
+    width: 100%;
+    margin-left: 20rpx;
+    height: 1rpx;
+}
+
+
+
+

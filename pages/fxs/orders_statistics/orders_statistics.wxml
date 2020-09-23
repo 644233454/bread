@@ -1,0 +1,147 @@
+<nav-bar title="订单统计" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+
+  <!--搜索框-->
+  <view class="search-wrapper">
+    <input confirm-type="search" v-model="keyword" placeholder="请输入客户昵称或订单号" bindconfirm='search_function' class="input_search" bindinput="getInputValue"></input>
+    <icon class="searchcion" size='20' type='search' bindtap="icon_search_function"></icon>
+  </view>
+
+  <!--tablayout-->
+  <view class="v_tab" id="v_bodyTop">
+
+    <!--订单类型-->
+    <view id="v_tabType" bindtap="v_TabType_onclick">
+      <text id="tv_tabType" style="color:{{TabSelectedIndex==0?TabSelectedTextColor:TabUnSelectedTextColor}}">{{TabType[TabTypeSelectedIndex]}}</text>
+      <image mode="widthFix" id="iv_tabType" src="{{TabSelectedIndex==0?TabSelectedArrowBg:TabUnSelectedArrowBg}}"></image>
+    </view>
+
+    <!--订单状态-->
+    <view id="v_tabStatus" bindtap="v_tabStatus_onclick" wx:if="{{true}}">
+      <text id="tv_tabStatus" style="color:{{TabSelectedIndex==1?TabSelectedTextColor:TabUnSelectedTextColor}}">{{TabStatus[TabStatusSelectedIndex]}}</text>
+      <image mode="widthFix" id="iv_tabStatus" src="{{TabSelectedIndex==1?TabSelectedArrowBg:TabUnSelectedArrowBg}}"></image>
+    </view>
+  </view>
+
+  <!--recyclerview-->
+  <view class="v_tabContent">
+    <scroll-view style="height:{{sv_Height}}rpx;" scroll-y="true" bindscrolltolower="bottomRefresh" class="sv_item">
+
+      <view id="v_orderNumber">
+        <text id="tv_orderNumberTextOne">共</text>
+        <text id="tv_orderNumber">{{rateDate.count>0?rateDate.count:'0'}}</text>
+        <text id="tv_orderNumberTextTwo">笔订单</text>
+      </view>
+      <view id="v_productYJ">
+        <text id="tv_productYJTextOne">共获得商品佣金</text>
+        <text id="tv_productYJ">{{rateDate.commissionAmount>0?rateDate.commissionAmount:'0'}}</text>
+        <text id="tv_productYJTextTwo">元</text>
+      </view>
+
+      <block wx:for="{{listData}}" wx:key="index">
+        <view class='v_item' bindtap="v_item_itemOnClick" data-index="{{item}}">
+          <view class="v_item_top">
+            <text id="tv_name">买家：{{item.nickName}}</text>
+            <text id="tv_status">{{item.statusText}}</text>
+          </view>
+          <text id="tv_time">下单时间：{{item.orderTime}}</text>
+          <block wx:for="{{item.detailList}}" wx:for-item="detailList" wx:key="ids">
+            <view class='v_item_item'>
+              <image id="iv" src="{{detailList.imgUrl}}" mode="scaleToFill"></image>
+              <view class='v_item_itemOne'>
+                <view class='v_item_itemOne_top'>
+                  <text class="tv_zqg_bg" wx:if="{{item.orderType=='PERIOD'||item.orderType=='PERIOD_AUTO'}}" style="width:{{item.orderType=='PERIOD'||item.orderType=='PERIOD_AUTO'?96:0}}rpx; height:{{item.orderType=='PERIOD'||item.orderType=='PERIOD_AUTO'?38:0}}rpx;">周期购</text>
+                  <text id="tv_productName" style="margin-left:{{item.orderType=='PERIOD'||item.orderType=='PERIOD_AUTO'?105:0}}rpx; width:{{item.orderType=='PERIOD'||item.orderType=='PERIOD_AUTO'?438:544}}rpx;">{{detailList.productName}}</text>
+                </view>
+                <text id="tv_YJrate">佣金比例：{{detailList.commission}}</text>
+              </view>
+              <text id="tv_times" wx:if="{{item.orderType!='PERIOD_AUTO'}}" >x{{detailList.productCount}}</text>
+            </view>
+          </block>
+          <view class="v_itemOne">
+            <view wx:if="{{item.orderType=='PERIOD_AUTO'}}">
+              <text style="color:#F3345C;font-size:24rpx;margin-right:8rpx;">查看进度</text>
+              <image class="iv_items_right" mode="widthFix" src="/assets/imgs/arror_right_red.png"></image>
+            </view>
+            <text id="tv_tk" wx:if="{{item.refundStatus==1||item.refundStatus==2}}">{{refundStatus[item.refundStatus]}}</text>
+            <text id="tv_totalProce">订单价格：￥{{item.orderAmount}}</text>
+            <text id="tv_YJ">商品佣金：￥{{item.orderCommissionAmount}}</text>
+            <text id="tv_XSY" wx:if="{{item.sellerNickName!==null&&item.sellerNickName!==''}}">销售员：{{item.sellerNickName}}</text>
+          </view>
+        </view>
+      </block>
+      <view class="v_loading" hidden="{{!loading}}">正在载入更多...</view>
+      <view class="v_loadingComplete" hidden="{{!loadingComplete}}">已加载全部</view>
+    </scroll-view>
+  </view>
+
+  <!--订单状态弹框-->
+  <view class="v_dialog_TabStatus" wx:if="{{!TabStatusHidden}}" style="top:{{navigationBarHeight+55+36}}px;">
+    <view id="v_dialog_TabStatus_content" catchtouchmove="{{move}}" bindtap="v_dialog_TabStatus_content_shadow_click">
+      <view id="v_diaOne">
+        <view id="v_diaLine"></view>
+        <view id="v_diaTop">
+          <view id="v_diaTopAll" catchtap="v_dialog_TabStatus0_click">
+            <image src="{{tabBg}}" id="iv_tabBg" hidden="{{TabStatusSelectedIndex!=0}}"></image>
+            <text id="v_dialogText">{{TabStatus[0]}}</text>
+          </view>
+
+          <view id="v_diaDFK" catchtap="v_dialog_TabStatus1_click">
+            <image src="{{tabBg}}" id="iv_tabBg" hidden="{{TabStatusSelectedIndex!=1}}"></image>
+            <text id="v_dialogText">{{TabStatus[1]}}</text>
+          </view>
+
+          <view id="v_diaDFH" catchtap="v_dialog_TabStatus2_click">
+            <image src="{{tabBg}}" id="iv_tabBg" hidden="{{TabStatusSelectedIndex!=2}}"></image>
+            <text id="v_dialogText">{{TabStatus[2]}}</text>
+          </view>
+        </view>
+        <view id="v_diabottom">
+          <view id="v_diaBottomDSH" catchtap="v_dialog_TabStatus3_click">
+            <image src="{{tabBg}}" id="iv_tabBg" hidden="{{TabStatusSelectedIndex!=3}}"></image>
+            <text id="v_dialogText">{{TabStatus[3]}}</text>
+          </view>
+          <view id="v_diaJYCG" catchtap="v_dialog_TabStatus4_click">
+            <image src="{{tabBg}}" id="iv_tabBg" hidden="{{TabStatusSelectedIndex!=4}}"></image>
+            <text id="v_dialogText">{{TabStatus[4]}}</text>
+          </view>
+          <view id="v_diaJYGB" catchtap="v_dialog_TabStatus5_click">
+            <image src="{{tabBg}}" id="iv_tabBg" hidden="{{TabStatusSelectedIndex!=5}}"></image>
+            <text id="v_dialogText">{{TabStatus[5]}}</text>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--订单类型弹框-->
+  <view class="v_dialog_TabType" wx:if="{{!TabTypeHidden}}" style="top:{{navigationBarHeight+55+36}}px;">
+    <view id="v_dialog_TabType_content" catchtouchmove="{{move}}" bindtap="v_dialog_TabType_content_shadow_click">
+
+      <view id="v_diaTwo">
+        <view id="v_diaLine"></view>
+        <view id="v_diaTop">
+          <view id="v_diaTopAll" catchtap="v_dialog_TabType0_click">
+            <image src="{{tabBg}}" id="iv_tabBg" hidden="{{TabTypeSelectedIndex!=0}}"></image>
+            <text id="v_dialogText">{{TabType[0]}}</text>
+          </view>
+
+          <view id="v_diaDFK" catchtap="v_dialog_TabType1_click">
+            <image src="{{tabBg}}" id="iv_tabBg" hidden="{{TabTypeSelectedIndex!=1}}"></image>
+            <text id="v_dialogText">{{TabType[1]}}</text>
+          </view>
+
+          <view id="v_diaDFH" catchtap="v_dialog_TabType2_click" wx:if="{{false}}">
+            <image src="{{tabBg}}" id="iv_tabBg" hidden="{{TabTypeSelectedIndex!=2}}"></image>
+            <text id="v_dialogText">{{TabType[2]}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

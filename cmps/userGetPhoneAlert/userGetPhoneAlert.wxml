@@ -1,0 +1,16 @@
+<view class="pageView">
+
+    <view class="container" >
+         <view class="Box">
+            <view class="BoxTop">
+                 <view class="title">吉利烘焙申请</view>
+                 <view class="titleTwo">获取您的手机号码</view>
+                 <view class="tipText">仅用于吉利烘焙</view>
+            </view>
+            <view class="BtnView">
+                <view  class="cancelBtn"  catch:tap="cancelBtn">取消</view>
+                <button class="sureBtn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">去授权</button>
+            </view>   
+         </view>
+    </view>
+</view>

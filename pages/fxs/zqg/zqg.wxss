@@ -1,0 +1,199 @@
+page {
+ height: 100%;
+  width: 100%;
+  background-color: #f7f7f6;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+}
+
+
+/*搜索框*/
+.search-wrapper {
+  width: 100%;
+  /*不放大，不缩小,固定高度100rpx*/
+  flex: 0 0 110rpx;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.input_search{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-left: 65rpx;
+  height: 70rpx;
+  width: 560rpx;
+  background-color: #f5f5f5;
+  border-radius: 35rpx;
+  text-align: center;
+
+}
+.searchcion{
+  margin-left: 20rpx;
+}
+
+
+/*========================item*/
+.v_list{
+  width: 100%;
+  height: 100%;
+}
+.sv_item{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_item {
+  background-color: white;
+  width: 690rpx;
+  margin-top: 20rpx;
+  height: 310rpx;
+  border-radius: 15rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.v_item_top {
+  padding-left: 20rpx;
+  margin-top: 21rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.v_item_top_left {
+}
+
+.v_item_top_right {
+}
+
+.iv_MallLogo {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.tv_MallName {
+  color: #333;
+  font-size: 28rpx;
+  margin-left: 21rpx;
+}
+
+.iv_enterMall {
+  margin-left: 20rpx;
+  width: 14rpx;
+  height: 28rpx;
+}
+
+.tv_ProdectType {
+  color: #f3345c;
+  font-size: 22rpx;
+  padding-right: 30rpx;
+}
+
+.tv_ProductNumber {
+  padding-left: 20rpx;
+  margin-top: 13rpx;
+  color: #999;
+  font-size: 22rpx;
+}
+
+.v_item_bottom {
+  padding-left: 20rpx;
+  margin-top: 17rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.v_item_bottom_right {
+  display: flex;
+  flex-direction: column;
+}
+
+.v_item_bottom_right_Line1 {
+  margin-left: 19rpx;
+  display: flex;
+  height: 74rpx;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.v_item_bottom_right_Line1_left {
+  width: 416rpx;
+  height: 74rpx;
+  font-size: 0;
+}
+
+.iv_ProductLogo {
+  width: 164rpx;
+  height: 164rpx;
+  background-color: #dad8d9;
+}
+
+.tv_ZQG_bg {
+  color: white;
+  font-size: 24rpx;
+  width: 96rpx;
+  height: 38rpx;
+  background-color: #fba72f;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tv_productName {
+  color: #333;
+  font-size: 26rpx;
+  font-weight: bold;
+  margin-left: 105rpx;
+  line-height: 38rpx;
+}
+
+.tv_ProdectTimes {
+  margin-right: 20rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+
+.tv_ZQG_ticket_code {
+  margin-top: 13rpx;
+  margin-left: 19rpx;
+  color: #666;
+  font-size: 22rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1; 
+}
+
+.tv_ZQG_progress {
+  margin-top: 7rpx;
+  margin-left: 19rpx;
+  color: #666;
+  font-size: 22rpx;
+}
+
+
+.v_loading {
+  width: 100%;
+  height: 80rpx;
+  padding-top: 40rpx;
+  text-align: center;
+}
+
+.v_loadingComplete {
+  width: 100%;
+  margin-top: 30rpx;
+  height: 140rpx;
+  text-align: center;
+}

@@ -1,0 +1,90 @@
+<!--pages/reFund/reFund.wxml-->
+<nav-bar class="nav" bind:backTap="back" 
+          bind:homeTap="home"
+          back = "true"
+          home = "false"
+          title="申请退款">
+</nav-bar> 
+<view class="mainView">
+     <view class="goodInfoMiddle">
+        <view class="GoodInfoMiddleItem">
+             <image class="shopInfoImage" src="{{itemDetail.imgUrl}}"/>
+             <view class="goodInfoMiddleRight">
+                 <view class="goodInfoMiddleTitle">{{itemDetail.name}}</view>
+                 <view class="goodInfoMiddleWeight">{{itemDetail.spec}}</view>
+                 <view class="goodInfoMiddleBottom">
+                     <view class="goodInfoMiddlePrice">￥{{itemDetail.price}}</view>
+                     <view class="goodInfoMiddleNum">x {{itemDetail.count}}</view>
+                 </view>
+             </view>
+         </view>
+         <view class="itemLineView"></view>
+     </view>
+     <view class="chooseView">
+                <view class="choosebottomViewInfo">
+                        <view class="choosebottomTitle">退款方式</view>
+                        <view class="choosebottomRight">
+                                <picker class="pickView" mode="selector" bindchange="reFundTypeBindRegionChange" value="{{index}}" range="{{reFundTypeArray}}">
+                                                <view class="picker {{refundTypeIndex?'value':'default'}}">
+                                                        {{reFundTypeArray[refundTypeIndex]||"请选择"}}
+                                                  </view>
+                                          </picker>
+                                <view class="arror"></view>
+                                <!-- <view class="chooseTopValue">请选择</view> -->
+                                <!-- <view class="arror"></view> -->
+                        </view>
+                </view>
+                <!-- <view class="choosebottomView">
+                        <view class="choosebottomViewLine"></view>
+                        <view class="choosebottomViewInfo">
+                                <view class="choosebottomTitle">货物状态</view>
+                                <view class="choosebottomRight">
+                                        <picker class="pickView" mode="selector" bindchange="bindRegionChange" value="{{index}}" range="{{stateArray}}">
+                                                <view class="picker {{stateType?'value':'default'}}">
+                                                        {{stateArray[stateType]||"请选择"}}
+                                                  </view>
+                                          </picker>
+                                          <view class="arror"></view>
+                                  </view>
+                           </view>
+                  </view> -->
+                  <view class="choosebottomView">
+                        <view class="choosebottomViewLine"></view>
+                        <view class="choosebottomViewInfo">
+                                <view class="choosebottomTitle">退货原因</view>
+                                <view class="choosebottomRight">
+                                        <picker class="pickView" mode="selector" bindchange="reasionBindRegionChange" value="{{index}}" range="{{ReasonArr}}">
+                                                <view class="picker {{Reason?'value':'default'}}">
+                                                        {{ReasonArr[Reason]||"请选择"}}
+                                                  </view>
+                                          </picker>
+                                          <view class="arror"></view>
+                                  </view>
+                        </view>
+                   </view>
+        </view>
+
+        <!-- <view class="chooseViewLine"></view> -->
+        <view class="reFundMoney">
+                <view class="reFundText">退款金额</view>
+                 <view class="reFundValue">￥{{refundAmount}}元</view>
+        </view>
+        <view class="reFundTipView">
+                <view class="reFundTipText">最多可退￥{{refundAmount}}元(含运费0.00)。退款将返还实际支付金额</view>
+        </view>
+        <view class="userOrderNumView" wx:if="{{refundTypeIndex==0}}">
+                <view class="userOrderNumTip" >快递单号</view>
+                 <input class="userOrderNumInput" type="number" placeholder="请填写快递单号" placeholder-class="inputPlaceholder" value="{{orderNumber}}" maxlength="11" bindinput="orderNumberInput"/>
+        </view>
+        <view class="userPhoneView">
+                <view class="userphoneTip">手机号码</view>
+                 <input class="phoneInput" type="number" placeholder="请填写手机号" placeholder-class="inputPlaceholder" value="{{userPhone}}" maxlength="11" bindinput="phoneInput"/>
+        </view>
+         <view class="userRefundRemark">
+                <view class="userRemarkTip">退货说明</view>
+                 <input class="RemarkInput" placeholder="选填 最多50字" placeholder-class="inputPlaceholder" value="{{userRemark}}" maxlength="50" bindinput="RemarkInput"/>
+        </view>
+        
+        <view class="sureBtn" bind:tap="sureBtnClicl">提交</view>
+        
+</view>

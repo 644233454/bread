@@ -1,0 +1,272 @@
+page{
+  background-color: #f7f7f6;
+  width: 100%;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.goods{
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
+}
+.good{
+  background-color: white;
+  width: 341rpx;
+  height: 532rpx;
+  margin-top: 21rpx;
+  margin-left: 24rpx;
+  box-shadow: 2rpx 2rpx 2rpx 0 rgba(212, 209, 209, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+#iv_productBg{
+   width: 341rpx;
+   height: 341rpx;
+   background-color: gray;
+}
+#tv_productName{
+  margin-top: 25rpx;
+  color: #333333;
+  font-size: 26rpx;
+  margin-left: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#v_itemOne{
+   margin-top: 8rpx;
+   margin-left: 10rpx;
+   display: flex;
+   flex-direction: row;
+   margin-right: 10rpx;
+   justify-content: space-between;
+}
+#tv_productPrice{
+  color: #333333;
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#tv_productRate{
+  color: #999999;
+  font-size: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#v_anticipateEarn{
+  margin-top: 12rpx;
+  background-color: #F3345C;
+  height: 52rpx;
+  width: 236rpx;
+  margin-left: 52rpx;
+  border-radius: 26rpx;
+  display: flex;
+  align-items: center;
+}
+#iv_anticipateEarn{
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 22rpx;
+  margin-right: 10rpx;
+  flex-shrink:0;
+}
+#tv_anticipateEarn{
+  color: white;
+  font-size: 22rpx;
+  /*不让自动换行，单行文字超出显示省略号*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/*底部弹框*/
+.v_sheetDialog{
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+}
+#v_sheetDialogContent{
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  bottom: 0rpx;
+  height: 381rpx;
+}
+#v_sheetDialogContentOne{
+  display: flex;
+  background-color: #F9F6F6;
+  height: 286rpx;
+  flex-direction: row;
+  
+}
+#v_sheetDialogContentTwo{
+  width: 100%;
+  height: 115rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+#tv_sheetDialogContentCancel{
+  color: #333333;
+  font-size: 30rpx;
+
+}
+#v_sheetDialogContentOneOne,#v_sheetDialogContentOneTwo,#v_sheetDialogContentOneThree{
+  width: 250rpx;
+  height: 286rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#iv_sheetDialogContentOneOne{
+  margin-top: 63rpx;
+  width: 110rpx;
+  height: 110rpx;
+}
+#tv_sheetDialogContentOneOne{
+  margin-top: 11rpx;
+  color: #333333;
+  font-size: 26rpx;
+}
+
+
+
+/*小程序码弹框*/
+.v_DialogOne{
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+}
+#v_DialogOneContent{
+  position: fixed;
+  background-color: white;
+  width: 528rpx;
+  margin-top: 265rpx;
+  height: 576rpx;
+  margin-left: 111rpx;
+  border-radius: 16rpx;
+}
+#iv_DialogOne_dismiss{
+   position: fixed;
+   width: 44rpx;
+   height: 44rpx;
+   margin-top: 198rpx;
+   margin-left: 593rpx;
+}
+#iv_DialogOneContent_BG{
+  width: 449rpx;
+  height: 469rpx;
+  margin-top: 39rpx;
+  margin-left: 40rpx;
+}
+#v_DialogOneBottom{
+   position: fixed;
+   margin-top: 896rpx;
+   display: flex;
+}
+#iv_DialogOneBottom{
+  margin-left: 238rpx;
+  height: 34rpx;
+  width: 28rpx;
+  margin-right: 20rpx;
+}
+#tv_DialogOneBottom{
+  color: #FFFFFF;
+  font-size: 28rpx;
+}
+
+
+
+/*生成海报商品弹框*/
+.v_DialogTwo{
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+}
+#v_DialogTwoContent{
+  position: fixed;
+  background-color: white;
+  width: 528rpx;
+  margin-top: 145rpx;
+  height: 820rpx;
+  margin-left: 111rpx;
+  flex-direction: column;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  justify-items: center;
+}
+#iv_DialogTow_dismiss{
+   position: fixed;
+   width: 44rpx;
+   height: 44rpx;
+   margin-top: 78rpx;
+   margin-left: 593rpx;
+}
+#iv_DialogTwoContent_BG{
+  width: 487rpx;
+  height: 490rpx;
+  margin-top: 21rpx;
+  background-color: gray;
+}
+#v_DialogTwoBottom{
+   position: fixed;
+   margin-top: 1016rpx;
+   display: flex;
+}
+#iv_DialogTwoBottom{
+  margin-left: 238rpx;
+  height: 34rpx;
+  width: 28rpx;
+  margin-right: 20rpx;
+}
+#tv_DialogTwoBottom{
+  color: #FFFFFF;
+  font-size: 28rpx;
+}
+#tv_DialogTwoContent_product_name{
+  margin-top: 22rpx;
+  color: #666666;
+  font-size: 22rpx;
+
+}
+#iv_DialogTwoContent_code{
+  margin-top: 8rpx;
+  width: 171rpx;
+  height: 179rpx;
+}
+#tv_DialogTwoContent_text{
+  margin-top: 12rpx;
+  color: #666666;
+  font-size: 22rpx;
+}
+.bt_share{
+}
+.bt_share::after{
+   border: none; 
+}
+#v_sheetDialogContentOneThreeOne{
+  display: flex;
+  flex-direction: column;
+}
+#tv_sheetDialogContentOneOneShare{
+  margin-top: -6rpx;
+  color: #333333;
+  font-size: 26rpx;
+}
+

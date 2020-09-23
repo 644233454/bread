@@ -1,0 +1,44 @@
+<nav-bar title="收益统计" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+  <view id="v_tab">
+    <view class="v_tabAll" bindtap="v_tabAll_click" style="background-color:{{tabSelectedIndex==0?tabBgSelectedColor:tabBgUnSelectedColor}}">
+      <text class="tv_tabAll" style="color:{{tabSelectedIndex==0?tabTextSelectedColor:tabTextUnSelectedColor}}">全部</text>
+    </view>
+    <view class="v_tabAll" bindtap="v_tabToday_click" style="background-color:{{tabSelectedIndex==1?tabBgSelectedColor:tabBgUnSelectedColor}}">
+      <text class="tv_tabAll" style="color:{{tabSelectedIndex==1?tabTextSelectedColor:tabTextUnSelectedColor}}">今日</text>
+    </view>
+    <view class="v_tabAll" bindtap="v_tabYesterday_click" style="background-color:{{tabSelectedIndex==2?tabBgSelectedColor:tabBgUnSelectedColor}}">
+      <text class="tv_tabAll" style="color:{{tabSelectedIndex==2?tabTextSelectedColor:tabTextUnSelectedColor}}">昨日</text>
+    </view>
+    <view class="v_tabAll" bindtap="v_tab7Days_click" style="background-color:{{tabSelectedIndex==3?tabBgSelectedColor:tabBgUnSelectedColor}}">
+      <text class="tv_tabAll" style="color:{{tabSelectedIndex==3?tabTextSelectedColor:tabTextUnSelectedColor}}">近七日</text>
+    </view>
+    <view id="v_customeTime" bindtap="v_tabCustomeTime_click" hidden="true" >
+      <text id="tv_customeTimeText" style="color:{{tabSelectedIndex==4?tabTextSelectedColor:tabTextUnSelectedColor}}">自定义时间</text>
+      <image mode="widthFix" src="{{customeTimeArrow}}" id="iv__customeTimeBg"></image>
+    </view>
+  </view>
+  <view id="v_one">
+    <text id="tv_totalEraingsText">总收益</text>
+    <text id="tv_totalEraings">{{info.totalIncome}}</text>
+    <text id="tv_djs">未含待结算{{info.toSettleIncome}}元</text>
+    <view id="v_earinsDetail" bindtap="v_earinsDetail_click">
+      <text id="tv_earinsDetailText">收益明细</text>
+      <image mode="aspectFit" src="{{rightArror}}" id="iv_earinsDetailRightArrow" ></image>
+    </view>
+  </view>
+  <view id="v_two">
+    <view id="v_leijikehu">
+      <text id="tv_leijikehu">{{info.totalCustomer}}</text>
+      <text id="tv_leijikehuText">累计客户(人)</text>
+    </view>
+    <image id="iv_centerline" src="{{centerline}}"></image>
+    <view id="v_leijidingdan">
+      <text id="tv_leijikehu">{{info.totalOrderCount}}</text>
+      <text id="tv_leijikehuText">累计订单(笔)</text>
+    </view>
+  </view>
+
+</view>

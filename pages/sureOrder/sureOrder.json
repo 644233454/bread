@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "nav-bar": "/cmps/nav-bar/nav-bar",
+    "userLoginView": "/cmps/userLoginAlert/userLoginAlert",
+    "userPhoneNumber": "/cmps/userGetPhoneAlert/userGetPhoneAlert"
+  }
+}

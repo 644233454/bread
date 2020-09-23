@@ -1,0 +1,108 @@
+Page{
+    background-color: #F7F7F6;
+}
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.topView{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #ffffff;
+}
+.topInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.topInfoImage{
+    width: 140rpx;
+    height: 140rpx;
+    margin-bottom: 30rpx;
+    margin-top: 80rpx;
+}
+.topInfoTitle{
+    color: #888888;
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+}
+.topInfoMoney{
+    color: #F3345C;
+    font-size: 40rpx;
+
+}
+.topInfoBottomLine{
+    margin-top: 20rpx;
+    bottom: 0rpx;
+    width: 100%;
+    height: 2rpx;
+    background-color: #E5E5E5;
+}
+.topBottom{
+    width: 100%;
+    height: 87rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.topBottomTip{
+    margin-left: 20rpx;
+    color: #333333;
+    font-size: 28rpx;
+}
+.topBottomInfo{
+    margin-right: 20rpx;
+    color: #999999;
+    font-size: 28rpx;
+}
+.bottomView{
+    width: 100%;
+    display: flex;
+    margin-top: 40rpx;
+    flex-direction: column;
+    align-items: center;
+}
+.btnView{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.shareBtn{
+    background-color: #1AAD19;
+    color: #FFFFFF;
+    font-size: 36rpx;
+    border-radius: 8rpx;
+    width: 300rpx;
+    height: 94rpx;
+    line-height: 94rpx;
+    text-align: center;
+}
+.shareBtn::after {
+    border: none; 
+}
+
+.orderInfoBtn{
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 36rpx;
+    border-radius: 8rpx;
+    border: 2rpx solid #F7F7F6;
+    width: 300rpx;
+    height: 94rpx;
+    margin-bottom: 20rpx;
+    line-height: 94rpx;
+    text-align: center;
+}
+.bottomInfo{
+    margin-top: 20rpx;
+    width: 90%;
+    color: #999999;
+    font-size: 26rpx;
+}
+

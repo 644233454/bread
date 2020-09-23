@@ -1,0 +1,234 @@
+page{
+    background-color: #F7F7F6;
+
+  }
+.container{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* height: 100%; */
+    background-color: #F7F7F6;
+}
+.topView{
+    width: 100%;
+    height: 326rpx;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+.backImage{
+    position: absolute;
+    width: 100rpx;
+    height: 200rpx;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.userinfo{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+.headImage{
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 70rpx;
+    margin-left: 60rpx ;
+    margin-right: 20rpx;
+    z-index: 2;
+}
+.name{
+    color: #ffffff;
+    font-size: 32rpx;
+    z-index: 2;
+}
+.orderView{
+    background-color: #ffffff;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 10rpx 5%;
+    height: 250rpx;
+}
+.orderTop{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.orderTopLeft{
+    color: #000000;
+    font-size: 28;
+    margin: 20rpx 40rpx;
+
+}
+.orderTopRightView{
+    display: flex;
+    align-items: center;
+    margin: 20rpx 10rpx;
+}
+.orderTopRightTitle{
+    color: #999999;
+    font-size: 24rpx;
+}
+.arrow {
+    width: 10rpx;
+    height: 10rpx;
+    border: 1rpx solid #7F7F7F;
+    border-left: none;
+    border-top: none;
+    transform: rotate(-45deg);
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+  }
+  .orderMidLine{
+      background-color: #F7F7F6;
+      width: 95%;
+      height: 1rpx;
+      margin-top: 10rpx;
+  }
+  .orderBottom{
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40rpx;
+  }
+  .orderBtn{
+      width: 160rpx;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+  }
+.orderBtnImage{
+    width: 45rpx;
+    height: 40rpx;
+}
+.orderBtntitle{
+    color: #666666;
+    font-size: 24rpx;
+    margin-top: 10rpx;
+}
+.numberView{
+    position: absolute;
+  top: -12px;
+  right: 2px;
+  min-width: 8px;
+  /* height: 20px;
+  line-height: 20px; */
+  /* margin-top: -11px; */
+  padding: 0 6px;
+  font-weight: normal;
+  color: white;
+  text-align: center;
+  /* text-shadow: 0 1px rgba(0, 0, 0, 0.2); */
+  background: #e23442;
+  border: 1px solid #e23442;
+  border-radius: 11px;
+  /* background-image: -webkit-linear-gradient(top, #e8616c, #dd202f);
+  background-image: -moz-linear-gradient(top, #e8616c, #dd202f);
+  background-image: -o-linear-gradient(top, #e8616c, #dd202f);
+  background-image: linear-gradient(to bottom, #e8616c, #dd202f);
+  -webkit-box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 1px rgba(0, 0, 0, 0.12); */
+}
+
+.itemView{
+    /* height: 440rpx; */
+    width: 90%;
+    display: inline-flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin-top: 10rpx;
+}
+.item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 88rpx;
+}
+.itemLeft{
+    display: flex;
+    align-items: center;
+
+}
+.itemLeftImage{
+    width: 30rpx;
+    height: 30rpx;
+    margin: 0rpx 20rpx;
+}
+.itemLefttitle{
+    color: #333333;
+    font-size: 28rpx;
+}
+.itemRightArrow{
+    width: 14rpx;
+    height: 14rpx;
+    border: 1rpx solid #7F7F7F;
+    border-left: none;
+    border-top: none;
+    transform: rotate(-45deg);
+    margin-left: 10rpx;
+    margin-right: 30rpx;
+}
+.botton{
+    width: 100%;
+    height: 100rpx;
+    background-color: red;
+}
+.containerItem{
+    width: 100%;
+    height: 88rpx;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+.peopleService{
+    width: 100%;
+    height: 88rpx;
+    display: flex;
+    padding: 0rpx 0rpx;
+    align-items: center;
+    background-color: #ffffff;
+    justify-content: space-between;
+    /* background-color: red; */
+}
+
+.peopleService::after {
+    border: none; 
+}
+
+.peopleService .itemLeft{
+    display: flex;
+    align-items: center;
+    /* margin-left: -20rpx; */
+
+}
+.bottomView{
+    /* background-color: #468592; */
+    position: absolute;
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 20rpx;
+    /* margin-top: 20rpx; */
+    /* padding-top: 40rpx; */
+  }
+
+  .shareView{
+    position: flex;
+    width: 100%;
+    z-index: 88;
+    background-color: #ffffff;
+  }

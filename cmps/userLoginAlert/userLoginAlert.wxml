@@ -1,0 +1,30 @@
+<view class="pageView">
+
+    <!-- <view class="container" >
+         <view class="Box">
+            <view class="BoxTop">
+                <view class="title">尚未授权,请授权</view>
+                <view class="tipTextOne">·获取微信昵称</view>
+                 <view class="tipTextTwo">·获取微信头像</view>
+            </view>
+            <view class="BtnView">
+                <button class="cancelBtn"  catch:tap="cancelBtn">取消</button>
+                <button class="sureBtn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">去授权</button>
+            </view> 
+         </view>
+    </view> -->
+
+     <view class="container" >
+         <view class="Box">
+            <view class="BoxTop">
+                 <view class="title">吉利烘焙申请</view>
+                 <view class="titleTwo">获取您的微信昵称,微信头像</view>
+                 <view class="tipText">仅用于吉利烘焙</view>
+            </view>
+            <view class="BtnView">
+                <view  class="cancelBtn"  catch:tap="cancelBtn">取消</view>
+                <button class="sureBtn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">去授权</button>
+            </view>   
+         </view>
+    </view>
+</view>

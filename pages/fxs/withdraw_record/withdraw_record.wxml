@@ -1,0 +1,19 @@
+<nav-bar title="提现记录" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+
+  <view id="v_list">
+    <block wx:for="{{listData}}" wx:key="index">
+      <view class='v_item' bindtap="v_item_itemOnClick" data-index="{{item}}">
+        <image mode="widthFix" id="iv_item_icon" src="{{itemBg}}"></image>
+        <text id="tv_item_typeText">提现</text>
+        <text id="tv_item_timeText">{{item.time}}</text>
+        <text id="tv_item_amountText">¥{{item.amount}}</text>
+        <!--status 1成功 0失败 2处理中-->
+         <text id="tv_item_statusText" style="color:{{item.status==1?statusNormalColor:item.status==0?statusFailedColor:item.status==2?statusIngColor:statusNormalColor}}">{{item.status==1?statusNormalText:item.status==0?statusFailedText:item.status==2?statusIngText:""}}</text>
+      </view>
+    </block>
+  </view>
+
+</view>

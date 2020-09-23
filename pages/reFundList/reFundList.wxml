@@ -1,0 +1,36 @@
+<!--pages/reFundList/reFundList.wxml-->
+<nav-bar class="nav" bind:backTap="back" 
+          bind:homeTap="home"
+          back = "true"
+          home = "false"
+          title="订单商品列表">
+</nav-bar> 
+<scroll-view class="mainView" style="max-height:{{contrainHight}}px;" scroll-y="{{true}}">
+    <view class="TopLine"></view>
+     <view class="GoodInfoMiddleItem" wx:for="{{orderDetail.productList}}" wx:key="unique" data-itemindex ="{{index}}">
+        <view class="GoodInfoMiddleItemTop">
+            <image class="shopInfoImage" src="{{item.imgUrl}}"/>
+            <view class="goodInfoMiddleRight">
+                <view class="goodInfoMiddleTitle">{{item.name}}</view>
+                <view class="goodInfoMiddleWeight">{{item.spec}}</view>
+                <view class="goodInfoMiddleBottom">
+                        <view class="goodInfoMiddlePrice">￥{{item.price}}</view>
+                        <view class="goodInfoMiddleNum">x {{item.count}}</view>
+                </view>
+            </view>
+             <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIReFund.png" wx:if="{{item.refundInfo.refundStatus==1}}"/>
+             <image class="reFundImage" mode="aspectFit" src="/assets/imgs/alreayReFund.png" wx:if="{{item.refundInfo.refundStatus==2}}"/>
+            <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIRefuse.png" wx:if="{{item.refundInfo.refundStatus==3}}"/>
+        </view>
+        <view class="GoodInfoMiddleItemBottom">
+            <view class="goToCommentView" bind:tap="goToReFund" data-itemindex = "{{index}}" wx:if="{{item.refundInfo.refundStatus==0}}" > 去退款 </view>
+            <view class="goToCommentView"  data-itemindex = "{{index}}" wx:if="{{item.refundInfo.refundStatus==1}}"> 已申请 </view>
+            <view class="goToCommentView"  data-itemindex = "{{index}}" wx:if="{{item.refundInfo.refundStatus==2}}"> 已结束 </view>
+            <view class="goToCommentView"  bind:tap="goToReFund" data-itemindex = "{{index}}" wx:if="{{item.refundInfo.refundStatus==3}}"> 去退款 </view>
+             <view class="itemTopLine"></view>
+            <!-- <textarea class="detailText" placeholder="快来评价一下吧~分享给更多人" data-index='{{index}}' bindinput="detailInput"></!-->
+         </view>
+        
+    </view>
+   
+</scroll-view> 

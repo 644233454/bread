@@ -1,0 +1,126 @@
+<nav-bar class="nav" bind:backTap="back" 
+          bind:homeTap="home"
+          back = "true"
+          home = "false"
+          title="已发货订单">
+</nav-bar> 
+<scroll-view class="container">
+    <view class="topView">
+        <image class="closeImage" src="/assets/imgs/userWaitPayTopImage.png"/>
+        <view class="topViewRight">
+            <view class="closeTitle">商家已发货</view>
+            <view class="closeTitleInfo">还剩{{timeLeft}}自动确认完成</view>
+        </view>
+    </view>
+    <view class="progressView">
+            <stepProgressView  class="stepprogressView" stepArr ="{{step}}"></stepProgressView>
+    </view>
+    <view class="bottomView">
+         <view class="AddressInfo">
+                <view class="carInfoView" >
+                    <image class="car" src="/assets/imgs/waitAcceptImage.png"/>
+                    <view class="carInfoViewContainer" wx:if="{{logisticsInfos.length==1}}" bind:tap="goToLogisticsInfo">
+                        <view class="carInfo">快递单号：{{logisticsInfos[0].logisticsNum}}</view>
+                        <view class="arror"></view>
+                    </view>
+                    <view class="carInfoViewContainer" wx:if="{{logisticsInfos.length>1}}" bind:tap="goToLogisticsInfo">
+                        <view class="carInfo">该订单拆成{{logisticsInfos.length}}个包裹发出，可点击查看详情</view>
+                        <view class="arror"></view>
+                    </view>
+                </view>
+                 <view class="addressInfoTop">
+                    <view class="addressInfoTopLeft">
+                         <image class="addressInfoImage" src="/assets/imgs/sureAddressImage.png"/>
+                         <view class="addressInfoName">收件人:{{orderDetail.realName}}</view>
+                    </view>
+                    <view class="addressInfoTopTel">{{orderDetail.phone}}</view>
+                 </view>
+                 <view class="addressInfoDetail">收货地址:{{orderDetail.addrInfo}}</view>
+                 <image class="addressBottomImage" src="/assets/imgs/sureAddressBottomLine.png"/>
+         </view>
+         
+         <view class="goodInfo">
+            <view class="goodInfoTop">
+                 <image class="goodInfoTopImage" src="/assets/imgs/goodInfoTopShop.png"/>
+                 <view class="goodInfoTopTitle">方晴面包坊</view>
+            </view>
+            <view class="goodInfoMiddle">
+                 
+                 <view class="GoodInfoMiddleItem" wx:for="{{orderDetail.productList}}" wx:key="unique">
+                         <image class="shopInfoImage" src="{{item.imgUrl}}"/>
+                         <view class="goodInfoMiddleRight">
+                              <view class="goodInfoMiddleTitle"><view class="activeTitleTip" wx:if="{{item.type =='PERIOD'}}"> 周期购 </view><view class="activeTitleRedeemTip" wx:if="{{item.type =='REDEEM'}}"> 礼品券 </view>{{item.name}}</view>
+                              <view class="goodInfoMiddleWeight">{{item.spec}}</view>
+                              <view class="goodInfoMiddleBottom">
+                                    <view class="goodInfoMiddlePrice">￥{{item.price}}</view>
+                                    <view class="goodInfoMiddleNum">x {{item.count}}</view>
+                             </view>
+                         </view>
+                         <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIReFund.png" wx:if="{{item.refundInfo.refundStatus==1}}"/>
+                         <image class="reFundImage" mode="aspectFit" src="/assets/imgs/alreayReFund.png" wx:if="{{item.refundInfo.refundStatus==2}}"/>
+                         <image class="reFundImage" mode="aspectFit" src="/assets/imgs/applyIRefuse.png" wx:if="{{item.refundInfo.refundStatus==3}}"/>
+                </view>
+                <!-- <view class="refundView" bind:tap="appleRefundClick" wx:if="{{orderDetail.refundStatus==0}}">申请退款</view>
+                <view class="refundView"  wx:if="{{orderDetail.refundStatus==1}}">已申请退款</view> -->
+
+            </view>
+             <view class="sendType">
+                <view class="sendTypeTop">
+                    <view class="sendTypeTopLeft">配送方式</view>
+                     <view class="sendTypeTopRight">快递免运费</view>
+                </view>
+                <view class="sendTypeMidLine"></view>
+                <view class="sendTypeBottome">
+                    <view class="sendTypeBottomeLeft">买家留言</view>
+                    <view class="sendTypeBottomeRight">{{orderDetail.remark?orderDetail.remark:"无"}}</view>
+                </view>
+             </view>
+            
+
+
+            <view class="middleView">
+                <view class="middleMoneyView">
+                         <view class="middleMoneyViewLeft">商品金额</view>
+                         <view class="middleMoneyViewRight">￥{{orderDetail.orderAmount}}</view>
+                </view>
+                <view class="middleFreightMoneyView">
+                         <view class="middleFreightMoneyViewLeft">运费</view>
+                         <view class="middleFreightMoneyViewRight">￥{{orderDetail.freightAmount}}元</view>
+                </view>
+                <view class="middleOrderNumView">
+                         <view class="middleOrderNumViewLeft">订单编号</view>
+                         <view class="middleOrderNumViewRight">{{orderDetail.orderNum}}</view>
+                </view>
+                
+                <view class="middleTopLine"></view>
+                <view class="middleTotMoney">
+                        <view class="middleTotMoneyTip">实付款:</view>
+                        <view class="middleTotMoneyValue">￥{{orderDetail.orderAmount}}</view>
+                </view>
+             </view>
+
+
+
+
+
+            <view class="OrderInfoBottomView">
+               <view class="orderNum">
+                       <view class="orderViewLeft">订单编号:{{orderDetail.orderNum}}</view>
+                       <view class="orderViewBtn" bind:tap="copyClick">复制</view>
+               </view>
+               <view class="orderPayTime">
+                       <view class="orderPayTimeValue">创建时间:{{orderDetail.createTime}}</view>
+               </view>
+                <view class="orderPayTime" wx:if="{{type !='REDEEM'}}">
+                       <view class="orderPayTimeValue">付款时间:{{orderDetail.payTime}}</view>
+               </view>
+               <view class="orderLine"></view>
+               <button class="orderBottomView" open-type="contact">对此订单有疑问？</button>
+               
+        </view>
+
+         </view> 
+    </view>
+
+</scroll-view>
+

@@ -1,0 +1,28 @@
+<nav-bar title="提现详情" navBarColor="#fff" statusBarColor="#fff" titleColor="#000" back="true" home="false">
+</nav-bar>
+
+<view class="container">
+  <view class="v_body">
+    <view id="v_top">
+      <image mode="widthFix" id="iv_resaultIcon" src="{{resaultIcon}}"></image>
+      <text id="tv_amount">￥{{date.amount}}</text>
+      <text id="tv_resaultText">{{date.status==1?statusNormalText:date.status==0?statusFailedText:date.status==2?statusIngText:""}}</text>
+    </view>
+    <view class="v_status">
+      <text class="tv_statusText">当前状态</text>
+      <text class="tv_status">{{date.status==1?statusNormalText:date.status==0?statusFailedText:date.status==2?statusIngText:""}}</text>
+    </view>
+    <view class="v_status">
+      <text class="tv_statusText">提现金额</text>
+      <text class="tv_status">￥{{date.amount}}</text>
+    </view>
+    <view class="v_status">
+      <text class="tv_statusText">申请时间</text>
+      <text class="tv_status">{{date.time}}</text>
+    </view>
+    <view class="v_status">
+      <text class="tv_statusText">流水号</text>
+      <text class="tv_status">{{date.currentNo}}</text>
+    </view>
+  </view>
+</view>

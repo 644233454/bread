@@ -1,0 +1,179 @@
+/* pages/reFundList/reFundList.wxss */
+page{
+    background-color: #f7f7f7;
+
+  }
+  .TopLine{
+      width: 100%;
+      height: 2rpx;
+      background-color: #f7f7f7;
+  }
+.GoodInfoMiddleItem{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* height: 200rpx; */
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+.GoodInfoMiddleItemTop{
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    height: 200rpx;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.reFundImage{
+    width: 120rpx;
+    height: 120rpx;
+    right: 20rpx;
+    top: 10rpx;
+    position: absolute;
+}
+.shopInfoImage{
+    width: 164rpx;
+    height: 164rpx;
+    margin-left: 20rpx;
+}
+
+.goodInfoMiddleRight{
+    height: 164rpx;
+    width: 506rpx;
+    display: flex;
+    margin-left: 20rpx;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.goodInfoMiddleTitle{
+    font-size: 26rpx;
+    color: #333333;
+    word-break: break-all;
+    width: 90%;
+    height: auto;
+    flex-direction: row;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+.goodInfoMiddleWeight{
+    color: #999999;
+    font-size: 26rpx;
+    height: 37rpx;
+    width: 100%;
+}
+.goodInfoMiddleBottom{
+    width: 100%;
+    height: 37rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.goodInfoMiddlePrice{
+    color: #F3345C;
+    font-size: 26rpx;
+    height: 37rpx;
+    line-height: 37rpx;
+}
+.goodInfoMiddleNum{
+    color: #333333;
+    font-size: 26rpx;
+    height: 37rpx;
+    line-height: 37rpx;
+    
+    margin-right: 20rpx;
+}
+.GoodInfoMiddleItemBottom{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 84rpx;
+    display: flex;
+    align-items: flex-end;
+    /* justify-content: end; */
+}
+.itemTopLine{
+    background-color: #f7f7f7;
+    width: 100%;
+    height: 10rpx;
+}
+.goToCommentView{
+    /* width: 120rpx;
+    height: 40rpx;
+    font-size: 28rpx; */
+    /* margin-top: 20rpx; */
+    /* position: absolute; */
+    /* right: 20rpx; */
+    margin-right: 20rpx;
+    margin-bottom: 10rpx;
+    padding: 0rpx 10rpx;
+    /* width: 140rpx; */
+    height: 60rpx;
+    border: 2rpx solid #E8E8E8;
+    color: #666666;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+
+    /* margin-right: 20rpx; */
+}
+.detailText{
+    width: 730rpx;
+    height: 140rpx;
+    font-size: 28rpx;
+    margin-left: 10rpx;
+    margin-top: 20rpx;
+    /* background-color: #F3345C; */
+    }
+  .ImagePloader{
+    width: 100%;
+    display: flex;
+   flex-direction: row;
+   
+} 
+.showImage{
+    width: 200rpx;
+    margin-left: 20rpx;
+    display: flex;
+}
+.upImage{
+    width: 200rpx;
+    position: relative;
+}
+.deleteBtn{
+    position: absolute;
+    right: 0rpx;
+    top: 0rpx;
+}
+
+.ChooseBtnView{
+    width: 140rpx;
+    height: 140rpx;
+    margin-left: 20rpx;
+    margin-top: 20rpx;
+    /* background-color: salmon; */
+}
+.addImage{
+    width: 140rpx;
+    height: 140rpx;
+}
+.sureBtn{
+    width: 670rpx;
+    height: 80rpx;
+    margin-left: 40rpx;
+    background-color: #F3345C;
+    color: #f7f7f7;
+    font-size: 36rpx;
+    text-align: center;
+    line-height: 80rpx;
+    border-radius: 10rpx;
+    bottom: 20rpx;
+    /* z-index: 99; */
+    position: fixed;
+    
+    }

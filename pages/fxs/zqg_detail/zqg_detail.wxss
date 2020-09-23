@@ -1,0 +1,573 @@
+page {
+  background-color: #f7f7f6;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 29rpx;
+  overflow-x: hidden;
+}
+
+/*========================*/
+
+.v_product {
+  background-color: white;
+  width: 100%;
+  margin-top: 10rpx;
+  height: 204rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.v_product_right {
+  margin-right: 50rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_product_right_Line1 {
+  margin-left: 19rpx;
+  display: flex;
+  height: 74rpx;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.v_product_right_Line1_left {
+  width: 416rpx;
+  height: 74rpx;
+  font-size: 0;
+}
+
+.iv_ProductLogo {
+  margin-top: 20rpx;
+  margin-left: 49rpx;
+  width: 164rpx;
+  height: 164rpx;
+  background-color: #dad8d9;
+}
+
+.tv_ZQG_bg {
+  color: white;
+  font-size: 24rpx;
+  width: 96rpx;
+  height: 38rpx;
+  background-color: #fba72f;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tv_productName {
+  color: #333;
+  font-size: 26rpx;
+  font-weight: bold;
+  margin-left: 105rpx;
+  line-height: 38rpx;
+}
+
+.tv_ProdectTimes {
+  margin-left: 19rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+
+.tv_ZQG_ticket_code {
+  margin-top: 13rpx;
+  margin-left: 19rpx;
+  color: #666;
+  font-size: 22rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.tv_ZQG_progress {
+  margin-top: 7rpx;
+  margin-left: 19rpx;
+  color: #666;
+  font-size: 22rpx;
+}
+
+/*==============================配送信息  收货人：某某某============*/
+
+.v_product_express {
+  width: 750rpx;
+  margin-top: 10rpx;
+  background-color: white;
+}
+
+.v_product_express_top {
+  width: 750rpx;
+  height: 71rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_product_express_bottom {
+  padding-top: 26rpx;
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_product_express_top_top {
+  width: 750rpx;
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tv_product_express_top_left {
+  color: #333;
+  font-size: 28rpx;
+  padding-left: 30rpx;
+}
+
+.v_product_express_top_right {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  height: 70rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.iv_product_express_top {
+  width: 25rpx;
+  height: 25rpx;
+  padding-right: 7rpx;
+}
+
+.tv_product_express_top_right {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.v_product_express_top_line {
+  background-color: #e5e5e5;
+  height: 1rpx;
+  width: 750rpx;
+}
+
+.v_product_express_bottom_top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.v_product_express_bottom_top_left {
+}
+
+.iv_product_express_bottom_top_left {
+  padding-top: 5rpx;
+  margin-left: 20rpx;
+  height: 22rpx;
+  width: 18rpx;
+}
+
+.tv_product_express_sjr {
+  margin-left: 10rpx;
+  font-size: 26rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.tv_product_express_phone {
+  margin-right: 30rpx;
+  font-size: 26rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.tv_product_express_address {
+  color: #999;
+  font-size: 22rpx;
+  margin-left: 30rpx;
+  margin-top: 14rpx;
+  margin-right: 30rpx;
+}
+
+.iv_product_express_bottom_line {
+  width: 750rpx;
+  height: 4rpx;
+  margin-top: 18rpx;
+}
+
+/*==============================商品列表============*/
+
+.v_list {
+  width: 750rpx;
+}
+
+.v_item {
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+  background-color: white;
+  width: 690rpx;
+  height: 280rpx;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_item_top {
+  padding-left: 20rpx;
+  padding-right: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.v_item_bottom {
+  display: flex;
+  flex-direction: row;
+}
+
+.iv_item_top_left_mall {
+  margin-top: 22rpx;
+  height: 28rpx;
+  width: 28rpx;
+}
+
+.tv_item_top_left_mall {
+  margin-left: 20rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.iv_item_top_left_arror {
+  margin-left: 15rpx;
+  width: 14rpx;
+  height: 26rpx;
+}
+
+.tv_item_top_left_status {
+  margin-top: 24rpx;
+  color: #f3345c;
+  height: 26rpx;
+}
+
+.iv_item_bottom_left {
+  margin-top: 27rpx;
+  margin-left: 19rpx;
+  width: 164rpx;
+  height: 164rpx;
+  background-color: #dad8d9;
+}
+
+.tv_psrq {
+  color: #666;
+  font-size: 22rpx;
+  margin-top: 50rpx;
+  margin-left: 19rpx;
+}
+
+.v_product_list_right {
+  margin-top: 27rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+/*==============================买家留言============*/
+
+.v_leaveMessage {
+  width: 750rpx;
+  margin-top: 11rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 26rpx;
+  padding-bottom: 23rpx;
+}
+
+/*==============================商品金额,运费,实付款,拨打电话,在线客服============*/
+
+.v_amount {
+  margin-top: 10rpx;
+  width: 750rpx;
+  height: 327rpx;
+  background-color: white;
+}
+
+.v_amount_line1 {
+  margin-top: 31rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tv_amount_line1 {
+  color: #333;
+  font-size: 24rpx;
+}
+
+.v_amount_line2 {
+  margin-top: 20rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.v_amount_line3 {
+  width: 720rpx;
+  margin-left: 15rpx;
+  height: 1rpx;
+  margin-top: 34rpx;
+  background-color: #e5e5e5;
+}
+
+.v_amount_line4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.v_amount_line4_end {
+  padding-top: 27rpx;
+  padding-right: 30rpx;
+}
+
+.tv_amount_line4_end {
+  color: #999;
+  font-size: 28rpx;
+}
+
+.tv_sfk {
+  color: #f3345c;
+  font-size: 28rpx;
+}
+
+.v_amount_line5 {
+  width: 720rpx;
+  margin-left: 15rpx;
+  height: 1rpx;
+  margin-top: 20rpx;
+  background-color: #e5e5e5;
+}
+
+.v_amount_line6 {
+  width: 750rpx;
+  height: 88rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.bt_call {
+  border-radius: 0;
+  height: 100%;
+  width: 374.5rpx;
+  background-color: #fff;
+}
+
+.bt_call::after {
+  border: none;
+}
+
+.iv_call {
+  margin-top: 33rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.v_amount_line6_line {
+  margin-top: 15rpx;
+  width: 1rpx;
+  height: 65rpx;
+  background-color: #e5e5e5;
+}
+
+.bt_service {
+  border-radius: 0;
+  height: 100%;
+  width: 374.5rpx;
+  background-color: #fff;
+}
+
+.bt_service::after {
+  border: none;
+}
+
+.iv_service {
+  margin-top: 33rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.tv_call {
+  margin-left: 20rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+
+/*==============================订单编号,创建时间,对此订单有疑问？============*/
+
+.v_order {
+  margin-top: 10rpx;
+  width: 750rpx;
+  height: 228rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_order_line1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.tv_orderNumber {
+  margin-left: 30rpx;
+  margin-top: 31rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+
+.v_copy {
+  margin-top: 21rpx;
+  margin-left: 28rpx;
+  height: 48rpx;
+  width: 108rpx;
+  font-size: 24rpx;
+  color: #666;
+  line-height: 48rpx;
+  border: 1rpx solid #e8e8e8;
+  border-radius: 6rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tv_createTime {
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+
+.v_order_line2 {
+  width: 720rpx;
+  margin-left: 30rpx;
+  height: 1rpx;
+  margin-top: 24rpx;
+  background-color: #e5e5e5;
+}
+
+.bt_question {
+  width: 750rpx;
+  height: 86rpx;
+  color: #337dfb;
+  font-size: 28rpx;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bt_question::after {
+  border: none;
+}
+
+/*=========================修改配送日期弹框======================*/
+
+.v_dialog_alterDeliveryTime {
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-x: hidden;
+}
+
+.v_dialog_alterDeliveryTime_shadow {
+  width: 100%;
+  flex: 1;
+}
+
+.v_dialog_alterDeliveryTime_content {
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  bottom: 0rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_dialog_alterDeliveryTime_content_dismiss {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 750rpx;
+  height: 72rpx;
+}
+
+.iv_dialog_dismiss {
+  margin-top: 30rpx;
+  margin-right: 30rpx;
+  height: 18rpx;
+  width: 18rpx;
+}
+
+.tv_dialog_sdsj {
+  margin-left: 36rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.v_dialog_alterDeliveryTime_content_time {
+  width: 682rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /*box-sizing: border-box; 可以包含border padding*/
+  padding-top: 25rpx;
+  padding-left: 34rpx;
+  padding-right: 34rpx;
+  padding-bottom: 32rpx;
+}
+
+.v_dialog_alterDeliveryTime_time {
+  height: 50rpx;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  margin-right: 20rpx;
+  border-radius: 5rpx;
+  border: 1rpx solid #999;
+}
+
+.tv_dialog_alterDeliveryTime_save {
+  width: 750rpx;
+  height: 98rpx;
+  color: white;
+  font-size: 32rpx;
+  background-color: #f3345c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

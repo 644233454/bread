@@ -1,0 +1,462 @@
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #f7f7f6;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+}
+
+/*搜索框 高度110rpx*/
+
+.search-wrapper {
+  background-color: white;
+  /*不放大，不缩小,固定高度100rpx*/
+  flex: 0 0 55px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.input_search {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-left: 65rpx;
+  height: 70rpx;
+  width: 560rpx;
+  background-color: #f5f5f5;
+  border-radius: 35rpx;
+  text-align: center;
+}
+
+.searchcion {
+  margin-left: 20rpx;
+}
+
+/*tablayout================================ 高度72rpx*/
+
+.v_tab {
+  background-color: white;
+  /*不放大，不缩小,固定高度72rpx*/
+  flex: 0 0 36px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#v_tabType {
+  height: 36px;
+  width: 250rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#v_tabStatus {
+  height: 36px;
+  width: 250rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tv_tabType {
+  color: #999;
+  margin-right: 17rpx;
+  font-size: 22rpx;
+}
+
+#iv_tabType {
+  width: 20rpx;
+  height: 10rpx;
+}
+
+#tv_tabStatus {
+  color: #999;
+  margin-right: 17rpx;
+  font-size: 22rpx;
+}
+
+#iv_tabStatus {
+  width: 20rpx;
+  height: 10rpx;
+}
+
+/*=========================================Tab end*/
+
+.v_tabContent {
+  height: 100%;
+  width: 100%;
+}
+
+#v_orderNumber {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30rpx;
+  margin-top: 16rpx;
+}
+
+#tv_orderNumberTextOne {
+  color: #999;
+  font-size: 26rpx;
+  margin-right: 12rpx;
+}
+
+#tv_orderNumberTextTwo {
+  color: #999;
+  font-size: 26rpx;
+  margin-left: 12rpx;
+}
+
+#tv_orderNumber {
+  color: #333;
+  font-size: 26rpx;
+}
+
+#v_productYJ {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30rpx;
+  margin-top: 13rpx;
+}
+
+#tv_productYJTextOne {
+  color: #999;
+  font-size: 26rpx;
+  margin-right: 12rpx;
+}
+
+#tv_productYJTextTwo {
+  color: #999;
+  font-size: 26rpx;
+  margin-left: 12rpx;
+}
+
+#tv_productYJ {
+  color: #333;
+  font-size: 26rpx;
+}
+
+/*========================================*/
+
+.v_item {
+  width: 690rpx;
+  margin-left: 30rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 40rpx;
+}
+
+.v_item_item {
+  width: 100%;
+  margin-top: 30rpx;
+  margin-left: 26rpx;
+  margin-right: 26rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.v_item_top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  padding-top: 24rpx;
+  padding-bottom: 12rpx;
+}
+
+#tv_name {
+  color: #333;
+  font-size: 28rpx;
+  margin-left: 26rpx;
+}
+
+#tv_status {
+  color: #f3345c;
+  font-size: 28rpx;
+  margin-right: 27rpx;
+}
+
+.iv_items_right {
+  width: 10rpx;
+  height: 19rpx;
+}
+
+#iv {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: gray;
+  border-radius: 5rpx;
+}
+
+.v_item_itemOne {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_item_itemOne_top {
+  height: 38rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.tv_zqg_bg {
+  color: white;
+  font-size: 24rpx;
+  background-color: #fba72f;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tv_productName {
+  color: #333;
+  font-size: 26rpx;
+  font-weight: bold;
+  line-height: 38rpx;
+   overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#tv_YJrate {
+  margin-top: 10rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+#tv_times {
+  color: #999;
+  font-size: 24rpx;
+  position: absolute;
+  right: 26rpx;
+  margin-top: 50rpx;
+}
+
+#tv_time {
+  margin-left: 26rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.v_itemOne {
+  margin-right: 26rpx;
+  margin-top: 6rpx;
+  margin-bottom: 15rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#tv_tk {
+  margin-top: 6rpx;
+  color: #f97606;
+  font-size: 24rpx;
+}
+
+#tv_totalProce {
+  margin-top: 6rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+#tv_YJ {
+  margin-top: 6rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+
+#tv_XSY {
+  margin-top: 6rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+
+/*=========================订单状态弹框 标题栏高度========================128rpx*/
+
+.v_dialog_TabStatus {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+#v_dialog_TabStatus_content {
+  position: absolute;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 750rpx;
+  height: 1800rpx;
+}
+
+#v_diaOne {
+  background-color: white;
+  width: 750rpx;
+  height: 237rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+#v_diaLine {
+  width: 750rpx;
+  height: 0.5rpx;
+  background-color: #f5f5f5;
+}
+
+#v_diaTop {
+  width: 750rpx;
+  height: 72rpx;
+  margin-top: 32rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#v_diaTopAll {
+  background-color: #f5f5f5;
+  height: 72rpx;
+  width: 212rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#iv_tabBg {
+  height: 72rpx;
+  width: 212rpx;
+}
+
+#v_dialogText {
+  color: black;
+  font-size: 28rpx;
+  position: absolute;
+}
+
+#v_diaDFK {
+  background-color: #f5f5f5;
+  height: 72rpx;
+  width: 212rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#v_diaDFH {
+  background-color: #f5f5f5;
+  height: 72rpx;
+  width: 212rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#v_diabottom {
+  width: 750rpx;
+  height: 72rpx;
+  margin-top: 28rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#v_diaBottomDSH {
+  background-color: #f5f5f5;
+  height: 72rpx;
+  width: 212rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#v_diaJYCG {
+  background-color: #f5f5f5;
+  height: 72rpx;
+  width: 212rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#v_diaJYGBI {
+  background-color: #f5f5f5;
+  height: 72rpx;
+  width: 212rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#v_diaJYGB {
+  background-color: #f5f5f5;
+  height: 72rpx;
+  width: 212rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.sv_item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.v_loading {
+  width: 100%;
+  height: 80rpx;
+  padding-top: 40rpx;
+  text-align: center;
+}
+
+.v_loadingComplete {
+  width: 100%;
+  margin-top: 30rpx;
+  height: 80rpx;
+  text-align: center;
+}
+
+/*=========================订单类型弹框 标题栏高度========================128rpx*/
+
+.v_dialog_TabType {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+#v_dialog_TabType_content {
+  position: absolute;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 750rpx;
+  height: 1800rpx;
+}
+
+#v_diaTwo {
+  background-color: white;
+  width: 750rpx;
+  height: 137rpx;
+  display: flex;
+  flex-direction: column;
+}
